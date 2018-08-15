@@ -1,0 +1,60 @@
+\documentclass{book}[12pt, xcolor=dvipsnames]
+\usepackage{classicthesis}
+%\include{classicthesis-config}
+\usepackage{amsmath} % AMS packages
+\usepackage[amsthm,thmmarks]{ntheorem}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{tikz-cd} %commutative diagrams
+\usepackage{enumitem} %different types of numerations
+\usetikzlibrary{arrows, matrix}
+\usepackage[noabbrev,capitalise,nameinlink]{cleveref} %clever cross-reference in the text
+\usepackage{hyperref}
+
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+    \RequirePackage{xcolor} % [dvipsnames]
+\definecolor{CTcitation}{rgb}{0,0.5,0} % WebGreen
+\definecolor{CTurl}{named}{Maroon} % Maroon
+\definecolor{CTtitle}{named}{Maroon} % Maroon {cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{CTlink}{named}{RoyalBlue} % RoyalBlue {cmyk}{1, 0.50, 0, 0}
+\hypersetup{    
+    pdfpagemode=UseOutlines,
+    colorlinks={true},
+    urlcolor=CTurl, linkcolor=CTlink, citecolor=CTcitation
+}
+
+
+
+%enviroments
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}[definition]{Example}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[definition]{Remark}
+
+
+
+%sets
+
+\def\N{{\mathbb N}}
+\def\Z{{\mathbb Z}}
+\def\F{{\mathbb F}}
+\def\Q{{\mathbb Q}}
+\def\R{{\mathbb R}}
+\def\C{{\mathbb C}}
+\def\P{{\mathbb P}}
+\def\O{{\mathcal O}}
+\def\A{{\mathbb A}}
+
+
+\begin{document}
+	\cleardoublepage\include{Chapters/tate_linear_algebra}
+\end{document}
