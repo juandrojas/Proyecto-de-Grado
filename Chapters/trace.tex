@@ -1,0 +1,25 @@
+%!TEX root = ../main.tex
+\chapter{Trace and Residue}\label{ch:trace-and-residue}
+\section{Finitepotent maps}
+Let $k$ be a fixed ground field and $V$ a vector space over $k$. In this section we will expand the notion of trace of a linear endomorphism to include certain operators even when $V$ is infinite dimensional.
+\begin{definition}\label{finitepotent}
+	We will say a linear map $\theta\colon V \to V$ is \textit{finitepotent} if
+	\[
+		\dim \theta^{n}V < \infty
+	\]
+	for sufficiently large $n$.
+\end{definition}
+We characterize finitepotent maps as follows
+\begin{proposition}\label{characterization-of-finitepotent-maps}
+	A linear map $\theta\colon V \to V$ is finitepotent if and only if there exists a subspace $W \subseteq V$ such that
+	\begin{enumerate}[label = (\roman*)]
+		\item $\dim \theta W < \infty$,
+		\item $\theta W \subseteq W$,
+		\item the induced map $\bar{\theta}\colon V/W \to V/W$ is nilpotent.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	If $\theta$ is finitepotent choose $W = \theta^{n}V$ for sufficiently large $n$. The first condition follows from definition. 
+\end{proof}
+
+
