@@ -1,25 +1,93 @@
 %!TEX root = ../main.tex
 \chapter{Trace and Residue}\label{ch:trace-and-residue}
-\section{Finitepotent maps}
+\section{Finitepotent maps and their trace}
 Let $k$ be a fixed ground field and $V$ a vector space over $k$. In this section we will expand the notion of trace of a linear endomorphism to include certain operators even when $V$ is infinite dimensional.
-\begin{definition}\label{finitepotent}
-	We will say a linear map $\theta\colon V \to V$ is \textit{finitepotent} if
+\subsection*{Finitepotent maps}
+\begin{definition}\label{def:finitepotent}
+	We will say a linear map $f\colon V \to V$ is \textbf{finitepotent} if
 	\[
-		\dim \theta^{n}V < \infty
+		\dim f^{n}V < \infty
 	\]
 	for sufficiently large $n$.
 \end{definition}
-We characterize finitepotent maps as follows
-\begin{proposition}\label{characterization-of-finitepotent-maps}
-	A linear map $\theta\colon V \to V$ is finitepotent if and only if there exists a subspace $W \subseteq V$ such that
+We characterize finitepotent maps as follows.
+\begin{lemma}\label{lemm:characterization-of-finitepotent-maps}
+	A linear map $f\colon V \to V$ is finitepotent if and only if there exists a subspace $W \subseteq V$ such that
 	\begin{enumerate}[label = (\roman*)]
-		\item $\dim \theta W < \infty$,
-		\item $\theta W \subseteq W$,
-		\item the induced map $\bar{\theta}\colon V/W \to V/W$ is nilpotent.
+		\item $\dim f W < \infty$,
+		\item $f W \subseteq W$,
+		\item the induced map $\bar{f}\colon V/W \to V/W$ is nilpotent.
 	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	If $f$ is finitepotent choose $W = f^{n}V$ for sufficiently large $n$. The first condition follows from definition. Also, $f W = f^{n+1}V \subseteq f^{n}V = W$. In addition, $\bar{f}^{n} = 0$. On the other hand, if such $W$ exists, note that condition (ii) assures that $\bar{f}$ is well defined. Moreover, as $\bar{f}$ is nilpotent, $f^{n}V \subseteq W$ for sufficiently large $n$ and by condition (i) above $\dim f^{n} V < \infty$.
+\end{proof}
+\subsection*{Trace}
+If $f$ is a finitepotent map and $W$ is as above, $\tr_{V}(f)\in k$ may be defined as $\tr_{W}(f)$ where $\tr_{W}(f)$ is the ordinary trace of $f$ viewed as a endomorphism of $W$. First, we will check that this definition does not depend on the choice of $W$. Suppose $W_{1}, W_{2} \subseteq V$ suffice the properties on \cref{lemm:characterization-of-finitepotent-maps}, then $W = W_{1} + W_{2}$ suffices them too. Hence, as the induced maps on $W/W_{1}$ and $W/W_{2}$ are nilpotent, they have have zero ordinary trace and since
+\begin{align*}
+	\tr_{W}(f) &= \tr_{W_{1}}(f) + \tr_{W/W_{1}}(f) \\
+	\tr_{W}(f) &= \tr_{W_{2}}(f) + \tr_{W/W_{2}}(f),
+\end{align*}
+we obtain $\tr_{W_{1}}(f) = \tr_{W_{2}}(f)$, our desired result. 
+
+This definition extends some of the properties of the ordinary trace.
+\begin{lemma}\label{lemm:properties-trace}
+	\begin{enumerate}[label = (\alph*)]
+		\item If $\dim V < \infty$, any endomorphism $f$ is finitepotent and $\tr_{V}(f)$ coincides with the ordinary trace.
+		\item If $f$ is nilpotent, then it is finitepotent and $\tr_{V}(f) = 0$.
+		\item If $f$ is finitepotent and $U$ is a subspace such that $f U \subseteq U$ then the induced maps on $U$ and $V/U$ are finitepotent and satisfy
+		\[
+		 	\tr_{V}(f) = \tr_{U}(f) + \tr_{V/U}(f)
+		 \] 
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	Both (a) and (b) are immediate. For (c) if $W$ suffices the properties in \cref{lemm:characterization-of-finitepotent-maps} for $f$ then $W\cap U$ and $(W + U)/U$ suffice them for the induced maps, that is, they're finitepotent. Since $W/(W\cap U) \cong W+U/U$, the diagram
+	\[
+		\begin{tikzcd}
+			W/(W\cap U) \arrow[r, "\cong"] \arrow[d, "f"] & (W+U)/U \arrow[d, "f"] \\
+			W/(W\cap U) \arrow[r, "\cong"] & (W+U)/U
+		\end{tikzcd}
+	\]
+	commutes and trace is invariant under conjugation, we get $\tr_{W/(W\cap U)}(f) = \tr_{(W+U)/U}(f)$. Hence
+	\[
+	 	\tr_{V}(f) = \tr_{W}(f) = \tr_{W\cap U}(f) + \tr_{(W+U)/U}(f) = \tr_{U}(f) + \tr_{V/U}(f)
+	\]
+\end{proof}
+\begin{definition}\label{def:finitepotent subspace}
+	A subspace $F$ of $\End_{k})V$ is said to be a \textbf{finitepotent subspace} if there exists an $n$ such that for any family of $n$ elements $f_{1}, \ldots, f_{n}\in F$, the space $f_{1}f_{2}\cdots f_{n}V$ is finite dimensional.
+\end{definition}
+The following is the natural linearity property for $\tr$.
+\begin{proposition}\label{prop:linearity-trace}
+	If $F$ is a finitepotent subspace then $\tr_{V}\colon F\to k$ is $k$-linear
 \end{proposition}
 \begin{proof}
-	If $\theta$ is finitepotent choose $W = \theta^{n}V$ for sufficiently large $n$. The first condition follows from definition. 
+	It is enough to prove it in the case that $F$ is finite dimensional. Let $W = F^{n}V$ for $n$ as in the definition of finitepotent subspace, thus $\dim W < \infty$. Hence, for all $f\in F$, $W$ suffices the conditions in \cref{lemm:characterization-of-finitepotent-maps}. It follows that $\tr_{V}(f) = \tr_{W}(f)$ which is linear.
 \end{proof}
+\textcolor{red}{add note in ``general'' linearity of trace when .bib is ready}
+\begin{proposition}\label{prop:trace-inavriant-under-commutator}
+	If $f,g \in \End_{k}(V)$ and $fg$ is finitepotent then $gf$ is also finitepotent and 
+	\[
+		\tr_{V}(fg) = \tr_{V}(gf).
+	\]
+\end{proposition}
+\begin{proof}
+	Since $fg$ is finitepotent let $W =(fg)^{n}V$ for sufficiently large $n$ has finite dimension. On the other hand, $(gf)^{n+1}V= g(fg)^{n}fV \subseteq gW$, therefore, $gf$ is also finitepotent. Let $W' = (gf)^{n}V$, then $gW' \subseteq W$ and $fW \subseteq W'$. Thus, 
+	\[
+		\dim W' \leq \dim gW \leq \dim W\quad\text{and,}\quad\dim W \leq \dim fW \leq \dim W',
+	\]
+	which implies that $W\cong W'$ and that $g$ and $f$ induce mutually inverse isomorphism between $W$ and $W'$. Moreover, the diagram
+	\[
+		\begin{tikzcd}
+			W \arrow[r, "fg"]\arrow[d, "g"] & W \arrow[d, "g"] \\
+			W' \arrow[r, "gf"] & W'
+		\end{tikzcd}
+	\]
+	commutes. We conclude $\tr_{W}(fg) = \tr_{W'}(gf)$ and it follows $\tr_{V}(fg) = \tr_{V}(gf)$.
+\end{proof}
+
+
+
+
 
 
