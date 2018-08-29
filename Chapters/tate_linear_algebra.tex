@@ -3,37 +3,115 @@
 \section{Linear topologies}
 Fix a ground field $k$. From now on, a vector space will always mean a $k$-vector space.
 \begin{definition}\label{linear_topology}
-A \textbf{linear topology} on a vector space $E$ is a separated (Hausdorff) topology invariant under translations that admits an open local base around zero of vector subspaces. A vector space equipped with a linear topology will be referred as \textbf{linearly topologized}.
+A \textbf{linear topology} on a vector space $V$ is a separated (Hausdorff) topology invariant under translations that admits an open local base around zero of vector subspaces. A vector space equipped with a linear topology will be referred as \textbf{linearly topologized}.
 \end{definition}
-If we endow $k$ with the discrete topology then $E$ will become a topological vector space. From now on, endow $k$ to have a discrete topology. \\
+If we endow $k$ with the discrete topology then $V$ will become a topological vector space. From now on, endow $k$ with the a discrete topology. \\
 Linear topologies behave nicely under basic topological operations.
 \begin{proposition}\label{linear_topologies_properties}
-Let $E$ be a linearly topologized vector space. Then
+Let $V$ be a linearly topologized vector space. Then
 	\begin{enumerate}[label = (\alph*)]
-		\item Any vector subspace of $E$ is linearly topologized under its subspace topology.
-		\item If $F \subseteq E$ is a closed vector subspace then $E/F$ is linearly topologized under its quotient topology.
-		\item If $\{E_{\alpha}\}_{\alpha}$ is a collection of linearly topologized vector spaces its product $\prod_{\alpha} E_{\alpha}$ and its direct sum $\bigoplus_{\alpha} E_{\alpha}$ is linearly topologized under its product topology.
+		\item Any vector subspace of $V$ is linearly topologized under its subspace topology.
+		\item If $W \subseteq V$ is a closed vector subspace then $V/W$ is linearly topologized under its quotient topology.
+		\item If $\{V_{\alpha}\}_{\alpha}$ is a collection of linearly topologized vector spaces its product $\prod_{\alpha} V_{\alpha}$ and its direct sum $\bigoplus_{\alpha} V_{\alpha}$ is linearly topologized under its product topology.
+		\item If $W$ is a vector subspace of $V$, then its topological closure $\overline{W}$ also is a vector subspace of $V$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Since intersection of vector subspaces is a vector subspace, (a) follows intersecting the fundamental system of neighborhoods in $E$ by the vector subspace. For (b), let $\pi\colon E \to E/F$ be the quotient map. Since $\pi$ is open and surjective the image of a local base is a local base; moreover, the image of a vector subspace under $\pi$ is a vector subspace, then (b) follows. Finally, for (c) let $\{U_{\alpha, \beta}\}_{\beta}$ be a local base of zero in $E_{\alpha}$ of vector subspaces, the products $U_{\alpha_{1}, \beta_{1}} \times \ldots \times U_{\alpha_{n}, \beta_{n}} \times \prod_{\gamma} E_{\gamma}$, where $\gamma$ ranges over $\alpha \neq \alpha_{1}, \ldots, \alpha_{n}$, for any set $\{(\alpha_{1}, \beta_{1}, \ldots, \alpha_{n}, \beta_{n})\}$ form a fundamental system of neighborhoods around zero in $\prod_{\alpha} E_{\alpha}$ of open vector subspaces. Note that since $\bigoplus_{\alpha} E_{\alpha} \subseteq \prod_{\alpha} E_{\alpha}$ is a vector subspace (c) follows from (a). 
+	Since intersection of vector subspaces is a vector subspace, (a) follows intersecting the fundamental system of neighborhoods in $V$ by the vector subspace. For (b), let $\pi\colon V \to V/W$ be the quotient map. Since $\pi$ is open and surjective the image of a local base is a local base; moreover, the image of a vector subspace under $\pi$ is a vector subspace. In addition, since  Finally, for (c) let $\{U_{\alpha, \beta}\}_{\beta}$ be a local base of zero in $V_{\alpha}$ of vector subspaces, the products $U_{\alpha_{1}, \beta_{1}} \times \ldots \times U_{\alpha_{n}, \beta_{n}} \times \prod_{\gamma} V_{\gamma}$, where $\gamma$ ranges over $\alpha \neq \alpha_{1}, \ldots, \alpha_{n}$, for any set $\{(\alpha_{1}, \beta_{1}, \ldots, \alpha_{n}, \beta_{n})\}$ form a fundamental system of neighborhoods around zero in $\prod_{\alpha} V_{\alpha}$ of open vector subspaces. Note that since $\bigoplus_{\alpha} V_{\alpha} \subseteq \prod_{\alpha} V_{\alpha}$ is a vector subspace (c) follows from (a). Finally, for (d), suppose $x,y\in \overline{W}$, then, for every open vector subspace $U$, $(x + U)\cap W \neq \emptyset$ and $(y + U)\cap W \neq \emptyset$, therefore for every $\alpha, \beta \in k$ we have $(\alpha x + U)\cap W \neq \emptyset$ and $(\beta y + U)\cap W \neq \emptyset$. Hence, $(\alpha x + \beta y + U)\cap W\neq \emptyset$ for every open vector subspace $U$ and every pair $\alpha, \beta\in k$. It follows (d).
 \end{proof}
 Finite dimensional vector spaces are meaningless for linear topologies. 
 \begin{proposition}\label{finite_dimensional_linear_topologies}
-	A finite dimensional linearly topologized vector space $E$ is discrete.
+	A finite dimensional linearly topologized vector space $V$ is discrete.
 \end{proposition}
 \begin{proof}
-	Let $U$ be an open vector subspace and $0 \neq x \in U$, since $E$ is separated and linearly topologized there exists an open vector subspace $U_{x}$ such that $x \not\in U_{x}$ then $\dim U_{x} \cap U < \dim U$, since $E$ is finite dimensional this process can be repeted only a finite amount of times; that is $\{0\}$ is open. It follows that $E$ is discrete.
+	Let $U$ be an open vector subspace and $0 \neq x \in U$, since $V$ is separated and linearly topologized there exists an open vector subspace $U_{x}$ such that $x \not\in U_{x}$ then $\dim U_{x} \cap U < \dim U$, since $V$ is finite dimensional this process can be repeated only a finite amount of times; that is $\{0\}$ is open. It follows that $V$ is discrete.
 \end{proof}
+\subsection*{Commensurability}
+We introduce a partial order in the set of vector subspaces of a vector space $V$.
+\begin{definition}\label{def:commensurability}
+	For vector subspaces $A$ and $B$ of a vector space $V$ we say that $A \prec B$ if the quotient $A/(A\cap B) \cong (A+B)/B$ is finite dimensional (or equivalently $A \subseteq B + W$ where $W$ is some finite dimensional subspace). In addition, we say that $A$ and $B$ are commensurable (denoted $A \sim B$) if $A \prec B$ and $B \prec A$.
+\end{definition}
+Observe that $A \sim B$ if and only if $(A+B)/(A\cap B) \cong A/(A\cap B) \oplus B/(A \cap B)$ is finite dimensional. We will constantly refer to a vector space $V$ being finite dimensional as $V \sim 0$.
+\begin{proposition}\label{prop:equivalence-relation}
+	Let $V$ be a vector spaces and $A,B$ and $C$ be vector subspaces, then:
+	\begin{enumerate}[label = (\alph*)]
+		\item If $A \sim B$ and $B \sim C$ then
+		\[
+			(A+B+C)/(A \cap B \cap C) \sim 0
+		\]
+		\item If $A \prec B$ and $B \prec C$ then $A \prec C$. Moreover, commensurability is an equivalence relation.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Consider the following exact sequences
+	\[
+		0 \to (A\cap B)/(A \cap B \cap C) \to B/(B \cap C), 
+	\]
+	and,
+	\[
+		0 \to (A\cap B)/(A \cap B \cap C) \to (A+B)/(A \cap B \cap C) \to (A+B)/(A \cap B) \to 0
+	\]
+	induced by inclusions. The first inclusion plus the fact that $B \sim C$ imply that $(A\cap B)/(A \cap B \cap C)$ is finite dimensional. Now, since $A \sim B$ it follows that $(A+B)/(A \cap B)$ is finite dimensional. Hence, the second exact sequence concludes that $(A+B)/(A \cap B \cap C)$. A symmetrical argument shows that $(B+C)/(A \cap B \cap C) \sim 0$. These prove (a). For (b), the inclusion
+	\[
+		0 \to (A+C)/(A\cap C) \to (A+B+C)/(A \cap B \cap C)
+	\]
+	plus (a) implies transitivity. 
+\end{proof}
+Now, we state and prove some useful properties on the relation $\prec$.
+\begin{lemma}\label{lemm:properties-order-well-behaved-under-operations}
+\begin{enumerate}[label = (\alph*)]
+	\item If $A \subseteq B$ then $A \prec B$.
+	\item If $A \prec B$ then $f(A) \prec f(B)$ for any $k$-linear map $f$
+	\item It holds that
+	\[
+		\sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j} \iff A_{i} \prec B_{j}\text{ for all } i \text{ and } j.
+	\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+	First, (a) is immediate from the definition of $\prec$. Second, for (b) the map $f$ factors
+	\[
+		A/(A\cap B) \to f(A)/(f(A)\cap f(B)) \to 0
+	\]
+	Finally, for (c), if $\sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j}$ holds then by (a) above, for all $i$ and $j$ we have
+	\[
+		A_{i} \prec \sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j} \prec B_{j}
+	\]
+	On the other hand, if $A_{i} \prec B_{j}$ for all $i$ and $j$ then there exists finite dimensional subspaces $W_{ij}$ such that $A_{i} \subseteq B_{j} + W_{ij}$ for all $i$ and $j$. Therefore,
+	\[
+		\sum_{i=1}^{m} A_{i} \subseteq \bigcap_{j=1}^{n} B_{j} + \sum_{i=1}^{m} \sum_{j=1}^{n} W_{ij}.
+	\]
+
+\end{proof}
+Next, we consider another useful lemma.
+\begin{lemma}\label{lemm:commensurability-addition-and-intersection}
+	Let $A,B,A',B'$ be vector subspaces of a vector space $V$ and suppose that $A \sim A'$ and $B \sim B'$. Then $A + B \sim A' + B'$ and $A \cap B \sim A' \cap B'$.
+\end{lemma}
+\begin{proof}
+	The following exact sequence 
+	\begin{multline*}
+		0 \to (A + A' + B + B')/(A\cap A')\cap(B\cap B') \to \\ (A + A')/(A \cap A') \oplus (B + B')/(B \cap B') \to \\ (A + A' + B + B')/(A\cap A') + (B\cap B') \to 0
+	\end{multline*}
+	plus $A \sim A'$ and $B \sim B'$ imply that both spaces
+	\begin{multline*}
+		(A + A' + B + B')/(A\cap A')\cap(B\cap B') \quad\text{and,}\\
+		 (A + A' + B + B')/((A\cap A') + (B\cap B'))
+	\end{multline*}
+	are finite dimensional. Since, $(A + A' + B + B')/(A+A')\cap(B+B')$ is a quotient of the second space and $((A \cap A') + (B \cap B'))/((A\cap A')\cap(B\cap B'))$ is a subspace of the first space we can conclude $A + B \sim A' + B'$ and $A \cap B \sim A' \cap B'$.
+\end{proof}
+If we consider the set of equivalence classes $\mathscr{L}(V)$ of $\sim$ on a vector space $V$ then $\prec$ is a partial order on it and by \cref{lemm:commensurability-addition-and-intersection} above $\mathscr{L}(V)$ inherits operations $\cap$ and $+$.
+
+
 \subsection*{Linear compactness}
 \begin{definition}\label{linear_compactness}
-	Let $E$ be a linearly topologized vector space. A closed subset $C \subseteq E$ is \textbf{linearly compact} (respectively \textbf{linearly cocompact}) if for every open vector subspace $U$ we have $\dim C/(C \cap U) < \infty$ (respectively $\dim E/(C+U) < \infty$). 
+	Let $V$ be a linearly topologized vector space. A closed subset $C \subseteq V$ is \textbf{linearly compact} (respectively \textbf{linearly cocompact}) if for every open vector subspace $U$ we have $\dim C/(C \cap U) < \infty$ (respectively $\dim V/(C+U) < \infty$). 
 \end{definition}
 Linear compactness behaves just as compactness if one uses the correct words.
 \begin{proposition}\label{linear_compactness_properties}
-	Let $E$ be a linearly compact vector space and $F$ a linearly topologized vector space. Then
+	Let $V$ be a linearly compact vector space, then
 	\begin{enumerate}[label = (\alph*)]
-		\item If $\varphi\colon E \to F$ is a continuous linear homomorphism then $\varphi(E)$ is linearly compact.
+		\item If $A \subseteq V$ is a vector subspace such that for every open $U$ vector subspace of $V$ we have $\dim W/(W \cap U) < \infty$ then $\overline{A}$ is linearly compact.
+		\item If $\varphi\colon V \to W$ is a continuous linear homomorphism then $\overline{\varphi(V)}$ is linearly compact.
 		\item If $E$ is discrete then $E$ must be finite dimensional.
 		\item Every closed vector subspace of $E$ is linearly compact.
 		\item (Tychonov) If $\{E_{\alpha}\}_{\alpha}$ is a collection of linearly compact vector spaces then its product $\prod_{\alpha} E_{\alpha}$ and its direct sum $\bigoplus_{\alpha}E_{\alpha}$ are linearly compact.
@@ -102,11 +180,23 @@ First, we prove that the word \emph{dually} in \cref{linear_compactness} actuall
 \begin{proof}
 	
 \end{proof}
+\begin{theorem}\label{thm:poincare-duality}
+	For a Tate space $A$ the canonical map $A \to A^{**}$ is an isomorphism.
+\end{theorem}
+
 \textcolor{red}{finish this}
+
 \subsection*{Morphisms}
 A \textbf{morphism} of Tate spaces is a continuous linear homomorphism between Tate spaces.
 \begin{definition}\label{def:linearly-compact-and-discrete-morphisms}
-	A morphism $f\colon A\to B$ of Tate spaces is said to be \textbf{linearly compact} if $fA$ is linearly compact in $B$. Dually, it is discrete if $\ker f$ is open in $A$.
-
+	A morphism $f\colon A\to B$ of Tate spaces is said to be \textbf{linearly compact} if the closure of $fA$ is linearly compact in $B$. Dually, it is \textbf{discrete} if $\ker f$ is open in $A$.
 \end{definition}
+\begin{proposition}\label{prop:duality-discrete-compact-maps}
+	A morphism $f\colon A\to B$ of Tate spaces is linearly compact if and only if $f^{*}$ is discrete.
+\end{proposition}
+\begin{proof}
+	If its linearly compact then 
+\end{proof}
+
+
 
