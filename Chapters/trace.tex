@@ -6,7 +6,7 @@ Let $k$ be a fixed ground field and $V$ a vector space over $k$. In this section
 \begin{definition}\label{def:finitepotent}
 	We will say a linear map $f\colon V \to V$ is \textbf{finitepotent} if
 	\[
-		\dim f^{n}V < \infty
+		\dim f^{n}(V) < \infty
 	\]
 	for sufficiently large $n$.
 \end{definition}
@@ -14,13 +14,13 @@ We characterize finitepotent maps as follows.
 \begin{lemma}\label{lemm:characterization-of-finitepotent-maps}
 	A linear map $f\colon V \to V$ is finitepotent if and only if there exists a subspace $W \subseteq V$ such that
 	\begin{enumerate}[label = (\roman*)]
-		\item $\dim f W < \infty$,
-		\item $f W \subseteq W$,
+		\item $\dim f(W) < \infty$,
+		\item $f(W) \subseteq W$,
 		\item the induced map $\bar{f}\colon V/W \to V/W$ is nilpotent.
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	If $f$ is finitepotent choose $W = f^{n}V$ for sufficiently large $n$. The first condition follows from definition. Also, $f W = f^{n+1}V \subseteq f^{n}V = W$. In addition, $\bar{f}^{n} = 0$. On the other hand, if such $W$ exists, note that condition (ii) assures that $\bar{f}$ is well defined. Moreover, as $\bar{f}$ is nilpotent, $f^{n}V \subseteq W$ for sufficiently large $n$ and by condition (i) above $\dim f^{n} V < \infty$.
+	If $f$ is finitepotent choose $W = f^{n}(V)$ for sufficiently large $n$. The first condition follows from definition. Also, $f(W) = f^{n+1}(V) \subseteq f^{n}(V) = W$. In addition, $\bar{f}^{n} = 0$. On the other hand, if such $W$ exists, note that condition (ii) assures that $\bar{f}$ is well defined. Moreover, as $\bar{f}$ is nilpotent, $f^{n}V \subseteq W$ for sufficiently large $n$ and by condition (i) above $\dim f^{n}(V) < \infty$.
 \end{proof}
 \subsection*{Trace}
 If $f$ is a finitepotent map and $W$ is as above, $\tr_{V}(f)\in k$ may be defined as $\tr_{W}(f)$ where $\tr_{W}(f)$ is the ordinary trace of $f$ viewed as a endomorphism of $W$. First, we will check that this definition does not depend on the choice of $W$. Suppose $W_{1}, W_{2} \subseteq V$ suffice the properties on \cref{lemm:characterization-of-finitepotent-maps}, then $W = W_{1} + W_{2}$ suffices them too. Hence, as the induced maps on $W/W_{1}$ and $W/W_{2}$ are nilpotent, they have have zero ordinary trace and since
@@ -72,9 +72,9 @@ The following is the natural linearity property for $\tr$.
 	\]
 \end{proposition}
 \begin{proof}
-	Since $fg$ is finitepotent let $W =(fg)^{n}V$ for sufficiently large $n$ has finite dimension. On the other hand, $(gf)^{n+1}V= g(fg)^{n}fV \subseteq gW$, therefore, $gf$ is also finitepotent. Let $W' = (gf)^{n}V$, then $gW' \subseteq W$ and $fW \subseteq W'$. Thus, 
+	Since $fg$ is finitepotent let $W =(fg)^{n}V$ for sufficiently large $n$ has finite dimension. On the other hand, $(gf)^{n+1}V= g(fg)^{n}f(V) \subseteq g(W)$, therefore, $gf$ is also finitepotent. Let $W' = (gf)^{n}V$, then $g(W') \subseteq W$ and $f(W) \subseteq W'$. Thus, 
 	\[
-		\dim W' \leq \dim gW \leq \dim W\quad\text{and,}\quad\dim W \leq \dim fW \leq \dim W',
+		\dim W' \leq \dim g(W) \leq \dim W\quad\text{and,}\quad\dim W \leq \dim f(W) \leq \dim W',
 	\]
 	which implies that $W\cong W'$ and that $g$ and $f$ induce mutually inverse isomorphism between $W$ and $W'$. Moreover, the diagram
 	\[
