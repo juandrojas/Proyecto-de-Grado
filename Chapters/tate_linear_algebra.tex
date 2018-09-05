@@ -162,7 +162,7 @@ First, we prove that existence of a c-lattice in a linearly topologized vector s
 	thus, since $\dim L / (L \cap U) < \infty$ we conclude $\dim V/(D+U) < \infty$. \\
 	Now, suppose $D$ is a d-lattice, again, choose $L$ a direct complement for $D$. Analogous as the proof for $D$ being discrete and closed in the previous paragraph it follows the one for $L$ being open. We just check that $L$ is linearly compact. Let $U$ be any open vector subspace, the composition $V \twoheadrightarrow L \twoheadrightarrow L/(L \cap U)$ induces a surjection
 	 \[
-	 	E/(D + (L \cap U)) \twoheadrightarrow L/(L \cap U)
+	 	V/(D + (L \cap U)) \twoheadrightarrow L/(L \cap U)
 	 \]
 	 since both $L$ and $U$ are open, also $L\cap U$, thus $\dim V/(D + (L \cap U)) < \infty$. It follows, $\dim L/(L \cap U) < \infty$ and $L$ linearly compact.  
 \end{proof}
@@ -216,9 +216,20 @@ First, we prove that the word \emph{dually} in \cref{def:linear_compactness} act
 	\[
 		(k^{\oplus \Lambda})^{*} = \Hom_{k}(k^{\oplus \Lambda}, k) \cong \prod_{\Lambda} \Hom_{k}(k, k) \cong \prod_{\Lambda} k
 	\]
-	we get the desired result by Tychonov's theorem in \cref{prop:linear_compactness_properties}.
+	we get the desired result by Tychonov's theorem in \cref{prop:linear_compactness_properties}. 
 \end{proof}
+\begin{remark}\label{rem:dual-of-discrete-is-complete}
+	Note that in the proof of the previous lemma the dual space of a discrete space is complete, as it is an arbitrary product of $k$.
+\end{remark}
+\begin{proposition}\label{prop:dual-space-is-tate}
+	If $V$ is a Tate space then $V^{*}$ with the topology previously introduced is also a Tate space.
+\end{proposition}
+\begin{proof}
+	If we decompose $V = L \oplus D$ where $L$ is a c-lattice and $D$ a d-lattice then $V^{*} \cong L^{*} \oplus D^{*}$ and by \cref{lemm:duality-d-lattice-c-lattice} $L^{*}$ is discrete and $D^{*}$ is linearly compact. Observe that $D^{*}$ is open in $V^{*}$ since it is the kernel of the projection $V^{*} \to V^{*}/L^{\perp}$ and $V^{*}/L^{\perp}$ is discrete by the description of our topology in the dual $V^{*}$. Since $L^{*}$ is discrete, then it is complete. Moreover, by the previous remark, $D^{*}$ is complete, hence $V^{*}$ is complete too.
+\end{proof}
+
 We're ready to prove the analog of Pontryagin's duality for locally compact groups in our context.
+\newpage
 \begin{theorem}\label{thm:self-duality}
 	For a Tate space $V$ the canonical map $V \to V^{**}$ is an isomorphism.
 \end{theorem}
@@ -227,14 +238,40 @@ We're ready to prove the analog of Pontryagin's duality for locally compact grou
 	\[
 		\operatorname{ev}\colon D \to D^{**}
 	\]
-	is open and continuous because $D$ and $D^{**}$ are both discrete by \cref{lemm:duality-d-lattice-c-lattice}. Moreover, it is injective, because for every nonzero $v \in D$ there exists a linear continuous functional $\phi\in D^{*}$ such that $\phi(v)\neq 0$. Finally, we prove surjectivity. Let $\psi \in D^{**}$. Since $\ker \psi$ is open it contains a basic open vector subspace $A^{\perp}$ such that $A \subseteq D$ is a linearly compact subspace. Therefore, since $D^{*}$ is linearly compact then $D^{*} \sim A^{\perp}$, that is, the quotient $D^{*}/A^{\perp}$ is finite dimensional. Recall that the inclusion $\iota\colon A \to D$ induces an isomorphism $D^{*}/A^{\perp} \to A^{*}$ which is a homeomorphism since both spaces are discrete. We can factor $\psi$ as
+	is open and continuous because $D$ and $D^{**}$ are both discrete by \cref{lemm:duality-d-lattice-c-lattice}. Moreover, it is injective, because for every nonzero $v \in D$ there exists a linear continuous functional $\phi\in D^{*}$ such that $\phi(v)\neq 0$. Finally, we prove surjectivity. Let $\psi \in D^{**}$. Since $\ker \psi$ is open it contains a basic open vector subspace $A^{\perp}$ such that $A \subseteq D$ is a linearly compact subspace. Therefore, since $D^{*}$ is linearly compact then $D^{*} \sim A^{\perp}$, that is, the quotient $D^{*}/A^{\perp}$ is finite dimensional. Recall that the inclusion $\iota\colon A \to D$ induces an isomorphism $D^{*}/A^{\perp} \to A^{*}$ which is a homeomorphism since both spaces are discrete. We can factor $\psi$ such as the following diagram is commutative
 	\[
 	\begin{tikzcd}
 		D^{*} \arrow[r, "\psi"] \arrow[d] & k \\
-		D^{*}/A^{\perp} \arrow[ru, dashed, "\tilde{\psi}"] \arrow[d, "\cong"] & \\
-		A^{*} \arrow[ruu, dashed]
+		D^{*}/A^{\perp} \arrow[ru, dashed, "\tilde{\psi}"] \arrow[d, swap, "\cong"] & \\
+		A^{*} \arrow[ruu, dashed, swap, bend right, "\overline{\psi}"]
 	\end{tikzcd}
 	\]
+	However, $A^{*}$ is finite dimensional, therefore, there exists some $a \in A$ such that $\overline{\psi} = \operatorname{ev}_{a}$ as maps from $A^{*}\to k$. Moreover, since $A^{\perp} \subseteq \ker\psi$ we conclude that $\psi = \operatorname{ev}_{a}$ as maps $D^{*} \to k$. This implies surjectivity. Thus $D \to D^{**}$ is an isomorphism of topological vector spaces. \\
+
+	Now, suppose $L$ is a complete linearly compact space. We check first that the map 
+	\[
+		\operatorname{ev}\colon L \to L^{**}
+	\]
+	is continuous. Let $A^{\perp}$ be an open vector subspace in $L^{**}$ where $A \subseteq L^{*}$ is a linearly compact subspace. By \cref{lemm:duality-d-lattice-c-lattice} $L^{*}$ is discrete, hence $A$ is finite dimensional. Suppose $A = \operatorname{span}(\phi_{1},\ldots,\phi_{n})$ for some $\phi_{1},\ldots,\phi_{n} \in A$. Then, $\operatorname{ev}^{-1}(A^{\perp}) = \ker \phi_{1} \cap \ldots \cap \ker \phi_{n}$ which is open in $L$. Now, we check that $\operatorname{ev}$ is injective. Let $v \in L$ be a nonzero vector. Choose a decomposition of $L = U \oplus F$ where $U$ is open and $F$ is the span of $v$ (this can be done because $L$ is linearly compact). Define $\phi$ a linear functional to be zero in $U$ and $\phi(v) \neq 0$. Since $U$ is open and $F$ discrete then $\phi$ is continuous. This implies injectivity of $\operatorname{ev}$.  Now we check that $\operatorname{ev}$ is surjective. Since $L$ is complete 
+	\[
+		L \cong \varprojlim_{U \in \mathscr{U}} L/U
+	\]
+	where $\mathscr{U}$ runs over open vector subspaces of $U$. Let $\psi\colon L^{*} \to k$ be a continuous linear functional. By pulling back $\pi_{U}\colon L \to L/U$ we get an injection $\pi_{U}^{*}\colon(L/U)^{*} \hookrightarrow L^{*}$ for every $U \in \mathscr{U}$. Since $L$ is linearly compact, then $L/U$ is finite dimensional, thus, there exists some $v_{U}\in L$ such that $\psi \circ \pi_{U}^{*} = \operatorname{ev}_{v_{U}}$ where $\operatorname{ev}\colon L/U \to (L/U)^{**}$. In particular, observe that if $U,U' \in \mathscr{U}$ and $U' \subseteq U$ we get an induced injection $(L/U)^{*} \hookrightarrow (L/U')^{*}$ such that the following diagram
+	\[
+	\begin{tikzcd}
+		L^{*} \arrow[rr, "\psi"] & & k \\
+		(L/U')^{*} \arrow[u, hook] \arrow[urr, swap, "\operatorname{ev}_{v_{U'}}"] & & \\
+		(L/U)^{*} \arrow[u, hook] \arrow[uurr, swap, bend right, "\operatorname{ev}_{v_{U}}"] \arrow[uu, bend left = 70, hook]& & 
+	\end{tikzcd}
+	\]
+	commutes. Note that this implies that $(v_{U})_{U\in \mathscr{U}}$ is a Cauchy net and by completeness of $V$ it follows that it is convergent. Therefore, there exists some $v \in L$ limit of $(v_{U})_{U\in \mathscr{U}}$. We claim that $\psi = \operatorname{ev}_{v}$. Let $\phi \in L^{*}$. Then, $\ker\phi$ is open and since $L$ is linearly compact then $\ker\phi \sim L$. Hence the quotient $L/\ker\phi$ is discrete and the factor $\overline{\phi}$ such that the following diagram
+	\[
+	\begin{tikzcd}
+		L \arrow[r, "\phi"] \arrow[d, swap, "\pi_{\ker\phi}"] & k \\
+		L/\ker\phi \arrow[ur, swap, "\overline{\phi}"] &
+	\end{tikzcd}
+	\]
+	 commutes is continuous. In other words, the image of $\overline{\phi}$ under the inclusion $(L/\ker\phi)^{*} \hookrightarrow L^{*}$ is $\phi$. Thus, $\psi(\phi) = \operatorname{ev}_{v_{\ker\phi}}(\overline{\phi})$ and by convergence $\psi(\phi) = \operatorname{ev}_{v}(\phi)$. This implies surjectivity of $\operatorname{ev}\colon L \to L^{**}$. To conclude, we prove that $\operatorname{ev}$ is open. 
 \end{proof}
 \subsection*{Morphisms}
 A \textbf{morphism} of Tate spaces is a continuous linear homomorphism between Tate spaces.
