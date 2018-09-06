@@ -1,13 +1,13 @@
 %!TEX root = main.tex
-\documentclass{book}[12pt, xcolor=dvipsnames]
+\documentclass[oneside, 12pt]{book} %oneside evens margins, twoside for printing
 \usepackage{classicthesis}
-%\include{classicthesis-config}
+\include{classicthesis-config}
 \usepackage{amsmath} % AMS packages
 \usepackage[amsthm,thmmarks]{ntheorem}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
-\usepackage{graphicx}
+\usepackage{graphicx} 
 \usepackage{tikz-cd} %commutative diagrams
 \usepackage{enumitem} %different types of numerations
 \usetikzlibrary{arrows, matrix}
@@ -69,6 +69,6 @@
 
 
 \begin{document}
-	\cleardoublepage\include{Chapters/tate_linear_algebra}
-	\cleardoublepage\include{Chapters/trace}
+\include{Chapters/tate_linear_algebra}
+\include{Chapters/trace}
 \end{document}
