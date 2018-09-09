@@ -156,12 +156,12 @@ First, we prove that existence of a c-lattice in a linearly topologized vector s
 	A linearly topologized vector space $V$ has a c-lattice if and only if it has a d-lattice. 
 \end{proposition}
 \begin{proof}
-	Suppose $L$ is a c-lattice in $V$, choose any direct complement $D$ of $L$, that is, $V = L \oplus D$. Since $L$ is open, then $D$ is discrete as $D\cap L = 0$, thus ${0}$ is open in $D$. Moreover, $D$ is closed as it is the fiber of $0$ under the projection $V \to L$. Finally, we check that $D$ is linearly cocompact: let $U$ be any open vector subspace of $V$, the composition $L \hookrightarrow V \twoheadrightarrow V/(D+U)$ induces a surjection 
+	Suppose $L$ is a c-lattice in $V$, choose any direct complement $D$ of $L$, that is, $V = L \oplus D$. Since $L$ is open, then $D$ is discrete as $D\cap L = 0$, thus ${0}$ is open in $D$. Moreover, $D$ is closed as it is the fiber of $0$ under the projection $V \to L$ (which is continuous because $L$ is open). Finally, we check that $D$ is linearly cocompact: let $U$ be any open vector subspace of $V$, the composition $L \hookrightarrow V \twoheadrightarrow V/(D+U)$ induces a surjection 
 	\[
 		L/(L \cap U) \twoheadrightarrow V/(D+U)
 	\]
 	thus, since $\dim L / (L \cap U) < \infty$ we conclude $\dim V/(D+U) < \infty$. \\
-	Now, suppose $D$ is a d-lattice, again, choose $L$ a direct complement for $D$. Analogous as the proof for $D$ being discrete and closed in the previous paragraph it follows the one for $L$ being open. We just check that $L$ is linearly compact. Let $U$ be any open vector subspace, the composition $V \twoheadrightarrow L \twoheadrightarrow L/(L \cap U)$ induces a surjection
+	Now, suppose $D$ is a d-lattice. Thus, there exists an open vector subspace $U$ such that $U \cap D = 0$. This time, choose $L$ a direct complement for $D$ containing $U$. Then, the projection $$. Let $U$ be any open vector subspace, the composition $V \twoheadrightarrow L \twoheadrightarrow L/(L \cap U)$ induces a surjection
 	 \[
 	 	V/(D + (L \cap U)) \twoheadrightarrow L/(L \cap U)
 	 \]
