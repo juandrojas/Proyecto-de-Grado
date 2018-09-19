@@ -145,7 +145,19 @@ Linear compactness behaves just as compactness if one uses the correct words.
 		V \cong \varprojlim_{U \in \mathscr{U}} V/U
 	\]
 \end{definition}
+	The previous definition can be reformulated in terms of Cauchy nets.
+\begin{definition}\label{def:net-in-a-topological-space}
+	If $\mathcal{D}$ is a directed small category 
+\end{definition}
 
+\begin{definition}\label{def:cauchy-nets}
+	A net $(x_{U})_{U \in \mathscr{U}}$ in a linearly topologized vector space indexed by an open local base $\mathscr{U}$ of open vector subspaces is said to be \textbf{Cauchy} if for every $W$ open vector subspace of zero there exists some $U \in \mathscr{U}$ such that for every $U_{1},U_{2} \in \mathscr{U}$ and $U_{1}, U_{2}\subseteq U$ we have $x_{U_{1}} - x_{U_{2}} \in W$. 
+\end{definition}
+Now, in a complete space every 
+\begin{proposition}\label{prop:cauchy-iff-complete}
+	
+\end{proposition}
+\textcolor{red}{Complete this! (no pun intended) }
 \section{Tate spaces}
 \subsection*{Lattices}
 \begin{definition}\label{def:c-lattice}
@@ -161,7 +173,7 @@ First, we prove that existence of a c-lattice in a linearly topologized vector s
 		L/(L \cap U) \twoheadrightarrow V/(D+U)
 	\]
 	thus, since $\dim L / (L \cap U) < \infty$ we conclude $\dim V/(D+U) < \infty$. \\
-	Now, suppose $D$ is a d-lattice. Thus, there exists an open vector subspace $U$ such that $U \cap D = 0$. This time, choose $L$ a direct complement for $D$ containing $U$. Then, the projection $$. Let $U$ be any open vector subspace, the composition $V \twoheadrightarrow L \twoheadrightarrow L/(L \cap U)$ induces a surjection
+	Now, suppose $D$ is a d-lattice. Thus, there exists an open vector subspace $U$ such that $U \cap D = 0$. This time, choose $L$ a direct complement for $D$ containing $U$. Then, the projection $V \to D$ is continuous because $U$ goes to zero. Therefore, $L$ is open. Now we check linear compactness. Let $U$ be any open vector subspace, the composition $V \twoheadrightarrow L \twoheadrightarrow L/(L \cap U)$ induces a surjection
 	 \[
 	 	V/(D + (L \cap U)) \twoheadrightarrow L/(L \cap U)
 	 \]
@@ -257,12 +269,12 @@ We're ready to prove the analog of Pontryagin's duality for locally compact grou
 	\[
 		L \cong \varprojlim_{U \in \mathscr{U}} L/U
 	\]
-	where $\mathscr{U}$ runs over open vector subspaces of $U$. Let $\psi\colon L^{*} \to k$ be a continuous linear functional. By pulling back $\pi_{U}\colon L \to L/U$ we get an injection $\pi_{U}^{*}\colon(L/U)^{*} \hookrightarrow L^{*}$ for every $U \in \mathscr{U}$. Since $L$ is linearly compact, then $L/U$ is finite dimensional, thus, there exists some $v_{U}\in L$ such that $\psi \circ \pi_{U}^{*} = \operatorname{ev}_{v_{U}}$ where $\operatorname{ev}\colon L/U \to (L/U)^{**}$. In particular, observe that if $U,U' \in \mathscr{U}$ and $U' \subseteq U$ we get an induced injection $(L/U)^{*} \hookrightarrow (L/U')^{*}$ such that the following diagram
+	where $\mathscr{U}$ runs over open vector subspaces of $U$. Let $\psi\colon L^{*} \to k$ be a continuous linear functional. By pulling back $\pi_{U}\colon L \to L/U$ we get an injection $\pi_{U}^{*}\colon(L/U)^{*} \hookrightarrow L^{*}$ for every $U \in \mathscr{U}$. Since $L$ is linearly compact, then $L/U$ is finite dimensional, thus, there exists some $v_{U}\in L$ such that $\psi \circ \pi_{U}^{*} = \operatorname{ev}_{v_{U}}$ where $\operatorname{ev}\colon L/U \to (L/U)^{**}$. In particular, observe that if $U,U' \in \mathscr{U}$ and $U' \subseteq U$ we get an induced surjection $(L/U)^{*} \hookrightarrow (L/U')^{*}$ such that the following diagram
 	\[
 	\begin{tikzcd}
 		L^{*} \arrow[rr, "\psi"] & & k \\
 		(L/U')^{*} \arrow[u, hook] \arrow[urr, swap, "\operatorname{ev}_{v_{U'}}"] & & \\
-		(L/U)^{*} \arrow[u, hook] \arrow[uurr, swap, bend right, "\operatorname{ev}_{v_{U}}"] \arrow[uu, bend left = 70, hook]& & 
+		(L/U)^{*} \arrow[u] \arrow[uurr, swap, bend right, "\operatorname{ev}_{v_{U}}"] \arrow[uu, bend left = 70, hook]& & 
 	\end{tikzcd}
 	\]
 	commutes. Observe that this implies that $(v_{U})_{U\in \mathscr{U}}$ is a Cauchy net and by completeness of $V$ it follows that it is convergent. Therefore, there exists some $v \in L$ limit of $(v_{U})_{U\in \mathscr{U}}$. We claim that $\psi = \operatorname{ev}_{v}$. Let $\phi \in L^{*}$. Then, $\ker\phi$ is open and since $L$ is linearly compact then $\ker\phi \sim L$. Hence, if we factor $\phi$ as follows
@@ -295,6 +307,16 @@ Discrete and linearly compact operators form a 2-sided ideal in $\Hom$; that is
 \end{proposition}
 \begin{proof}
 	Let $A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D$ be morphisms of Tate spaces such that $g$ is linearly compact. Then, $\overline{g\circ f(A)} \subseteq \overline{g(B)}$ which is linearly compact, thus $\overline{g\circ f(A)}$ is linearly compact too. On the other hand, note that $h(\overline{g(B)}) \subseteq \overline{h\circ g(B)}$; therefore $\overline{h(\overline{g(B)})} = \overline{h\circ g(B)}$. However, $\overline{g(B)}$ is linearly compact and by item(b) in \cref{prop:linear_compactness_properties} $\overline{h(\overline{g(B)})}$ is linearly compact. In addition, the statement for discrete operators follows from the previous proposition.
+\end{proof}
+\begin{remark}\label{rem:discrete-composition-compact}
+If $f$ is a compact operator and $g$ is a discrete operator, then $gf$ is \textbf{finite}; that is, $\dim gf(V) < \infty$.  
+\end{remark}
+\begin{proof}
+	We have $\overline{f(V)} \prec \ker g$, therefore, $\overline{f(V)}/(\overline{f(V)} \cap \ker g)$ is finite dimensional. We have a surjection
+	\[
+		\frac{\overline{f(V)}}{\overline{f(V)}\cap \ker g} \to gf(V)
+	\]
+	which implies that $gf$ is finite.
 \end{proof}
 \begin{definition}\label{def:2-sided-ideals-in-hom}
 	Let $V$ and $W$ be Tate spaces. \linebreak We denote $\Hom_{+}(V,W)$ to be the set of linearly compact morphisms and $\Hom_{-}(V,W)$ the set of discrete ones. Also, set $\Hom_{0}(V,W)$ to be $\Hom_{+}(V,W) \cap \Hom_{-}(V,W)$.

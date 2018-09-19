@@ -74,9 +74,13 @@ The following is the natural linearity property for $\tr$.
 \begin{proof}
 	Since $fg$ is finitepotent let $W =(fg)^{n}V$ for sufficiently large $n$ has finite dimension. On the other hand, $(gf)^{n+1}V= g(fg)^{n}f(V) \subseteq g(W)$, therefore, $gf$ is also finitepotent. Let $W' = (gf)^{n}V$, then $g(W') \subseteq W$ and $f(W) \subseteq W'$. Thus, 
 	\[
-		\dim W' \leq \dim g(W) \leq \dim W\quad\text{and,}\quad\dim W \leq \dim f(W) \leq \dim W',
+		\dim W' \leq \dim g(W) \leq \dim W,
 	\]
-	which implies that $W\cong W'$ and that $g$ and $f$ induce mutually inverse isomorphism between $W$ and $W'$. Moreover, the diagram
+	and, 
+	\[
+		\dim W \leq \dim f(W) \leq \dim W',
+	\]
+	which implies that $W\cong W'$ and that $g$ and $f$ induce mutually inverse isomorphisms between $W$ and $W'$. Moreover, the diagram
 	\[
 		\begin{tikzcd}
 			W \arrow[r, "fg"]\arrow[d, "g"] & W \arrow[d, "g"] \\
@@ -85,7 +89,29 @@ The following is the natural linearity property for $\tr$.
 	\]
 	commutes. We conclude $\tr_{W}(fg) = \tr_{W'}(gf)$ and it follows $\tr_{V}(fg) = \tr_{V}(gf)$.
 \end{proof}
+\section{Differential Calculus}
+In this section we introduce the theory of derivations and differentials over an arbitrary commutative ring $R$. Let $M$ be a $R$-module.
 
+	\textcolor{red}{Introduce bibliography from Matsumura}
+	\begin{definition}\label{def:derivations-and-differentials}
+		A \textbf{derivation} from $R$ to $M$ is a map $D\colon R \to M$ satisfying properties
+		\begin{enumerate}[label = (\roman*)]
+			\item $D(x + y) = D(x) + D(y)$ and,
+			\item (\textit{Leibniz's Rule}) $D(xy) = xD(y) + yD(x)$ 
+		\end{enumerate}
+		for all $x.y \in R$. The set of derivations from $R$ to $M$ becomes a $R$-module in a natural way. We will write it as $\Der(R,M)$. Moreover if $R$ is a $k$-algebra through a map $f\colon k \to R$ we say that $D$ is a $\mathbf{k}$-\textbf{derivation} if $D \circ f = 0$. In this case, the set of all $k$-derivations is denoted $\Der_{k}(R,M)$.
+
+		If $M = R$, we will denote $\Der_{k}(R,R)$ simply by $\Der_{k}(R)$. In particular, if $D$ and $D'$ are two $k$-derivations then its bracket $[D,D'] = DD' - D'D$ under composition as $R \to R$ maps is also a $k$-derivation. Therefore, $\Der_{k}(R)$ under this structure is a Lie Algebra.
+	\end{definition}
+	\begin{proposition}\label{prop:differentials-representable-functor}
+		If $R$ is a $k$-algebra, consider the covariant functor from the category $\mathsf{Mod}_{R}$ to itself given by $M \mapsto \Der_{k}(R,M)$. This functor is representable.
+	\end{proposition}
+	\begin{proof}
+	
+	\end{proof}
+	
+\subsection*{Trace and Tate Spaces}
+Suppose that $V$ is a Tate space and consider $E = \End_{k}(V)$ the space of continuous endomorphisms of $V$. Thus, by \cref{prop:compact-and-discrete-2-sided-ideal} and \cref{prop:discrete-compact-operators-present-the-whole-space} we have 2-sided ideals $E_{0}, E_{+}$ and $E_{-}$ of $E$ such that $E_{+} + E_{-} = E$ and $E_{0} = E_{+} \cap E_{-}$. Moreover, \cref{rem:discrete-composition-compact} implies that $E_{0}$ is a finitepotent subspace.
 
 
 
