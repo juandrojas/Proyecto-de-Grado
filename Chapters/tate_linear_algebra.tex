@@ -20,7 +20,7 @@ Let $V$ be a linearly topologized vector space. Then
 	Since intersection of vector subspaces is a vector subspace, (a) follows intersecting the fundamental system of neighborhoods in $V$ by the vector subspace. For (b), let $\pi\colon V \to V/W$ be the quotient map. Since $\pi$ is open and surjective the image of a local base is a local base; moreover, the image of a vector subspace under $\pi$ is a vector subspace. In addition, since $W$ is closed then $V/W$ is Hausdorff.  Now, for (c) let $\{U_{\alpha, \beta}\}_{\beta}$ be a local base of zero in $V_{\alpha}$ of vector subspaces, the products $U_{\alpha_{1}, \beta_{1}} \times \ldots \times U_{\alpha_{n}, \beta_{n}} \times \prod_{\gamma} V_{\gamma}$, where $\gamma$ ranges over $\alpha \neq \alpha_{1}, \ldots, \alpha_{n}$, for any set $\{(\alpha_{1}, \beta_{1}, \ldots, \alpha_{n}, \beta_{n})\}$ form a fundamental system of neighborhoods around zero in $\prod_{\alpha} V_{\alpha}$ of open vector subspaces. Note that since $\bigoplus_{\alpha} V_{\alpha} \subseteq \prod_{\alpha} V_{\alpha}$ is a vector subspace (c) follows from (a). Finally, for (d), suppose $x,y\in \overline{W}$, then, for every open vector subspace $U$, $(x + U)\cap W \neq \emptyset$ and $(y + U)\cap W \neq \emptyset$, therefore for every $\alpha, \beta \in k$ we have $(\alpha x + U)\cap W \neq \emptyset$ and $(\beta y + U)\cap W \neq \emptyset$. Hence, $(\alpha x + \beta y + U)\cap W\neq \emptyset$ for every open vector subspace $U$ and every pair $\alpha, \beta\in k$. It follows (d).
 \end{proof}
 \begin{remark}\label{rem:limits-and-colimits-in-lintop-category}
-	Using an argument similar to the previous proposition one can check that in the category $\mathsf{LinTop}_k$ of linearly topologized vector spaces limits and colimits indexed by small categories exist.
+	If we let $\mathsf{LinTop}_{k}$ denote the category of linearly topologized vector spaces over $k$ (where morphisms are given by continuous linear homomorphisms) the previous proposition implies existence of kernels and arbitrary products; whence, existence of limits.  
 \end{remark}
 Linear topologies are discrete over a finite dimensional vector space.
 \begin{proposition}\label{prop:finite_dimensional_linear_topologies}
@@ -81,7 +81,7 @@ Now, we state and prove some useful properties on the relation $\prec$.
 	\[
 		A_{i} \prec \sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j} \prec B_{j}
 	\]
-	On the other hand, if $A_{i} \prec B_{j}$ for all $i$ and $j$ then there exists finite dimensional subspaces $W_{ij}$ such that $A_{i} \subseteq B_{j} + W_{ij}$ for all $i$ and $j$. Therefore,
+	On the other hand, if $A_{i} \prec B_{j}$ for all $i$ and $j$ then there exist finite dimensional subspaces $W_{ij}$ such that $A_{i} \subseteq B_{j} + W_{ij}$ for all $i$ and $j$. Therefore,
 	\[
 		\sum_{i=1}^{m} A_{i} \subseteq \bigcap_{j=1}^{n} B_{j} + \sum_{i=1}^{m} \sum_{j=1}^{n} W_{ij}.
 	\]
@@ -135,28 +135,27 @@ Linear compactness behaves just as compactness if one uses the correct words.
 	where $\cong$ is a topological and algebraic isomorphism. Since $V_{\alpha}$ is linearly compact for all $\alpha$ and $\beta$ ranges over a finite set we conclude that $\prod_{\alpha} V_{\alpha} / U$ is finite dimensional; therefore, $\prod_{\alpha} V_{\alpha}$ is linearly compact. The proof is analogous for $\bigoplus_{\alpha} V_{\alpha}$.
 \end{proof} 
 \subsection*{Completion}
-\begin{definition}\label{def:completion}
-	If $V$ be a linearly topologized vector space, recall that $V$ is said to be \textbf{complete} if 
+\begin{definition}\label{def:net-in-a-topological-vector-space}
+	Let $V$ be a linearly topologized vector space. Given a local base of open vector subspaces $\mathscr{U}$ we will say that a collection $(x_{U})_{U\in \mathscr{U}}$ is a \textbf{net indexed by} $\mathscr{U}$. We will say that $(x_{U})_{U\in \mathscr{U}}$ converges to $x$ if for any $U \in \mathscr{U}$ there exists a $W\in\mathscr{U}$ such that for every $U' \subseteq W$ and $U'\in\mathscr{U}$
 	\[
-		V \cong \varprojlim_{U \in \operatorname{Op}(V)} V/U
+		x_{U'} - x \in U.
 	\]
-	where $\text{Op}(V)$ runs through all open vector subspaces of $V$. In particular, this implies that for every base $\mathscr{U}$ of zero made from open vector subspaces of $V$ we have
+\end{definition}
+\begin{remark}\label{rem:nets}
+	The previous definition can be generalized to an arbitrary topological space and nets indexed by any directed set. In our particular case, the directed set $\mathcal{D} = \mathscr{U}^{\text{op}}$.
+\end{remark}
+We now introduce Cauchy nets and completion.
+\begin{definition}\label{def:cauchy-nets}
+	A net $(x_{U})_{U \in \mathscr{U}}$ in a linearly topologized vector space indexed by an open local base $\mathscr{U}$ of open vector subspaces is said to be \textbf{Cauchy} if for every $U$ open vector subspace of zero there exists $W \in \mathscr{U}$ such that for every $U_{1},U_{2} \in \mathscr{U}$ and $U_{1}, U_{2}\subseteq U$ we have $x_{U_{1}} - x_{U_{2}} \in U$. 
+\end{definition}
+
+\begin{definition}\label{def:completion}
+	If $V$ be a linearly topologized vector space, we say that $V$ is said to be \textbf{complete} if 
 	\[
 		V \cong \varprojlim_{U \in \mathscr{U}} V/U
 	\]
+	for an open local base of vector subspaces $\mathscr{U}$. We leave unproven that this definition is independent of the choice of $\mathscr{U}$. Details can be found in \textcolor{red}{include reference}. Moreover, $V$ is complete if and only if every Cauchy net is convergent. One can see this by identifying the inverse limit as a subspace of the product.
 \end{definition}
-	The previous definition can be reformulated in terms of Cauchy nets.
-\begin{definition}\label{def:net-in-a-topological-space}
-	If $\mathcal{D}$ is a directed small category 
-\end{definition}
-
-\begin{definition}\label{def:cauchy-nets}
-	A net $(x_{U})_{U \in \mathscr{U}}$ in a linearly topologized vector space indexed by an open local base $\mathscr{U}$ of open vector subspaces is said to be \textbf{Cauchy} if for every $W$ open vector subspace of zero there exists some $U \in \mathscr{U}$ such that for every $U_{1},U_{2} \in \mathscr{U}$ and $U_{1}, U_{2}\subseteq U$ we have $x_{U_{1}} - x_{U_{2}} \in W$. 
-\end{definition}
-Now, in a complete space every 
-\begin{proposition}\label{prop:cauchy-iff-complete}
-	
-\end{proposition}
 \textcolor{red}{Complete this! (no pun intended) }
 \section{Tate spaces}
 \subsection*{Lattices}
@@ -242,7 +241,7 @@ First, we prove that the word \emph{dually} in \cref{def:linear_compactness} act
 	If we decompose $V = L \oplus D$ where $L$ is a c-lattice and $D$ a d-lattice then $V^{*} \cong L^{*} \oplus D^{*}$ and by \cref{lemm:duality-d-lattice-c-lattice} $L^{*}$ is discrete and $D^{*}$ is linearly compact. Observe that $D^{*}$ is open in $V^{*}$ since it is the kernel of the projection $V^{*} \to V^{*}/L^{\perp}$ and $V^{*}/L^{\perp}$ is discrete by the description of our topology in the dual $V^{*}$. Since $L^{*}$ is discrete, then it is complete. Moreover, by the previous remark, $D^{*}$ is complete, hence $V^{*}$ is complete too.
 \end{proof}
 
-We're ready to prove the analog of Pontryagin's duality for locally compact groups in our context.
+We're ready to prove the analog of Pontryagin's duality for Tate spaces.
 \begin{theorem}\label{thm:self-duality}
 	For a Tate space $V$ the canonical map $V \to V^{**}$ is an isomorphism.
 \end{theorem}
@@ -259,35 +258,40 @@ We're ready to prove the analog of Pontryagin's duality for locally compact grou
 		A^{*} \arrow[ruu, dashed, swap, bend right, "\overline{\psi}"]
 	\end{tikzcd}
 	\]
-	However, $A^{*}$ is finite dimensional, therefore, there exists some $a \in A$ such that $\overline{\psi} = \operatorname{ev}_{a}$ as maps from $A^{*}\to k$. Moreover, since $A^{\perp} \subseteq \ker\psi$ we conclude that $\psi = \operatorname{ev}_{a}$ as maps $D^{*} \to k$. This implies surjectivity. Thus $D \to D^{**}$ is an isomorphism of topological vector spaces. \\
+	However, $A^{*}$ is finite dimensional, therefore, there exists $a \in A$ such that $\overline{\psi} = \operatorname{ev}_{a}$ as maps from $A^{*}\to k$. Moreover, since $A^{\perp} \subseteq \ker\psi$ we conclude that $\psi = \operatorname{ev}_{a}$ as maps $D^{*} \to k$. This implies surjectivity. Thus $D \to D^{**}$ is an isomorphism of topological vector spaces. \\
 
 	Now, suppose $L$ is a complete linearly compact space. We check first that the map 
 	\[
 		\operatorname{ev}\colon L \to L^{**}
 	\]
-	is continuous. Let $A^{\perp}$ be an open vector subspace in $L^{**}$ where $A \subseteq L^{*}$ is a linearly compact subspace. By \cref{lemm:duality-d-lattice-c-lattice} $L^{*}$ is discrete, hence $A$ is finite dimensional. Suppose that $A = \operatorname{span}(\phi_{1},\ldots,\phi_{n})$ for some $\phi_{1},\ldots,\phi_{n} \in A$. Then, $\operatorname{ev}^{-1}(A^{\perp}) = \ker \phi_{1} \cap \ldots \cap \ker \phi_{n}$ which is open in $L$. Now, we check that $\operatorname{ev}$ is injective. Let $v \in L$ be a nonzero vector. Choose a decomposition of $L = U \oplus F$ where $U$ is open and $F$ is finite dimensional containing $v$ (this can be done because $L$ is separated and linearly compact). Let $\phi$ be a linear functional such that restricted to $U$ is zero and $\phi(v) \neq 0$. Since $U$ is open and $F$ discrete such $\phi$ exists and it is continuous. This implies injectivity of $\operatorname{ev}$.  Now we check that $\operatorname{ev}$ is surjective. Since $L$ is complete 
-	\[
-		L \cong \varprojlim_{U \in \mathscr{U}} L/U
-	\]
-	where $\mathscr{U}$ runs over open vector subspaces of $U$. Let $\psi\colon L^{*} \to k$ be a continuous linear functional. By pulling back $\pi_{U}\colon L \to L/U$ we get an injection $\pi_{U}^{*}\colon(L/U)^{*} \hookrightarrow L^{*}$ for every $U \in \mathscr{U}$. Since $L$ is linearly compact, then $L/U$ is finite dimensional, thus, there exists some $v_{U}\in L$ such that $\psi \circ \pi_{U}^{*} = \operatorname{ev}_{v_{U}}$ where $\operatorname{ev}\colon L/U \to (L/U)^{**}$. In particular, observe that if $U,U' \in \mathscr{U}$ and $U' \subseteq U$ we get an induced surjection $(L/U)^{*} \hookrightarrow (L/U')^{*}$ such that the following diagram
+	is continuous. Let $A^{\perp}$ be an open vector subspace in $L^{**}$ where $A \subseteq L^{*}$ is a linearly compact subspace. By \cref{lemm:duality-d-lattice-c-lattice} $L^{*}$ is discrete, hence $A$ is finite dimensional. Suppose that $A = \operatorname{span}(\phi_{1},\ldots,\phi_{n})$ for some $\phi_{1},\ldots,\phi_{n} \in A$. Then, $\operatorname{ev}^{-1}(A^{\perp}) = \ker \phi_{1} \cap \ldots \cap \ker \phi_{n}$ which is open in $L$. Now, we check that $\operatorname{ev}$ is injective. Let $v \in L$ be a nonzero vector. Choose a decomposition of $L = U \oplus F$ where $U$ is open and $F$ is finite dimensional containing $v$ (this can be done because $L$ is separated and linearly compact). Let $\phi$ be a linear functional such that restricted to $U$ is zero and $\phi(v) \neq 0$. Since $U$ is open and $F$ discrete such $\phi$ exists and it is continuous. This implies injectivity of $\operatorname{ev}$.  Now we check that $\operatorname{ev}$ is surjective. Let $\mathscr{U}$ is an open local base of vector subspaces. Let $\psi\colon L^{*} \to k$ be a continuous linear functional. By pulling back $\pi_{U}\colon L \to L/U$ we get an injection $\pi_{U}^{*}\colon(L/U)^{*} \hookrightarrow L^{*}$ for every $U \in \mathscr{U}$. Since $L$ is linearly compact, then $L/U$ is finite dimensional, thus, there exists $v_{U}\in L$ such that $\psi \circ \pi_{U}^{*} = \operatorname{ev}_{x_{U}}$ where $\operatorname{ev}\colon L/U \to (L/U)^{**}$. In particular, observe that if $U,U' \in \mathscr{U}$ and $U' \subseteq U$ we get an induced surjection $(L/U)^{*} \hookrightarrow (L/U')^{*}$ such that the following diagram
 	\[
 	\begin{tikzcd}
 		L^{*} \arrow[rr, "\psi"] & & k \\
-		(L/U')^{*} \arrow[u, hook] \arrow[urr, swap, "\operatorname{ev}_{v_{U'}}"] & & \\
-		(L/U)^{*} \arrow[u] \arrow[uurr, swap, bend right, "\operatorname{ev}_{v_{U}}"] \arrow[uu, bend left = 70, hook]& & 
+		(L/U')^{*} \arrow[u, hook] \arrow[urr, swap, "\operatorname{ev}_{x_{U'}}"] & & \\
+		(L/U)^{*} \arrow[u, two heads] \arrow[uurr, swap, bend right, "\operatorname{ev}_{x_{U}}"] \arrow[uu, bend left = 70, hook]& & 
 	\end{tikzcd}
 	\]
-	commutes. Observe that this implies that $(v_{U})_{U\in \mathscr{U}}$ is a Cauchy net and by completeness of $V$ it follows that it is convergent. Therefore, there exists some $v \in L$ limit of $(v_{U})_{U\in \mathscr{U}}$. We claim that $\psi = \operatorname{ev}_{v}$. Let $\phi \in L^{*}$. Then, $\ker\phi$ is open and since $L$ is linearly compact then $\ker\phi \sim L$. Hence, if we factor $\phi$ as follows
+	commutes. Observe that this implies that $(v_{U})_{U\in \mathscr{U}}$ is a Cauchy net. Indeed, let $U \in \mathscr{U}$ and $W = U$ as in \cref{def:cauchy-nets}. Let $U_{1}, U_{2} \subseteq U$ and $U_{1}, U_{2}\in\mathscr{U}$. Notice that commutativity of the following diagram 
+	\[
+		\begin{tikzcd}
+			& (L/U_{1})^{*}\ar[dr, swap, hook] \ar[rrd, "\operatorname{ev}_{x_{U_{1}}}", bend left, swap] & & \\
+			(L/U)^{*} \ar[rrr, bend left = 100, "\operatorname{ev}_{x_{U}}"]\ar[rrr, swap, bend right= 100, "\operatorname{ev}_{x_{U}}"]  \ar[ur, two heads] \ar[dr, two heads] \ar[rr, hook] & & L^{*} \ar[r, "\psi"] & k \\
+			& (L/U_{2})^{*}\ar[ur, hook] \ar[rru, "\operatorname{ev}_{x_{U_{2}}}", bend right] & & 
+		\end{tikzcd}
+	\]
+
+	implies that $(x_{U})_{U\in\mathscr{U}}$ is Cauchy, since $\operatorname{ev}_{x_{U_{1}}} = \operatorname{ev}_{x_{U_{2}}}$ coincide in $(L/U)^{*}$. By completeness there exists $x \in L$ limit of $(x_{U})_{U\in \mathscr{U}}$. We claim that $\psi = \operatorname{ev}_{v}$. Let $\phi \in L^{*}$. Then, $\ker\phi$ is open and there exists $U\in\mathscr{U}$ such that $U \subseteq \ker\phi$ and by linear compactness $U \sim L$. Hence, if we factor $\phi$ as follows
 	\[
 	\begin{tikzcd}
-		L \arrow[r, "\phi"] \arrow[d, swap, "\pi_{\ker\phi}"] & k \\
-		L/\ker\phi \arrow[ur, swap, "\overline{\phi}"] &
+		L \arrow[r, "\phi"] \arrow[d, swap, "\pi_{U}"] & k \\
+		L/U \arrow[ur, swap, "\phi_{U}"] &
 	\end{tikzcd}
 	\]
-	 since $L/\ker\phi$ is discrete we conclude that $\overline{\phi}$ is continuous. In other words, the image of $\overline{\phi}$ under the inclusion $(L/\ker\phi)^{*} \hookrightarrow L^{*}$ is $\phi$. Thus, $\psi(\phi) = \operatorname{ev}_{v_{\ker\phi}}(\overline{\phi})$ and by convergence $\psi(\phi) = \operatorname{ev}_{v}(\phi)$. This implies surjectivity of $\operatorname{ev}\colon L \to L^{**}$. To conclude, we prove that $\operatorname{ev}$ is open. Let $U$ be any open vector subspace in $L$, thus $L = U \oplus F$ for some $F$ finite dimensional. We claim that $\operatorname{ev}(U) = (F^{*})^{\perp}$. First, the inclusion $\operatorname{ev}(U) \subseteq (F^{*})^{\perp}$ is immediate. Let $\psi \in (F^{*})^{\perp}$. Let $v \in L$ such that $\operatorname{ev}_{v} = \psi$. Write $v = u + f$ where $u \in U$ and $f \in F$. Hence, $\operatorname{ev}_{v} = \operatorname{ev}_{u} + \operatorname{ev}_{f}$. Since $\operatorname{ev}$ is injective, it follows that there exists some $\phi\in F^{*}$ such that $\phi(f) \neq 0$ if $f$ is nonzero. Therefore, $f = 0$ and $\psi \in \operatorname{ev}(U)$. This concludes the proof.
+	 since $L/U$ is discrete we conclude that $\phi_{U}$ is continuous. In other words, the image of $\phi_{U}$ under the inclusion $(L/U)^{*} \hookrightarrow L^{*}$ is $\phi$. Thus, $\psi(\phi) = \phi_{U}(x_{U} + U) = \phi(x_{U})$. We claim that $\psi(\phi) = \phi(x)$. Indeed, convergence of $(x_{U})$ implies that there exists a $W \in \mathscr{U}$ such that $W \subseteq U$ and $x - x_{W} \in U$. Thus, $\psi(\phi) = \phi_{W}(x_{W} + W) = \phi(x_{W}) = \phi(x)$, since $U \subseteq \ker\phi$. This implies surjectivity of $\operatorname{ev}\colon L \to L^{**}$. To conclude, we prove that $\operatorname{ev}$ is open. Let $U$ be any open vector subspace in $L$, thus $L = U \oplus F$ for some $F$ finite dimensional. We claim that $\operatorname{ev}(U) = (F^{*})^{\perp}$. First, the inclusion $\operatorname{ev}(U) \subseteq (F^{*})^{\perp}$ is immediate. Let $\psi \in (F^{*})^{\perp}$. Let $x \in L$ such that $\operatorname{ev}_{x} = \psi$. Write $x = u + f$ where $u \in U$ and $f \in F$. Hence, $\operatorname{ev}_{x} = \operatorname{ev}_{u} + \operatorname{ev}_{f}$. Since $\operatorname{ev}$ is injective, it follows that there exists some $\phi\in F^{*}$ such that $\phi(f) \neq 0$ if $f$ is nonzero. Therefore, $f = 0$ and $\psi \in \operatorname{ev}(U)$. This concludes the proof.
 \end{proof}
 \begin{remark}\label{rem:completeness-is-necessary-for-sel-duality}
-	Observe that completeness cannot be dropped in the definition of a Tate space while preserving duality. Indeed, if $V$ is linearly compact but not complete its dual is discrete by \cref{lemm:duality-d-lattice-c-lattice} and by \cref{rem:dual-of-discrete-is-complete} its double dual is complete, hence $V \to V^{**}$ cannot be an isomorphism.
+	Observe that completeness cannot be dropped in the definition of a Tate space while preserving duality. Indeed, if $V$ is linearly compact but not complete its dual is discrete by \cref{lemm:duality-d-lattice-c-lattice} and by \cref{rem:dual-of-discrete-is-complete} its double dual is complete, hence $V \to V^{**}$ cannot be an isomorphism. In fact, during the proof of the duality theorem we checked that $V^{**}$ is the completion of $V$.
 \end{remark}
 \subsection*{Morphisms}
 A \textbf{morphism} of Tate spaces is a continuous linear homomorphism between Tate spaces.
