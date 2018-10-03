@@ -1,5 +1,6 @@
 %!TEX root = ../main.tex
 \chapter{Trace and Residue}\label{ch:trace-and-residue}
+We extend the definition of trace to a certain class of infinite dimensional operators to define an abstract residue. We follow the original structure in Tate's elegant article \cite{Tate} while translating his statements in the language of Tate's Linear Algebra.
 \section{Finitepotent maps and their trace}
 Let $k$ be a fixed ground field and $V$ a vector space over $k$. In this section we will expand the notion of trace of a linear endomorphism to include certain operators even when $V$ is infinite dimensional.
 \subsection*{Finitepotent maps}
@@ -23,7 +24,7 @@ We characterize finitepotent maps as follows.
 	If $f$ is finitepotent choose $W = f^{n}(V)$ for sufficiently large $n$. The first condition follows from definition. Also, $f(W) = f^{n+1}(V) \subseteq f^{n}(V) = W$. In addition, $\bar{f}^{n} = 0$. On the other hand, if such $W$ exists, note that condition (ii) assures that $\bar{f}$ is well defined. Moreover, as $\bar{f}$ is nilpotent, $f^{n}V \subseteq W$ for sufficiently large $n$ and by condition (i) above $\dim f^{n}(V) < \infty$.
 \end{proof}
 \subsection*{Trace}
-If $f$ is a finitepotent map and $W$ is as above, $\tr_{V}(f)\in k$ may be defined as $\tr_{W}(f)$ where $\tr_{W}(f)$ is the ordinary trace of $f$ viewed as a endomorphism of $W$. First, we will check that this definition does not depend on the choice of $W$. Suppose $W_{1}, W_{2} \subseteq V$ suffice the properties on \cref{lemm:characterization-of-finitepotent-maps}, then $W = W_{1} + W_{2}$ suffices them too. Hence, as the induced maps on $W/W_{1}$ and $W/W_{2}$ are nilpotent, they have have zero ordinary trace and since
+If $f$ is a finitepotent map and $W$ is as above, $\tr_{V}(f)\in k$ may be defined as $\tr_{W}(f)$ where $\tr_{W}(f)$ is the ordinary trace of $f$ viewed as a endomorphism of $W$ (which is defined since $f$ has finite-rank viewed in $\End(W)$). First, we will check that this definition does not depend on the choice of $W$. Suppose $W_{1}, W_{2} \subseteq V$ suffice the properties on \cref{lemm:characterization-of-finitepotent-maps}, then $W = W_{1} + W_{2}$ suffices them too. Hence, as the induced maps on $W/W_{1}$ and $W/W_{2}$ are nilpotent, they have have zero ordinary trace and since
 \begin{align*}
 	\tr_{W}(f) &= \tr_{W_{1}}(f) + \tr_{W/W_{1}}(f) \\
 	\tr_{W}(f) &= \tr_{W_{2}}(f) + \tr_{W/W_{2}}(f),
@@ -35,7 +36,7 @@ This definition extends some of the properties of the ordinary trace.
 	\begin{enumerate}[label = (\alph*)]
 		\item If $\dim V < \infty$, any endomorphism $f$ is finitepotent and $\tr_{V}(f)$ coincides with the ordinary trace.
 		\item If $f$ is nilpotent, then it is finitepotent and $\tr_{V}(f) = 0$.
-		\item If $f$ is finitepotent and $U$ is a subspace such that $f U \subseteq U$ then the induced maps on $U$ and $V/U$ are finitepotent and satisfy
+		\item If $f$ is finitepotent and $U$ is a subspace such that $f(U) \subseteq U$ then the induced maps on $U$ and $V/U$ are finitepotent and satisfy
 		\[
 		 	\tr_{V}(f) = \tr_{U}(f) + \tr_{V/U}(f)
 		 \] 
@@ -64,7 +65,9 @@ The following is the natural linearity property for $\tr$.
 \begin{proof}
 	It is enough to prove it in the case that $F$ is finite dimensional. Let $W = F^{n}V$ for $n$ as in the definition of finitepotent subspace, thus $\dim W < \infty$. Hence, for all $f\in F$, $W$ suffices the conditions in \cref{lemm:characterization-of-finitepotent-maps}. It follows that $\tr_{V}(f) = \tr_{W}(f)$ which is linear.
 \end{proof}
-\textcolor{red}{add note in ``general'' linearity of trace when .bib is ready}
+\begin{remark}\label{rem:general-linearity-trace}
+	In his paper, Tate asked if general linearity for finitepotent maps followed. His question was answered negatively in \cite{TATE-TRACE-COUNTER-EXAMPLE} where general linearity is reduced to the following: if the sum of two nilpotent endomorphisms is finitepotent, is the sum necessarily traceless?  
+\end{remark}
 \begin{proposition}\label{prop:trace-inavriant-under-commutator}
 	If $f,g \in \End_{k}(V)$ and $fg$ is finitepotent then $gf$ is also finitepotent and 
 	\[
@@ -90,26 +93,64 @@ The following is the natural linearity property for $\tr$.
 	commutes. We conclude $\tr_{W}(fg) = \tr_{W'}(gf)$ and it follows $\tr_{V}(fg) = \tr_{V}(gf)$.
 \end{proof}
 \section{Differential Calculus}
-In this section we introduce the theory of derivations and differentials over an arbitrary commutative ring $R$. Let $M$ be a $R$-module.
+In this section we introduce the theory of derivations and differentials over an arbitrary commutative ring $A$. Let $M$ be a $R$-module and $k$ a commutative ring. We follow \cite{EGA4} Section 20 and \cite{Matsumura} Section 25. 
+\begin{definition}\label{def:derivations-and-differentials}
+	A \textbf{derivation} from $A$ to $M$ is a map $D\colon A \to M$ satisfying properties
+	\begin{enumerate}[label = (\roman*)]
+			\item $D(f + g) = D(f) + D(g)$ and,
+			\item (\textit{Leibniz's Rule}) $D(fg) = fD(g) + gD(f)$ 
+	\end{enumerate}
+for all $f,g \in A$. The set of derivations from $A$ to $M$ becomes a $A$-module in a natural way. We will write it as $\Der(A,M)$. Moreover if $A$ is a $k$-algebra through a map $\varphi\colon k \to A$ we say that $D$ is a $\mathbf{k}$-\textbf{derivation} if $D$ is a derivation and $D \circ \varphi = 0$. In this case, the set of all $k$-derivations is denoted $\Der_{k}(A,M)$.
 
-	\textcolor{red}{Introduce bibliography from Matsumura}
-	\begin{definition}\label{def:derivations-and-differentials}
-		A \textbf{derivation} from $R$ to $M$ is a map $D\colon R \to M$ satisfying properties
-		\begin{enumerate}[label = (\roman*)]
-			\item $D(x + y) = D(x) + D(y)$ and,
-			\item (\textit{Leibniz's Rule}) $D(xy) = xD(y) + yD(x)$ 
-		\end{enumerate}
-		for all $x.y \in R$. The set of derivations from $R$ to $M$ becomes a $R$-module in a natural way. We will write it as $\Der(R,M)$. Moreover if $R$ is a $k$-algebra through a map $f\colon k \to R$ we say that $D$ is a $\mathbf{k}$-\textbf{derivation} if $D \circ f = 0$. In this case, the set of all $k$-derivations is denoted $\Der_{k}(R,M)$.
+If $M = A$, we will denote $\Der_{k}(A,A)$ simply by $\Der_{k}(A)$. In particular, if $D$ and $D'$ are two $k$-derivations then its bracket $[D,D'] = DD' - D'D$ under composition as $A \to A$ maps is also a $k$-derivation. Therefore, $\Der_{k}(A)$ under this structure is a Lie Algebra.
+\end{definition}
+\begin{definition}\label{def:extension-of-algebras}
+Let $B$ be a $k$-algebra and $C$ an ideal in $B$ with $C^{2} = 0$; set $A =B/C$. In this way, $C$ can be viewed as a $A$-module. In this situation we say that $B$ is an \textbf{extension} of the $k$-algebra $A$ by the $A$-module $C$. Usually, we simply write the exact sequence
+\[\label{eqn:extension}
+	0 \to C \to B \xrightarrow{\pi} A \to 0
+\]
+As usual, we will say that such sequence \textbf{splits} if there exists a retraction; that is, a $k$-algebra homomorphism $\rho\colon A \to B$ such that $\pi \circ \rho = 1_{A}$. In this case we can identify $B = C\oplus A$. Conversely, starting from any $k$-algebra $A$ and any $A$-module $C$, one can always define a structure on $A \oplus C$ such that the extension (\ref{eqn:extension}) splits. Namely, 
+\[
+			(a,c)(a',c') = (aa',ac' + a'c)
+\]
+for $a,a'\in A$ and $c,c' \in C$. Common notations for this algebra are $D_{A}(C)$ or $A * C$.		
+\end{definition}
+\begin{definition}\label{def:lifting}
+Given a commutative diagram of $k$-algebras
+\[
+	\begin{tikzcd}
+		 	B \arrow[r, "f"] & A \\
+		 	& C\arrow[lu, "h"] \arrow[u, "g"]
+	\end{tikzcd} 
+\]
+thinking of $f$ as a fixed map. In this situation we say that $h$ is a \textbf{lifting} of $g$ to $B$. 
+\end{definition}
+\begin{proposition}\label{prop:two-liftings}
+	Suppose we're given a commutative diagram as in the previous definition with an additional lifting $h'\colon C \to B$. Then, if $K = \ker f$ satisfies $K^{2} = 0$ it follows that $h - h'\colon C \to K$ is a $k$-derivation. Conversely, if $D \in \Der_{k}(C, K)$ then $h + D$ is another lifting of $g$ to $B$.
+\end{proposition}
 
-		If $M = R$, we will denote $\Der_{k}(R,R)$ simply by $\Der_{k}(R)$. In particular, if $D$ and $D'$ are two $k$-derivations then its bracket $[D,D'] = DD' - D'D$ under composition as $R \to R$ maps is also a $k$-derivation. Therefore, $\Der_{k}(R)$ under this structure is a Lie Algebra.
-	\end{definition}
-	\begin{proposition}\label{prop:differentials-representable-functor}
-		If $R$ is a $k$-algebra, consider the covariant functor from the category $\mathsf{Mod}_{R}$ to itself given by $M \mapsto \Der_{k}(R,M)$. This functor is representable.
-	\end{proposition}
-	\begin{proof}
-	
-	\end{proof}
-	
+\begin{proposition}\label{prop:}
+
+\end{proposition}
+
+\begin{theorem}\label{prop:differentials-representable-functor}
+	If $A$ is a $k$-algebra, consider the covariant functor from the category $\mathsf{Mod}_{A}$ to itself given by $M \mapsto \Der_{k}(A,M)$. This functor is representable. 
+\end{theorem}
+\begin{proof}
+	Let $\mu\colon A \otimes_{k} A \to A$ be the $k$-algebra homomorphism given by $f \otimes g \to fg$. Set
+	\[
+		I = \ker \mu, \quad \Omega_{A/k} = I/I^{2}, \quad \text{and,} \quad B = (A \otimes_{k} A)/I^{2}.
+	\]
+	Thus, $\mu$ induces $\mu'\colon B \to A$
+	\[
+		0 \to \Omega_{A/k} \to B \to A \to 0
+	\]
+	an extension of $A$ by $\Omega_{A/k}$. We claim that this extension splits. Moreover it has two splittings, by considering retractions
+	\[
+		j_{1}\colon A \to B \quad\text{and,}\quad j_{2}\colon A \to B,
+	\]
+	defined by $a \mapsto a\otimes 1$ mod $I^{2}$ and $a \mapsto 1 \otimes a$ mod $I^{2}$.
+\end{proof}
 \subsection*{Trace and Tate Spaces}
 Suppose that $V$ is a Tate space and consider $E = \End_{k}(V)$ the space of continuous endomorphisms of $V$. Thus, by \cref{prop:compact-and-discrete-2-sided-ideal} and \cref{prop:discrete-compact-operators-present-the-whole-space} we have 2-sided ideals $E_{0}, E_{+}$ and $E_{-}$ of $E$ such that $E_{+} + E_{-} = E$ and $E_{0} = E_{+} \cap E_{-}$. Moreover, \cref{rem:discrete-composition-compact} implies that $E_{0}$ is a finitepotent subspace.
 

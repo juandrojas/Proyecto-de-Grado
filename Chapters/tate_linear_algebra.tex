@@ -1,5 +1,6 @@
 %!TEX root = ../main.tex
 \chapter{Tate's Linear Algebra}\label{ch:tate-linear-algebra}
+In this chapter we explore linear topologies in vector spaces in order to introduce Tate spaces and their structure. Tate spaces will be central in the definition of abstract residues in Chapter 2 and the study of algebraic curves in Chapter 3. We follow definitions in \cite{Chiral} closely but not religiously.
 \section{Linear topologies}
 Fix a ground field $k$. From now on, a vector space will always mean a $k$-vector space.
 \begin{definition}\label{def:linear_topology}
@@ -110,6 +111,9 @@ If we consider the set of equivalence classes of $\sim$ on a vector space $V$ th
 \begin{definition}\label{def:linear_compactness}
 	Let $V$ be a linearly topologized vector space. A closed subset $L \subseteq V$ is \textbf{linearly compact} (respectively \textbf{linearly cocompact}) if for every open vector subspace $U$ we have $L \prec U$ (respectively $V/(L+U) \sim 0$). 
 \end{definition}
+\begin{remark}\label{rem:lefschetz-linear-compactness}
+	Linear compactness was introduced by S. Lefschetz in his influential \cite{Lefschetz-Alg-Top} in different terms. Namely, a linearly topologized vector space $V$ is said to be linearly compact if for every collection of closed cosets $X_{\alpha}$; that is, $X_{\alpha} = W_{\alpha} + x_{\alpha}$ where $W_{\alpha}$ is a vector subspace of $V$ and $x_{\alpha}\in V$, having the finite intersection property follows that $\bigcap_{\alpha} X_{\alpha} \neq \emptyset$. In this terms, linear compactness feels like a natural generalization of compactness for linearly topologized vector spaces. We extend this discussion in \cref{rem:lef-vs-beilinson}.
+\end{remark}
 Linear compactness behaves just as compactness if one uses the correct words.
 \begin{proposition}\label{prop:linear_compactness_properties}
 	Let $V$ be a linearly compact vector space, then
@@ -199,9 +203,9 @@ We're now ready to introduce the definition of a Tate space.
 \begin{definition}\label{def:tate-vector-space}
 	A \textbf{Tate space} $V$ is a complete linearly topologized vector space that admits a c-lattice. By the previous proposition and the observation in \cref{def:completion} we get
 	\[
-		V \cong \varprojlim_{L \in \mathscr{L}(V)} V/L
+		V \cong \varprojlim_{L \in \mathscr{U}} V/L
 	\]
-	where $\mathscr{L}(V)$ runs through all c-lattices of $V$.
+	where $\mathscr{U}$ runs through all c-lattices of $V$.
 \end{definition}
 \begin{example}\label{ex:tate-spaces}
 We give some examples of Tate spaces.
@@ -232,7 +236,7 @@ First, we prove that the word \emph{dually} in \cref{def:linear_compactness} act
 	we get the desired result by Tychonov's theorem in \cref{prop:linear_compactness_properties}. 
 \end{proof}
 \begin{remark}\label{rem:dual-of-discrete-is-complete}
-	Note that in the proof of the previous lemma the dual space of a discrete space is complete, as it is an arbitrary product of $k$ endowed with the product topology.
+	A closer look in the proof of the previous lemma indicates that the dual space of a discrete space is always complete.
 \end{remark}
 \begin{proposition}\label{prop:dual-space-is-tate}
 	If $V$ is a Tate space then $V^{*}$ with the topology previously introduced is also a Tate space.
@@ -291,7 +295,10 @@ We're ready to prove the analog of Pontryagin's duality for Tate spaces.
 	 since $L/U$ is discrete we conclude that $\phi_{U}$ is continuous. In other words, the image of $\phi_{U}$ under the inclusion $(L/U)^{*} \hookrightarrow L^{*}$ is $\phi$. Thus, $\psi(\phi) = \phi_{U}(x_{U} + U) = \phi(x_{U})$. We claim that $\psi(\phi) = \phi(x)$. Indeed, convergence of $(x_{U})$ implies that there exists a $W \in \mathscr{U}$ such that $W \subseteq U$ and $x - x_{W} \in U$. Thus, $\psi(\phi) = \phi_{W}(x_{W} + W) = \phi(x_{W}) = \phi(x)$, since $U \subseteq \ker\phi$. This implies surjectivity of $\operatorname{ev}\colon L \to L^{**}$. To conclude, we prove that $\operatorname{ev}$ is open. Let $U$ be any open vector subspace in $L$, thus $L = U \oplus F$ for some $F$ finite dimensional. We claim that $\operatorname{ev}(U) = (F^{*})^{\perp}$. First, the inclusion $\operatorname{ev}(U) \subseteq (F^{*})^{\perp}$ is immediate. Let $\psi \in (F^{*})^{\perp}$. Let $x \in L$ such that $\operatorname{ev}_{x} = \psi$. Write $x = u + f$ where $u \in U$ and $f \in F$. Hence, $\operatorname{ev}_{x} = \operatorname{ev}_{u} + \operatorname{ev}_{f}$. Since $\operatorname{ev}$ is injective, it follows that there exists some $\phi\in F^{*}$ such that $\phi(f) \neq 0$ if $f$ is nonzero. Therefore, $f = 0$ and $\psi \in \operatorname{ev}(U)$. This concludes the proof.
 \end{proof}
 \begin{remark}\label{rem:completeness-is-necessary-for-sel-duality}
-	Observe that completeness cannot be dropped in the definition of a Tate space while preserving duality. Indeed, if $V$ is linearly compact but not complete its dual is discrete by \cref{lemm:duality-d-lattice-c-lattice} and by \cref{rem:dual-of-discrete-is-complete} its double dual is complete, hence $V \to V^{**}$ cannot be an isomorphism. In fact, during the proof of the duality theorem we checked that $V^{**}$ is the completion of $V$.
+	Observe that completeness cannot be dropped in the definition of a Tate space while preserving duality. Indeed, if $V$ is linearly compact but not complete its dual is discrete by \cref{lemm:duality-d-lattice-c-lattice} and by \cref{rem:dual-of-discrete-is-complete} its double dual is complete, hence $V \to V^{**}$ cannot be an isomorphism. In fact, during the proof of the duality theorem we checked that $V^{**}$ is the completion of $V$. 
+\end{remark}
+\begin{remark}\label{rem:lef-vs-beilinson}
+	We now discuss definitions of linearly compact spaces as given in \cite{Lefschetz-Alg-Top} and \cite{Chiral}. In \cite{Lefschetz-Alg-Top} it is proven that a linearly compact vector space is immediately complete while our definition does not imply it necessarily. However, when $V$ is a complete space both definitions coincide. Indeed, Lefschetz proves that every linearly compact space is the dual of a discrete space which coincides with our definition of a complete linearly compact vector space by \cref{thm:self-duality}. Therefore, his definition of a \textbf{locally linearly compact vector space} (that is, a linearly topologized vector space admitting a linearly compact vector space) coincides with our notion of Tate space.
 \end{remark}
 \subsection*{Morphisms}
 A \textbf{morphism} of Tate spaces is a continuous linear homomorphism between Tate spaces.
@@ -307,10 +314,10 @@ First, we check the duality natural property for morphisms of Tate spaces.
 \end{proof}
 Discrete and linearly compact operators form a 2-sided ideal in $\Hom$; that is
 \begin{proposition}\label{prop:compact-and-discrete-2-sided-ideal}
-	If $f$ is a linearly compact operator (respectively discrete) then its composition (from any side) with an arbitrary morphism of Tate spaces is also linearly compact (respectively discrete). 
+	If $f$ is a linearly compact operator (respectively discrete) then its composition with an arbitrary morphism of Tate spaces is also linearly compact (respectively discrete). 
 \end{proposition}
 \begin{proof}
-	Let $A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D$ be morphisms of Tate spaces such that $g$ is linearly compact. Then, $\overline{g\circ f(A)} \subseteq \overline{g(B)}$ which is linearly compact, thus $\overline{g\circ f(A)}$ is linearly compact too. On the other hand, note that $h(\overline{g(B)}) \subseteq \overline{h\circ g(B)}$; therefore $\overline{h(\overline{g(B)})} = \overline{h\circ g(B)}$. However, $\overline{g(B)}$ is linearly compact and by item(b) in \cref{prop:linear_compactness_properties} $\overline{h(\overline{g(B)})}$ is linearly compact. In addition, the statement for discrete operators follows from the previous proposition.
+	Let $A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D$ be morphisms of Tate spaces such that $g$ is linearly compact. Then, $\overline{g\circ f(A)} \subseteq \overline{g(B)}$ which is linearly compact, thus $\overline{g\circ f(A)}$ is linearly compact too. On the other hand, note that $h(\overline{g(B)}) \subseteq \overline{h\circ g(B)}$; therefore $\overline{h(\overline{g(B)})} = \overline{h\circ g(B)}$. However, $\overline{g(B)}$ is linearly compact and by item (b) in \cref{prop:linear_compactness_properties} $\overline{h(\overline{g(B)})}$ is linearly compact. In addition, the statement for discrete operators follows from the previous proposition.
 \end{proof}
 \begin{remark}\label{rem:discrete-composition-compact}
 If $f$ is a compact operator and $g$ is a discrete operator, then $gf$ is \textbf{finite}; that is, $\dim gf(V) < \infty$.  
