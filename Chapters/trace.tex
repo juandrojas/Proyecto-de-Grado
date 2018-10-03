@@ -93,14 +93,14 @@ The following is the natural linearity property for $\tr$.
 	commutes. We conclude $\tr_{W}(fg) = \tr_{W'}(gf)$ and it follows $\tr_{V}(fg) = \tr_{V}(gf)$.
 \end{proof}
 \section{Differential Calculus}
-In this section we introduce the theory of derivations and differentials over an arbitrary commutative ring $A$. Let $M$ be a $R$-module and $k$ a commutative ring. We follow \cite{EGA4} Section 20 and \cite{Matsumura} Section 25. 
+In this section we introduce the theory of derivations and differentials over an arbitrary commutative ring $A$. Let $M$ be a $A$-module and $k$ a commutative ring. We follow \cite{EGA4} Section 20 and \cite{Matsumura} Section 25. 
 \begin{definition}\label{def:derivations-and-differentials}
 	A \textbf{derivation} from $A$ to $M$ is a map $D\colon A \to M$ satisfying properties
 	\begin{enumerate}[label = (\roman*)]
-			\item $D(f + g) = D(f) + D(g)$ and,
-			\item (\textit{Leibniz's Rule}) $D(fg) = fD(g) + gD(f)$ 
+			\item $D(a + b) = D(a) + D(b)$ and,
+			\item (\textit{Leibniz's Rule}) $D(ab) = aD(b) + bD(a)$ 
 	\end{enumerate}
-for all $f,g \in A$. The set of derivations from $A$ to $M$ becomes a $A$-module in a natural way. We will write it as $\Der(A,M)$. Moreover if $A$ is a $k$-algebra through a map $\varphi\colon k \to A$ we say that $D$ is a $\mathbf{k}$-\textbf{derivation} if $D$ is a derivation and $D \circ \varphi = 0$. In this case, the set of all $k$-derivations is denoted $\Der_{k}(A,M)$.
+for all $a,b \in A$. The set of derivations from $A$ to $M$ becomes a $A$-module in a natural way. We will write it as $\Der(A,M)$. Moreover if $A$ is a $k$-algebra through a map $\varphi\colon k \to A$ we say that $D$ is a $\mathbf{k}$-\textbf{derivation} if $D$ is a derivation and $D \circ \varphi = 0$. In this case, the set of all $k$-derivations is denoted $\Der_{k}(A,M)$.
 
 If $M = A$, we will denote $\Der_{k}(A,A)$ simply by $\Der_{k}(A)$. In particular, if $D$ and $D'$ are two $k$-derivations then its bracket $[D,D'] = DD' - D'D$ under composition as $A \to A$ maps is also a $k$-derivation. Therefore, $\Der_{k}(A)$ under this structure is a Lie Algebra.
 \end{definition}
@@ -109,7 +109,7 @@ Let $B$ be a $k$-algebra and $C$ an ideal in $B$ with $C^{2} = 0$; set $A =B/C$.
 \[\label{eqn:extension}
 	0 \to C \to B \xrightarrow{\pi} A \to 0
 \]
-As usual, we will say that such sequence \textbf{splits} if there exists a retraction; that is, a $k$-algebra homomorphism $\rho\colon A \to B$ such that $\pi \circ \rho = 1_{A}$. In this case we can identify $B = C\oplus A$. Conversely, starting from any $k$-algebra $A$ and any $A$-module $C$, one can always define a structure on $A \oplus C$ such that the extension (\ref{eqn:extension}) splits. Namely, 
+As usual, we will say that such sequence \textbf{splits} if there exists a retraction; that is, a $k$-algebra homomorphism $\rho\colon A \to B$ such that $\pi \circ \rho = 1_{A}$. In this case we can identify $B = C\oplus A$. Conversely, starting from any $k$-algebra $A$ and any $A$-module $C$, one can always define a structure on $A \oplus C$ such that $A\oplus C$ is an extension of $A$ by $C$. Namely, 
 \[
 			(a,c)(a',c') = (aa',ac' + a'c)
 \]
@@ -125,14 +125,22 @@ Given a commutative diagram of $k$-algebras
 \]
 thinking of $f$ as a fixed map. In this situation we say that $h$ is a \textbf{lifting} of $g$ to $B$. 
 \end{definition}
-\begin{proposition}\label{prop:two-liftings}
+\begin{lemma}\label{lemm:two-liftings}
 	Suppose we're given a commutative diagram as in the previous definition with an additional lifting $h'\colon C \to B$. Then, if $K = \ker f$ satisfies $K^{2} = 0$ it follows that $h - h'\colon C \to K$ is a $k$-derivation. Conversely, if $D \in \Der_{k}(C, K)$ then $h + D$ is another lifting of $g$ to $B$.
-\end{proposition}
-
-\begin{proposition}\label{prop:}
-
-\end{proposition}
-
+\end{lemma}
+\begin{proof}
+	First, observe that $(h - h')(C)$ lies in $K$ because both $h$ and $h'$ are liftings of $g$ to $B$. Since $K^{2} = 0$, then $K$ can be considered as $f(B)$-module and by means of $g$ as a $C$-module. Then, $h-h'\colon C \to K$ is a map of $C$-modules. Now, let $c,c' \in C$ then
+	\begin{align*}
+	(h -h')(cc') &= h(c)h(c') - h'(c)h'(c') \\
+	&= h(c)h(c') - h'(c)h'(c') - h(c)h'(c') + h'(c')h(c) \\
+	\end{align*}
+	since $c \cdot k = h(c)k = h'(c)k$ for all $k \in K$ it follows that
+	\begin{align*}
+		(h -h')(cc') &= c\cdot h(c') - c'\cdot h'(c') - c\cdot h'(c') + c'\cdot h(c) \\
+		&= c\cdot (h - h')(c') + c'\cdot (h - h')(c)
+	\end{align*}
+	which implies that $h - h'$ is a $k$-derivation. Observe that $h + D$ is a lifting because $D(C)$ lies in $K$.
+\end{proof}
 \begin{theorem}\label{prop:differentials-representable-functor}
 	If $A$ is a $k$-algebra, consider the covariant functor from the category $\mathsf{Mod}_{A}$ to itself given by $M \mapsto \Der_{k}(A,M)$. This functor is representable. 
 \end{theorem}
@@ -141,16 +149,38 @@ thinking of $f$ as a fixed map. In this situation we say that $h$ is a \textbf{l
 	\[
 		I = \ker \mu, \quad \Omega_{A/k} = I/I^{2}, \quad \text{and,} \quad B = (A \otimes_{k} A)/I^{2}.
 	\]
-	Thus, $\mu$ induces $\mu'\colon B \to A$
+	Thus, $\mu$ induces $\mu'\colon B \to A$ such that
 	\[
 		0 \to \Omega_{A/k} \to B \to A \to 0
 	\]
-	an extension of $A$ by $\Omega_{A/k}$. We claim that this extension splits. Moreover it has two splittings, by considering retractions
+	is an extension of $A$ by $\Omega_{A/k}$. We claim that this extension splits. Moreover it has two splittings, by considering retractions
 	\[
 		j_{1}\colon A \to B \quad\text{and,}\quad j_{2}\colon A \to B,
 	\]
-	defined by $a \mapsto a\otimes 1$ mod $I^{2}$ and $a \mapsto 1 \otimes a$ mod $I^{2}$.
+	defined by $a \mapsto a\otimes 1$ mod $I^{2}$ and $a \mapsto 1 \otimes a$ mod $I^{2}$. By \cref{lemm:two-liftings} $d := j_{1} - j_{2}$ is a $k$-derivation of $A$ to $\Omega_{A/k}$. Now, we prove that 
+	\begin{align}\label{eqn:representable}
+		\Der_{k}(A,M) &\cong \Hom_{A}(\Omega_{A/k}, M).
+	\end{align}	
+	Let $D \in \Der_{k}(A,M)$ and define $\varphi\colon A \otimes_{k} A \to A * M$ by $\varphi(x \otimes y) = (xy, xD(y))$ then $\varphi$ is a $k$-algebra homomorphism since it is compatible with the operation in $A * M$ defined in \cref{def:extension-of-algebras}. In addition, if $\sum x_{i} \otimes y_{i}$ lies in $I$ then
+	\[
+		\mu\left(\sum x_{i} \otimes y_{i}\right) = \sum x_{i}y_{i} = 0 \implies \varphi\left(\sum x_{i} \otimes y_{i}\right) = (0, \sum x_{i}D(y_{i}))
+	\]
+	whence $\varphi(I)$ lies in $M$. Moreover, by Leibniz's Rule $\varphi$ factors through $I^{2}$ yielding a map $f\colon \Omega_{A/k}\to M$. For $a \in A$ it follows that 
+	\begin{align*}
+		f(da) &= f(1 \otimes a - a \otimes 1 \mod I^{2}) = \varphi(1 \otimes a) - \varphi(a \otimes 1) \\
+		&= D(a) - aD(1) = D(a). 
+	\end{align*} 	
+	Therefore, $D = f\circ d$. Now, we prove that such $f$ is unique. First, observe that $\Omega_{A/k}$ has the $A$-module structure induced by multiplication by $a \otimes 1$ (or $1 \otimes a$ since $1 \otimes a - a \otimes 1 \in I$). Therefore, if $\xi = \sum x_{i} \otimes y_{i} \mod I^{2} \in \Omega_{A/k}$ then $a\xi = \sum ax_{i}\otimes y_{i} \mod I^{2}$, and $f(a\xi) = \sum ax_{i}D(y_{i}) = af(\xi)$, so that $f$ is $A$-linear. We have
+	\[
+		a \otimes a' = (a \otimes 1)(1 \otimes a' - a' \otimes 1) +  aa' \otimes 1
+	\]
+	so that if $\omega = \sum x_{i}\otimes y_{i} \in I$ then $\omega \mod I^{2} = \sum x_{i} dy_{i}$ since $\sum x_{i}y_{i} = 0$. We conclude that $\{da\mid a\in A\}$ is a set of generators for the $A$-module $\Omega_{A/k}$. This implies uniqueness of $f$. Therefore, (\ref{eqn:representable}) holds.
 \end{proof}
+\begin{definition}\label{def:module-of-differentials}
+	The module $\Omega_{A/k}$ introduced in the proof of the previous theorem is called \textbf{module of differentials} of $A$ over $k$ or \textbf{module of Kähler differentials}, and for $a \in A$ the element $da\in \Omega_{A/k}$ is called the \textbf{differential} of $a$.
+\end{definition}
+\textcolor{red}{Further theory to be included if necessary.}
+
 \subsection*{Trace and Tate Spaces}
 Suppose that $V$ is a Tate space and consider $E = \End_{k}(V)$ the space of continuous endomorphisms of $V$. Thus, by \cref{prop:compact-and-discrete-2-sided-ideal} and \cref{prop:discrete-compact-operators-present-the-whole-space} we have 2-sided ideals $E_{0}, E_{+}$ and $E_{-}$ of $E$ such that $E_{+} + E_{-} = E$ and $E_{0} = E_{+} \cap E_{-}$. Moreover, \cref{rem:discrete-composition-compact} implies that $E_{0}$ is a finitepotent subspace.
 
