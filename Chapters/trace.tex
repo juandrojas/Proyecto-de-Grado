@@ -301,9 +301,9 @@ We prove some of the main properties of $\res$.
 	\overline{f_{+}}&\in E_{+}(W), \quad\text{and} \\
 	f_{+} \circ \iota &\in E_{+}(W),
 	\end{align*}
-	where $E_{\pm}(V/W)$ and $E_{\pm}(W)$ denote compact and discrete operators in $V/W$ and $W$ respectively. We leave it as an exercise to the reader.
+	where $E_{\pm}(V/W)$ and $E_{\pm}(W)$ denote compact and discrete operators in $V/W$ and $W$ respectively. These statements are straightforward and we leave them as an exercise to the reader.
 \end{proof}
-As a direct consequence of the previous proposition we get:
+As a direct consequence of the previous proposition we get the following:
 \begin{proposition}\label{prop:direct-sum-residue}
 	If $V$ is the direct sum of two closed submodules $W_{1}$ and $W_{2}$ then 
 	\[
@@ -320,8 +320,67 @@ If our Tate space is trivial so its residue.
 	\begin{align}\label{eqn:trivial-residue}
 		\res_{V}(fdg) = 0.
 	\end{align}
-	On the other hand, if $V$ is discrete then $E = E_{2}$. Thus, $f = 0 \mod E_{2}$ for all $f$. Thus, (\ref{eqn:trivial-residue}) holds.
+	On the other hand, if $V$ is discrete then $E = E_{-}$. Thus, $f = 0 \mod E_{-}$ for all $f \in K$. Thus, (\ref{eqn:trivial-residue}) holds.
 \end{proof}
+\begin{proposition}\label{prop:residue-and-continuity}
+	Let $f$ and $g$ belong to $K$. Then, if there exists a c-lattice $L$ in $V$ so that $fL + fgL + fg^{2}L \subseteq L$ it holds $\res_{V}(fdg) = 0$. In particular, when there exists $L$ a c-lattice so that $fL \subseteq L$ and $gL \subseteq L$ then $\res_{V}(fdg) = 0$.
+\end{proposition}
+\begin{proof}
+	Let $\pi$ be a continuous projection from $V$ to $L$. Then $\pi f \in E_{+}$ and $\pi f = f \mod E_{-}$. Thus, it follows that
+	\[
+		\res_{V}(fdg) = \tr([\pi f, g]) 
+	\] 
+	by \cref{lemm:trace-only-depends-on-K}. Let $h = [\pi f,g]$ and $W = L + gL$. Let $h_{V/W}$ and $h_{W}$ be the induced maps on $V/W$ and $W$ respectively. Then, the relation $fL + fgL + fg^{2}L \subseteq L$ implies that $h_{V/W} = 0$ and $h_{W} = 0$. By \cref{lemm:properties-trace} item (c) we conclude
+	\[
+		\res_{V}(fdg) = \tr_{V}(h) = \tr_{W}(h) + \tr_{V/W}(h) = 0.
+	\]
+\end{proof}
+In the following two propositions we examine the residue of a power.
+\begin{proposition}\label{prop:residue-of-a-power}
+	Let $f \in K$, then $\res_{V}(f^{n}df) = 0$ for all $n \geq 0$. Moreover, if $f$ is invertible the same holds for $n \leq -2$.
+\end{proposition}
+\begin{proof}
+	First, if $f_{+} = f \mod E_{-}$ then $f_{+}^{n} = f^{n} \mod E_{-}$. Therefore,
+	\[
+		\res_{V}(f^{n} df) = \tr([f_{+},f_{+}^{n}]) = 0.
+	\]
+	Second, if $f$ is invertible then
+	\[
+		fd(f^{-1}) + f^{-1}df = d(ff^{-1}) = d(1) = 0.
+	\]
+	which implies 
+	\[
+	f^{-2}df = -d(f^{-1}),
+	\]
+	and multiplying by $f^{-n}$ both sides, where $n\geq 0$, implies
+	\[
+	f^{-2-n}df = -(f^{-1})^{n}d(f^{-1}).
+	\]
+	By the preceding statement, $(f^{-1})^{n}d(f^{-1})$ has zero residue. 
+\end{proof}
+\begin{proposition}\label{prop:rediue-of-invertible-element}
+	If $f$ is invertible, so that $fL \subseteq L$ for some c-lattice $L$, then
+	\[
+		\res_{V}(f^{-1}df) = \dim_{k}(L/fL).
+	\]
+\end{proposition}
+\begin{proof}
+	If $\pi$ is a continuous projection of $V$ into $L$ then 
+	\[
+	\res_{V}(f^{-1}df) = \tr([\pi f^{-1}, f]). 
+	\]
+	Let $g = [\pi f^{-1}, f]$. Since $fL\subseteq L$ we obtain
+	\[
+		g_{V/L} = 0, \quad g_{L/fL}= 1\quad\text{and,}\quad g_{fL} = 0, 
+	\]
+	where $g_{V/L}, g_{L/fL}$ and $g_{fL}$ denote the induced maps in $V/L$, $L/fL$ and, $fL$ respectively. Then, by \cref{lemm:properties-trace} item (c) it follows that
+	\[
+		\tr_{V}(g) = \tr_{L}(g) + \tr_{V/L}(g) = \tr_{fL}(g) + \tr_{L/fL}(g) + \tr_{V/L}(g).
+	\]
+	Observe that $\dim L/fL < \infty$ since $fL$ is open and $L$ is linearly compact.
+\end{proof}
+
+
 
 
 
