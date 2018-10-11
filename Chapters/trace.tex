@@ -93,9 +93,9 @@ The following is the natural linearity property for $\tr$.
 	commutes. We conclude $\tr_{W}(fg) = \tr_{W'}(gf)$ and it follows $\tr_{V}(fg) = \tr_{V}(gf)$.
 \end{proof}
 \subsection*{Trace and Tate Spaces}\label{Tate-and-trace}
-Suppose that $V$ is a Tate space and consider $E = \End_{k}(V)$ the space of continuous endomorphisms of $V$. Thus, by \cref{prop:compact-and-discrete-2-sided-ideal} and \cref{prop:discrete-compact-operators-present-the-whole-space} we have 2-sided ideals $E_{0}, E_{+}$ and $E_{-}$ of $E$ such that $E_{+} + E_{-} = E$ and $E_{0} = E_{+} \cap E_{-}$. Moreover, \cref{rem:discrete-composition-compact} implies that $E_{0}$ is a finitepotent subspace.
+Suppose that $V$ is a Tate space and consider $E = \End_{k}(V)$ the space of continuous endomorphisms of $V$. Thus, by \cref{prop:compact-and-discrete-2-sided-ideal} and \cref{prop:discrete-compact-operators-present-the-whole-space} we have 2-sided ideals $\End_{0}(V), \End_{+}(V)$ and $\End_{-}(V)$ of $E$ such that $\End_{+}(V) + \End_{-}(V) = E$ and $\End_{0}(V) = \End_{+}(V) \cap \End_{-}(V)$. Moreover, \cref{rem:discrete-composition-compact} implies that $\End_{0}(V)$ is a finitepotent subspace.
 \begin{lemma}\label{lemm:traceless-commutator}
-	Suppose $f \in E_{+}$ and $g \in E_{-}$ or $f \in E_{-}$ and $g\in E_{+}$. Then the commutator $[f,g] = fg - gf$ belongs to $E_{0}$ and it is traceless.
+	Suppose $f \in \End_{+}(V)$ and $g \in \End_{-}(V)$ or $f \in \End_{-}(V)$ and $g\in \End_{+}(V)$. Then the commutator $[f,g] = fg - gf$ belongs to $\End_{0}(V)$ and it is traceless.
 \end{lemma}
 \begin{proof}
 	This immediate from the previous discussion and \cref{prop:trace-inavriant-under-commutator}.
@@ -210,22 +210,22 @@ thinking of $f$ as a fixed map; we say that $h$ is a \textbf{lifting} of $g$ to 
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	The $k$-bilinear map $(f,g) \mapsto fdg$ induces $c$. Since $\{df \mid f\in K\}$ is a generating set for $\Omega_{K/k}$ as a $K$-module it follows that $c$ is surjective. 
+	The $k$-bilinear map $(f,g) \mapsto fdg$ induces $c$. Since $\{df \mid f\in K\}$ is a generating set for $\Omega_{K/k}$ as a $K$-module it follows that $c$ is surjective. \textcolor{red}{finish this proof}
 \end{proof}
 
 
 \textcolor{red}{Further theory to be included if necessary.}
 \section{Abstract Residue and its properties}
-During this section let $k$ be a field, $K$ a commutative $k$-algebra with $1$, and $V$ a $K$-module so that when viewed as a $k$-vector space is a Tate space and for all $f \in K$ the map 
+During this section let $k$ be a field, $K$ a commutative $k$-algebra with $1$, and $V$ a $K$-module so that when viewed as a $k$-vector space is a Tate space and $K$ acts continuously on $V$. Namely, for all $f \in K$ the map 
 \begin{align*}
 	f\colon &V \to V \\
 	&x \mapsto fx 
 \end{align*}
 is continuous. In this way, $K$ operates on $V$ through $E$ (maintaining notation from \cref{Tate-and-trace}). We will not differentiate $f\in K$ with its induced map in $E$.
 \begin{lemma}\label{lemm:trace-only-depends-on-K}
-	Let $f,g \in K$. Then, there are $f_{+}, g_{+} \in E_{+}$ so that 
+	Let $f,g \in K$. Then, there are $f_{+}, g_{+} \in \End_{+}(V)$ so that 
 	\[
-	f = f_{+} \mod E_{-} ,\quad g = g_{+} \mod E_{-}
+	f = f_{+} \mod \End_{-}(V) ,\quad g = g_{+} \mod \End_{-}(V)
 	\]
 	and, the equality
 	\[
@@ -234,11 +234,11 @@ is continuous. In this way, $K$ operates on $V$ through $E$ (maintaining notatio
 	holds.
 \end{lemma}
 \begin{proof}
-The existence of $f_{+}$ and $g_{+}$ is immediate from the fact that $E = E_{+} + E_{-}$.  Clearly $[f_{+},g_{+}]\in E_{+}$ and the fact that $K$ is commutative implies that $[f,g] = 0$. Therefore,
+The existence of $f_{+}$ and $g_{+}$ is immediate from the fact that $E = \End_{+}(V) + \End_{-}(V)$.  Clearly $[f_{+},g_{+}]\in \End_{+}(V)$ and the fact that $K$ is commutative implies that $[f,g] = 0$. Therefore,
 \[
-	[f_{+},g_{+}] = [f,g] \mod E_{-}.
+	[f_{+},g_{+}] = [f,g] \mod \End_{-}(V).
 \]
-Hence, $[f_{+},g_{+}]\in E_0$. Similarly, $[f,g_{+}]$ and $[f_{+}, g]$ belong to $E_{0}$. Whence, one can consider their trace. Furthermore, $f_{+} \in E_{+}$ and $g_{+} - g \in E_{-}$ thus $\tr([f_{+}, g_{+} - g]) = 0$ by \cref{lemm:traceless-commutator}; we conclude $\tr([f_{+}, g_{+}]) = \tr([f_{+}, g])$. The other equality follows similarly.
+Hence, $[f_{+},g_{+}]\in E_0$. Similarly, $[f,g_{+}]$ and $[f_{+}, g]$ belong to $\End_{0}(V)$. Whence, one can consider their trace. Furthermore, $f_{+} \in \End_{+}(V)$ and $g_{+} - g \in \End_{-}(V)$ thus $\tr([f_{+}, g_{+} - g]) = 0$ by \cref{lemm:traceless-commutator}; we conclude $\tr([f_{+}, g_{+}]) = \tr([f_{+}, g])$. The other equality follows similarly.
 \end{proof}
 The previous lemma implies that common values of traces $[f_{+},g_{+}]$, $[f_{+}, g]$ and $[f, g_{+}]$ depend only on $f$ and $g$ and not in the choice of $f_{+}$ and $g_{+}$. Therefore, one could define an assignment $(f,g) \mapsto \tr([f_{+}, g_{+}])$ which turns out to be $k$-bilinear by \cref{prop:linearity-trace}. Thus, there exists a map
 \begin{align*}
@@ -264,11 +264,11 @@ With these tools at our hands we are ready to prove the existence of residue.
 		\Omega_{K/k} \arrow[ur, dotted, swap, "\res_{V}"] &
 	\end{tikzcd}
 	\]
-	commutes. Therefore, such map exists if and only if it vanishes on $\ker c$. To see this, let $f,g$ and $h$ in $K$ and choose $f_{+}, g_{+}$ and $h_{+}$ in $E_{+}$ projections in $E_{+}$. Then,
+	commutes. Therefore, such map exists if and only if it vanishes on $\ker c$. To see this, let $f,g$ and $h$ in $K$ and choose $f_{+}, g_{+}$ and $h_{+}$ in $\End_{+}(V)$ projections in $\End_{+}(V)$. Then,
 	\[
 		fg = f_{+}g_{+} + (f_{+}g_{-} + f_{-}g_{+} + f_{-}g_{-}),
 	\]
-	and $f_{+}g_{-} + f_{-}g_{+} + f_{-}g_{-} \in E_{-}$. Whence, $(fg)_{+} = f_{+}g_{+}$. Analogously $(gh)_{+} = g_{+}h_{+}$ and $(fh)_{+} = f_{+}h_{+}$. This fact and the identify
+	and $f_{+}g_{-} + f_{-}g_{+} + f_{-}g_{-} \in \End_{-}(V)$. Whence, $(fg)_{+} = f_{+}g_{+}$. Analogously $(gh)_{+} = g_{+}h_{+}$ and $(fh)_{+} = f_{+}h_{+}$. This fact and the identify
 	\[
 		[f_{+},g_{+}h_{+}] - [f_{+}g_{+}, h_{+}] - [f_{+}h_{+}, g_{+}] = 0
 	\]
@@ -296,12 +296,12 @@ We prove some of the main properties of $\res$.
 \begin{proof}
 	It is enough to prove it for $\omega = f dg$. By \cref{lemm:properties-trace} item (c) we only need to check that for all $f \in K$ the induced map $\overline{f}\colon V/W \to V/W$ and $f \circ \iota$, where $\iota$ denotes the inclusion $W \to V$, suffice 
 	\begin{align*}
-	\overline{f} &= \overline{f_{+}} \mod E_{-}(V/W), \\
-	f \circ \iota &= f_{+} \circ \iota \mod E_{-}(W), \\ 
-	\overline{f_{+}}&\in E_{+}(W), \quad\text{and} \\
-	f_{+} \circ \iota &\in E_{+}(W),
+	\overline{f} &= \overline{f_{+}} \mod \End_{-}(V/W), \\
+	f \circ \iota &= f_{+} \circ \iota \mod \End_{-}(W), \\ 
+	\overline{f_{+}}&\in \End_{+}(V/W), \quad\text{and} \\
+	f_{+} \circ \iota &\in \End_{+}(W),
 	\end{align*}
-	where $E_{\pm}(V/W)$ and $E_{\pm}(W)$ denote compact and discrete operators in $V/W$ and $W$ respectively. These statements are straightforward and we leave them as an exercise to the reader.
+	where $\End_{\pm}(V/W)$ and $\End_{\pm}(W)$ denote compact and discrete operators in $V/W$ and $W$ respectively. These statements are straightforward and we leave them as an exercise to the reader.
 \end{proof}
 As a direct consequence of the previous proposition we get the following:
 \begin{proposition}\label{prop:direct-sum-residue}
@@ -316,17 +316,17 @@ If our Tate space is trivial so its residue.
 	If $V$ is either linearly compact or discrete then $\res_{V}(\Omega_{K/k}) = 0$.
 \end{proposition}
 \begin{proof}
-	If $V$ is linearity compact then $E_{+} = E$ and $f_{+} = f$ for all $f \in K$. Since $[f,g] = 0$ then 
+	If $V$ is linearity compact then $\End_{+}(V) = E$ and $f_{+} = f$ for all $f \in K$. Since $[f,g] = 0$ then 
 	\begin{align}\label{eqn:trivial-residue}
 		\res_{V}(fdg) = 0.
 	\end{align}
-	On the other hand, if $V$ is discrete then $E = E_{-}$. Thus, $f = 0 \mod E_{-}$ for all $f \in K$. Thus, (\ref{eqn:trivial-residue}) holds.
+	On the other hand, if $V$ is discrete then $E = \End_{-}(V)$. Thus, $f = 0 \mod \End_{-}(V)$ for all $f \in K$. Thus, (\ref{eqn:trivial-residue}) holds.
 \end{proof}
 \begin{proposition}\label{prop:residue-and-continuity}
 	Let $f$ and $g$ belong to $K$. Then, if there exists a c-lattice $L$ in $V$ so that $fL + fgL + fg^{2}L \subseteq L$ it holds $\res_{V}(fdg) = 0$. In particular, when there exists $L$ a c-lattice so that $fL \subseteq L$ and $gL \subseteq L$ then $\res_{V}(fdg) = 0$.
 \end{proposition}
 \begin{proof}
-	Let $\pi$ be a continuous projection from $V$ to $L$. Then $\pi f \in E_{+}$ and $\pi f = f \mod E_{-}$. Thus, it follows that
+	Let $\pi$ be a continuous projection from $V$ to $L$. Then $\pi f \in \End_{+}(V)$ and $\pi f = f \mod \End_{-}(V)$. Thus, it follows that
 	\[
 		\res_{V}(fdg) = \tr([\pi f, g]) 
 	\] 
@@ -340,7 +340,7 @@ In the following two propositions we examine the residue of a power.
 	Let $f \in K$, then $\res_{V}(f^{n}df) = 0$ for all $n \geq 0$. Moreover, if $f$ is invertible the same holds for $n \leq -2$.
 \end{proposition}
 \begin{proof}
-	First, if $f_{+} = f \mod E_{-}$ then $f_{+}^{n} = f^{n} \mod E_{-}$. Therefore,
+	First, if $f_{+} = f \mod \End_{-}(V)$ then $f_{+}^{n} = f^{n} \mod \End_{-}(V)$. Therefore,
 	\[
 		\res_{V}(f^{n} df) = \tr([f_{+},f_{+}^{n}]) = 0.
 	\]
@@ -379,8 +379,83 @@ In the following two propositions we examine the residue of a power.
 	\]
 	Observe that $\dim L/fL < \infty$ since $fL$ is open and $L$ is linearly compact.
 \end{proof}
+\subsection*{Relationship of residues under extensions}
+Finally, we explore the case where $K'$ is a commutative $k$-algebra containing $K$. We will examine $\Omega_{K'/k}$ and $\Omega_{K/k}$ and the relationship between their residues. In this case the injection $K \to K'$ induces a map between $\Omega_{K/k} \to \Omega_{K'/k}$ which may not be injective. 
+\begin{proposition}\label{prop:residue-commutes-extension}
+	Let $V$ be a Tate space such that multiplication by any $f\in K'$ induces a continuous endomorphism in $\End_{k}(V)$. Therefore, for all $g\in K$ multiplication by $g$ is continuous as well. Hence, we can define
+\[
+	\res_{V}\colon\Omega_{K/k} \to k, \quad\text{and}\quad \res_{V}'\colon \Omega_{K'/k}\to k.
+\]
+In this situation, the diagram
+\[
+\begin{tikzcd}
+	\Omega_{K/k} \arrow[r] \arrow[dr, swap, "\res_{V}"] & \Omega_{K'/k} \arrow[d, "\res_{V}'"] \\
+	& k  
+\end{tikzcd}
+\]
+commutes.
+\end{proposition}
+\begin{proof}
+	For $f,g \in K$ their residue symbol is independent whether $f\,dg$ is thought as an element in $\Omega_{K'/k}$ or $\Omega_{K/k}$. This observation implies the commutativity of the diagram.
+\end{proof}
+Now, assume that $K'$ is free $K$-module of finite rank $n$ and consider the tensor product $V' = K' \otimes_{K} V$. Since the tensor product and direct sum commute, it follows that $V' \cong K^{n} \otimes_{K} V \cong (K \otimes_{K} V)^{n}\cong V^{n}$. In coordinates, if $(x_{i})$ is a $K$-base for $K'$ then the map $(v_{1}, \ldots, v_{n}) \mapsto x_{1}\otimes v_{1} + \ldots + x_{n}\otimes v_{n}$ is an isomorphism. With the topology induced by this isomorphism $V'$ is a Tate space.
+\begin{proposition}\label{prop:identification-matrices-entries-in-endomorphisms}
+	The space $\End(V')$ is isomorphic to the space of $n \times n$ matrices with entries in $\End(V)$ denoted $\Mat_{n}(\End_{0}(V))$. Moreover, if $K$ acts continuously on $V$ so does $K'$ on $V'$.
+\end{proposition}
+\begin{proof}
+	Let $\varphi$ be a continuous $k$-endomorphism of $V'$, then there exists a unique set $\{\varphi_{ij}\}_{i,j=1}^{n}$ contained in $\End(V)$ such that
+	\[
+	\varphi\left(\sum_{i} x_{i} \otimes v_{i}\right) = \sum_{i,j} x_{i} \otimes \varphi_{ij}(v_{j})
+	\]
+	for all $v_{1}, \ldots, v_{n} \in V$. Now, let $f' \in K'$, then
+	\[
+		f'x_{i} = \sum f_{ij}x_{j}
+	\]
+	where $f_{ij}\in K$. Since $f_{ij}\in\End(V)$ it follows that $f' \in \End(V')$ by the description of our topology in $V'$.
+\end{proof}
+Let $\End'_{0}(V')$ be the inverse image of $\Mat_{n}(\End_{0}(V))$ under the isomorphism in \cref{prop:identification-matrices-entries-in-endomorphisms}. Note that $\End'_{0}(V')\subseteq \End_{0}(V')$. Therefore, the map
+\[
+	\tr_{V'}\colon \End'_{0}(V') \to k
+\]
+is well-defined. 
+\begin{proposition}\label{prop:trace-is-trace}
+	For $\varphi \in \End'_{0}(V')$ the identity
+	\[
+		\tr_{V'}(\varphi) = \sum_{i}\tr_{V}(\varphi_{ii})
+	\]
+	holds.
+\end{proposition}
+\begin{proof}
+	Write $(\varphi_{ij})$ as a sum of a strictly lower triangular,  strictly upper triangular and diagonal matrix. Namely,
+	\[
+		\varphi = \varphi_{LT} + \varphi_{UT} + \varphi_{D}, 
+	\]
+	where $\varphi_{LT}$, $\varphi_{UT}$ and $\varphi_{D}$  have a matrix representation of a strictly lower, strictly upper and diagonal matrix respectively. Observe that $\varphi_{LT}$, $\varphi_{UT}$, $\varphi_{D}$ belong to $\End'_{0}(V')$ and $\varphi_{LT}$ and $\varphi_{UT}$ are nilpotent. By \cref{lemm:properties-trace} it follows that
+	\[
+		\tr_{V'}(\varphi) = \tr_{V'}(\varphi_{D}).
+	\]
+	On the other hand, by definition
+	\[
+		\tr_{V'}(\varphi_{D}) = \sum \tr_{V}(\varphi_{ii}).
+	\]
+\end{proof}
 
 
-
-
+\begin{theorem}\label{thm:residue-of-finite-rank}
+	For all $f' \in K'$ and $g \in K$ the equality
+	\[
+		\res_{V}'(f' dg) = \res_{V}((\tr_{K'/K}(f')dg))
+	\]
+	holds.
+\end{theorem}
+\begin{proof}
+	Let $L$ be a c-lattice in $V$ then $L' = x_{1} \otimes L + \ldots + x_{n} \otimes L$ is a c-lattice in $V'$. Let $\pi\colon V\to L$ be a linear continuous projection and $\pi'$ be the corresponding element to $(\delta_{ij}\pi)$ under the isomorphism $\End(V') \cong \Mat_{n}(\End(V))$. Therefore, $\pi'\colon V' \to L'$ is a linear continuous projection. On the other hand, let $f'\in K'$ and $g\in K$. Then, $f'$ corresponds to $(f_{ij})\in \Mat_{n}(K)$ and let $g'$ be the corresponding element to $(\delta_{ij} g)$ in $\End(V')$. Hence, the commutator $[\pi'f', g']$ is mapped to $[\pi f_{ij}, g]$ by the map $\End(V') \to \Mat_{n}(\End(V))$. By \cref{prop:trace-is-trace}, it follows that
+	\begin{align*}
+		\res_{V'}(f' dg) &= \tr_{V'}([\pi'f', g'])  \\
+		&= \sum \tr_{V}([\pi f_{ii}, g]) \\
+		&= \sum \res_{V}(f_{ii} dg) \\
+		&= \res_{V}\left(\left(\sum f_{ii}\right)dg\right) \\
+		&= \res_{V}\left(\tr_{K'/K}(f')dg\right).
+	\end{align*}
+\end{proof}
 
