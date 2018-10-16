@@ -2,6 +2,7 @@
 \documentclass[oneside, 12pt]{book} %oneside evens margins, twoside for printing
 \usepackage{classicthesis}
 \include{classicthesis-config}
+\usepackage[left=1.5in,right=1.5in,top=1in,bottom=1in,includehead,includefoot]{geometry}
 \usepackage{amsmath} % AMS packages
 \usepackage[amsthm,thmmarks]{ntheorem}
 \usepackage{amssymb}
@@ -35,9 +36,11 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{example}[definition]{Example}
+\newtheorem{notation}[definition]{Notation}
 
 \theoremstyle{plain}
 \newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
 \newtheorem{lemma}[definition]{Lemma}
 \newtheorem{proposition}[definition]{Proposition}
 
