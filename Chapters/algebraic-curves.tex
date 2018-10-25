@@ -1,9 +1,140 @@
 %!TEX root = ../main.tex
 \chapter{Algebraic curves}\label{ch:algebraic-curves}
-In the preceding chapter we presented the ``residue map'' in an abstract context. In this chapter we explore residues on algebraic curves using Tate's construction. First, we recall briefly the basic theory of algebraic projective curves. We reference the reader to \cite{curves}. 
+In the preceding chapter we presented the ``residue map'' in an abstract context. In this chapter, we explore residues on algebraic curves using Tate's construction. First, we recall briefly and with little detail the basic theory of algebraic projective curves. For a complete exposition we reference the reader to \cite{curves} and \cite{hartshorne}. We will borrow many results from commutative algebra, most of them can be found in \cite{Matsumura}, \cite{comm-alg} and \cite{atiyah}.
 \section{Basic theory of algebraic curves}
-Let $k$ be an algebraically closed field.
-\begin{definition}\label{def:algebraic-curve}
-	An \textbf{algebraic curve} is a one-dimensional non-singular projective variety.
+Let $k$ be an algebraically closed field. Let $(X, \O_{X})$ be a projective algebraic variety. Then 
+\[
+	k(X) := \varinjlim_{U\subseteq X} \O_{X}(U)
+\]
+ is the \textbf{function field} or \textbf{field of rational functions} of $X$. In addition, consider the stalk 
+\[
+	\O_{X,p} := \varinjlim_{p\in U\subseteq X} \O_{X}(U)
+\]
+of regular functions near $p$. We obtain natural injections 
+\[
+ 	\O_{X}(X) \to \O_{X,p} \to k(X).
+\] 
+\begin{proposition}\label{prop:fraction-field-local-function-field}
+	The fraction field of $\O_{X,p}$ is $k(X)$.
+\end{proposition}
+\begin{proof}
+	Let $U \subseteq X$ be an affine neighborhood of $p$. Suppose that $A$ is the coordinate ring of $X$ on $U$ and let $\mathfrak{p}$ be the maximal ideal of $A$ corresponding to $p$. Therefore, $A_{\mathfrak{p}} = \O_{X,p}$. Since $U$ is affine $\O_{X}(U) = A$ and $k(U) = \Frac{A}$. Moreover, irreducibility of $X$ implies $k(X) = k(U)$. Hence, 
+	\[
+		k(X) = k(U) = \Frac{A} = \Frac{A_{\mathfrak{p}}} = \Frac{\O_{X,p}}.
+	\]
+\end{proof}
+
+Moreover, $\O_{X,p}$ is a noetherian local ring of Krull dimension $\dim X$.
+Its maximal ideal of regular functions near $p$ that vanish in $p$ is denoted $\mathfrak{m}_{p}$. Observe that evaluation at $p$ yields the isomorphism $\O_{X,p}/\mathfrak{m}_{p} \cong k$.
+
+\subsection*{Smoothness and completeness}
+\begin{definition}\label{def:regular-local-ring}
+	A local ring $(A, \mathfrak{m})$, where $\mathfrak{m}$ denotes its maximal ideal, is called \textbf{regular} if $\dim_{A/\mathfrak{m}} \mathfrak{m}/\mathfrak{m}^{2} = \dim A$. 
 \end{definition}
+Let $(A,\mathfrak{m})$ be a noetherian regular local ring. Let $k = A/\mathfrak{m}$ be its residue field. In this situation, $(A,\mathfrak{m})$ carries a natural topology, called the $\mathfrak{m}$-adic topology. Namely, $\{\mathfrak{m}^{n}\}_{n\geq 1}$ is a system of neighborhoods around zero and we let the topology to be translation invariant. We already mentioned this topology briefly in \cref{ex:tate-spaces} for the polynomial ring. The $\mathfrak{m}$-adic topology is separated. Indeed, 
+\[
+	\bigcap_{n\geq 1} \mathfrak{m}^{n} = \{0\}
+\]
+by Krull intersection theorem. See Theorem (18.29) in \cite{comm-alg}. Just as in \cref{def:completion} we define the \textbf{completion} $\widehat{A}$ of $A$ to be 
+\[
+	\widehat{A} := \varprojlim_{n\geq 1} A/\mathfrak{m}^{n}.
+\]
+There is a natural map $A \to \widehat{A}$. In particular, since $A$ is separated this map is injective. When this map is an isomorphism we say that $A$ is \textbf{complete}. We summarize several properties of completion in the following theorem:
+\begin{theorem}\label{thm:properties-adic-completion}
+	Let $(A,\mathfrak{m})$ be a noetherian regular local ring. Then
+	\begin{enumerate}[label = (\alph*)]
+		\item $\widehat{A}$ is a noetherian regular local ring and $\widehat{\mathfrak{m}}$ is its maximal ideal.
+		\item Krull dimension is preserved under completion, that is, $\dim A = \dim \widehat{A}$.
+		\item (Cohen structure theorem) If $\dim A = n$, then
+		\[
+			\widehat{A} \cong k\left[[t_{1}, \ldots, t_{n}]\right].
+		\]
+	\end{enumerate}
+	\begin{proof}
+	See Chapter 22 in \cite{comm-alg}.
+	\end{proof}
+	
+\end{theorem}
+Now, we explore these results in the geometrical setting. 
+\begin{definition}\label{def:}
+	If $\O_{X,p}$ is a regular local ring, that is, $\dim_{k} \mathfrak{m}_{p}/\mathfrak{m}_{p}^{2} = \dim \O_{X,p} = \dim X$, we say that $X$ is \textbf{smooth at} $p$. Naturally, $X$ is called \textbf{smooth} if it is smooth at every point $p\in X$.
+\end{definition}
+We get the following result immediately from \cref{thm:properties-adic-completion}.
+\begin{corollary}\label{cor:smooth-iff-isomorphic-to-power-series}
+	If $X$ is smooth then $\widehat{\O_{X,p}} \cong k[[t_{1}, t_{2}, \ldots, t_{n}]]$ where $n = \dim X$.
+\end{corollary}
+Now, we focus in one-dimensional varieties.
+\begin{definition}\label{def:algebraic-curve}
+	An \textbf{algebraic curve} is a one-dimensional smooth projective variety.
+\end{definition}
+In dimension $1$ smoothness can be interpreted in the language of valuations.
+\subsection*{Valuation theory}
+Let $k$ be a field. 
+\begin{definition}\label{def:discrete-valuation}
+	A \textbf{discrete valuation} is a surjective group homomorphism $\nu\colon k^{\times} \to \Z$ such that, for every $x\in k^{\times}$ and $y \neq -x$ in $k^{\times}$
+	\[
+		\nu(x + y) \geq \min\{\nu(x), \nu(y)\}.
+	\]
+	As a convention, we let $\nu(0) = \infty$. We denote by
+	\[
+	A_{\nu} = \{x \in k\colon \nu(x)\geq 0\}
+	\]
+	the \textbf{discrete valuation ring} or \textbf{DVR} of $\nu$. Clearly, $A$ is a subring, thus a domain. Consider
+	\[
+		\mathfrak{m}_{\nu} = \{x\in k\colon \nu(x) > 0\}. 
+	\]
+	Notice that, if $x\in k$, but $x\notin A_{\nu}$, then $x^{-1}\in \mathfrak{m}_{\nu}$. Hence, $\operatorname{Frac}(A_{\nu}) = K$. Further, observe that
+	\[
+	A_{\nu}^{\times} = A_{\nu} - \mathfrak{m}_{\nu}.
+	\]
+	Therefore, $A_{\nu}$ is a local domain with maximal ideal $\mathfrak{m}_{\nu}$. An element $t \in \mathfrak{m}_{\nu}$ with $\nu(t) = 1$ is called a \textbf{uniformizing parameter}. Such $t$ is irreducible, because if $t = ab$ with $\nu(a)\geq 0$ and $\nu(b)\geq 0$ implies $\nu(a) = 0$ or $\nu(b) = 0$ since $1 = \nu(a) + \nu(b)$. Further, any $x \in k^{\times}$ has the unique factorization $x = u t^{n}$ where $u \in A_{\nu}^{\times}$ and $n := \nu(x)$. Moreover, $A_{\nu}$ is a principal ideal domain. In fact, any nonzero ideal $\mathfrak{a} \subseteq A_{\nu}$ has the form
+	\[
+		\mathfrak{a} = \left\langle t^{m}\right\rangle \quad\text{where}\quad m:=\min\{\nu(x)\colon x\in \mathfrak{a}\}.
+	\]
+	Indeed, given a nonzero $x \in \mathfrak{a}$, say $x = ut^{n}$ where $u \in A_{\nu}^{\times}$. Then $t^{n}\in \mathfrak{a}$. Son $n \geq m$. Set $y := ut^{n-m}$. Then $y\in A_\nu$ and $x = yt^{m}$, as desired. FInally, $\mathfrak{m} = \langle t\rangle$ and $\dim A_{\nu} = 1$. Therefore, $A$ is regular local of dimension one.
+\end{definition}
+We have the following characterization theorem for DVRs.
+\begin{theorem}\label{thm:characterization-of-DVRs}
+	Let $A$ be a noetherian one-dimensional local ring, $\mathfrak{m}$ its maximal ideal and $k = A/\mathfrak{m}$ its residue field. Then these conditions are equivalent:
+	\begin{enumerate}[label = (\roman*)]
+		\item $A$ is a DVR.
+		\item $A$ is integrally closed.
+		\item $\mathfrak{m}$ is principal.
+		\item $\dim_{k}(\mathfrak{m}/\mathfrak{m}^{2}) = 1$.
+		\item Every non-zero ideal is a power of $\mathfrak{m}$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	See Proposition 9.2 in \cite{atiyah}.
+\end{proof}
+\begin{corollary}\label{cor:smoothness-DVR-curves}
+	Let $X$ be a one-dimensional projective variety. Then, $X$ is smooth if and only if $\O_{X,p}$ is a DVR for all $p$.
+\end{corollary}
+\begin{example}\label{ex:stalk-of-regular-functions-as-a-DVR}
+	Let $(X,\O_{X})$ be an algebraic curve. Let $p \in X$ and consider $\O_{X,p}$. In this case $\O_{X,p}$ is a DVR. Let $t_{p}\in \O_{X,p}$ be an uniformizing parameter. Then, if $f \in k(X)$ it follows that $f = ut_{p}^{n}$ for some  unit $u\in \O_{X,p}$ and $n \in \Z$. Then, $\nu_{p}(f) = n$.
+\end{example}
+\textcolor{red}{I'll include further theory if necessary.}
+\section{Tate spaces over algebraic curves}
+Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$. Let $K := k(X)$. For all $p \in X$ we use the following notation $A_{p} := \widehat{\O_{X,p}}$ and $K_{p}:=\Frac A_{p}$. By \cref{thm:properties-adic-completion} and $\cref{thm:characterization-of-DVRs}$ it follows that $A_{p}$ is a DVR. Let $t_{p}$ be an uniformizing parameter in $A_{p}$. The topology in $K_{p}$ defined by letting $\{t_{p}^{n}A_{p}\}_{n\in \Z}$ be a system of neighborhoods of zero in $K_{p}$ is compatible with the valuation induced by $A_{p}$.
+\begin{proposition}\label{prop:complete-fraction-field-is-a-Tate-space}
+	$K_{p}$ is a Tate space and $A_{p}$ is a c-lattice in $K_{p}$.
+\end{proposition}
+\begin{proof}
+	Observe that the map $t_{p}^{n}A_{p}/t_{p}^{n+1}A_{p} \to A_{p}/t_{p}A_{p}$ induced by $ft^{n}\mapsto f$ is an isomorphism. Then, the exactness of
+	\[
+		0 \to t_{p}^{n}A_{p}/t_{p}^{n+1}A_{p} \to A_{p}/t_{p}^{n+1}A_{p} \to A_{p}/t_{p}^{n}A_{p} \to 0
+	\]
+	implies that every quotient $A_{p}/t_{p}^{n}A_{p}$ is finite-dimensional over $k$. Therefore, 
+	\[
+		A_{p} = \varprojlim_{n\geq 1} A_{p}/t_{p}^{n}A_{p}
+	\]
+	is complete and linearly compact. Since $A_{p}$ is open in $K_{p}$ then it is a c-lattice and $K_{p}$ is a Tate space.
+\end{proof}
+\begin{remark}\label{rem:mutually-commensurable-system}
+\begin{enumerate}[label = (\alph*)]
+	\item Observe that $\{t_{p}^{n}A_{p}\}_{n\in \Z}$ is a mutually commensurable system of neighborhoods around zero of consisting of $k$-vector subspaces of $K_{p}$. 
+	\item Notice that multiplication by $f$ in $K_{p}$ is continuous in $K_{p}$, that is, $K_{p}$ (and particularly $K$) acts continuously over itself.
+\end{enumerate}
+\end{remark}
+
 

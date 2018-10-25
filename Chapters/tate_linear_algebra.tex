@@ -197,9 +197,9 @@ In this subsection we expose with little detail the properties of completion. A 
 	\[
 		V \to \widehat{V}
 	\]
-	induced by the quotient maps $\pi_{\mu}$. This map is continuous and its image is dense in $\widehat{V}$. If the map $V \to \widehat{V}$ is a topological isomorphism we say that $V$ is \textbf{complete}. Let $\mathscr{U} = \{U_{\lambda}\}_{\lambda\in \Lambda}$ and $\mathscr{U}' = \{U'_{\lambda'}\}_{\lambda' \in \Lambda}$ be two different systems of neighborhoods of consisting of vector subspaces in $V$. Then for all $\lambda \in \Lambda$ there exists $\lambda'\in \Lambda'$ such that $U_{\lambda'} \subseteq U_{\lambda}$ and for all $\mu'\in \Lambda'$ there exists $\mu\in \Lambda$ such that $U_{\mu}\subseteq U_{\mu'}$. This implies that $\varprojlim_{U\in \mathscr{U}}$ and $\varprojlim_{U'\in \mathscr{U}'}$ satisfy the same universal property. Therefore, they are canonically isomorphic. In other words, completion does not depend on the choice of filtration $\mathscr{U}$.
+	induced by the quotient maps $\pi_{\mu}$. This map is continuous and its image is dense in $\widehat{V}$. If the map $V \to \widehat{V}$ is a topological isomorphism we say that $V$ is \textbf{complete}. Let $\mathscr{U} = \{U_{\lambda}\}_{\lambda\in \Lambda}$ and $\mathscr{U}' = \{U'_{\lambda'}\}_{\lambda' \in \Lambda}$ be two different systems of neighborhoods of consisting of vector subspaces in $V$. Then for all $\lambda \in \Lambda$ there exists $\lambda'\in \Lambda'$ such that $U_{\lambda'} \subseteq U_{\lambda}$ and for all $\mu'\in \Lambda'$ there exists $\mu\in \Lambda$ such that $U_{\mu}\subseteq U_{\mu'}$. This implies that $\varprojlim_{U\in \mathscr{U}} V/U$ and $\varprojlim_{U'\in \mathscr{U}'} V/U'$ satisfy the same universal property. Therefore, they are canonically isomorphic. In other words, the completion does not depend on the choice of filtration $\mathscr{U}$.
 \end{definition}
-%\begin{proposition}\label{prop:completeness-is-closure}
+%\begin{proposition}\label{prop:completeness-is-exact-functor}
 %Let $V$ be a linearly topologized vector space and $W$ a vector subspace. Then
 %\begin{enumerate}[label = (\alph*)]
 %\item The sequence
@@ -207,28 +207,28 @@ In this subsection we expose with little detail the properties of completion. A 
 %0 \to \widehat{W} \to \widehat{V} \to \widehat{V/W} 
 %\]
 %is exact. 
-%completion map $V \to \widehat{V}$.
+%of vector subspaces of $V$, then the sequence
+%\[
+%0 \to \widehat{W} \to \widehat{V} \to \widehat{V/W} \to 0
+%\]
+%is exact. In particular, $\widehat{V}/\widehat{W} = \widehat{V/W}$.
 %\end{enumerate}
 %\end{proposition}
 %\begin{proof}
-%that exactness of (a) follows from exactness of the sequences
+%Observe that exactness of (a) follows from exactness of the sequences
 %\[
 %0 \to W/(W \cap U) \to V/U \to V/(W + U) \to 0
 %\]
-%to \widehat{V/W}$ is closed.
-%\end{proof}
-%def:linear_compactness} can be dropped.
-%\begin{proposition}\label{prop:complete-linear-compactness-closed}
-%$W$ is linearly compact.
-%\end{proposition}
-%\begin{proof}
-%image of $W$ under the completion map $V \to \widehat{V}$ is the inverse limit
+%Therefore, the sequence 
 %\[
-%\varprojlim_{U\in \mathscr{U}} (W + U)/U
+%0 \to W/(W \cap U_{n}) \to V/U_{n} \to V/(W + U_{n}) \to 0
 %\]
-%which is the completion of $W$. Thus, by 
+%induces an exact sequence 
+%\[
+%0 \to \widehat{W} \to \widehat{V} \to \widehat{V/W} \to 0.
+%\]
+%For detalis, see Theorem 8.1 in \cite{Matsumura}.
 %\end{proof}
-
 
 \section{Tate spaces}
 \subsection*{Lattices}

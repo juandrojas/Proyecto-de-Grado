@@ -242,9 +242,9 @@ thinking of $f$ as a fixed map; we say that $h$ is a \textbf{lifting} of $g$ to 
 	\[
 		\varphi_{D}(1 \otimes gh - g \otimes h - h \otimes g) = D(gh) - gD(h) - hD(g) = 0
 	\]
-	by the Leibniz rule. Now, let $\psi\in \Hom_{K}(K \otimes_{k} K, M)$ so that $\psi(A) = 0$. Let $D_{\psi}\colon K \to M$ be the $k$-derivation defined by $f \mapsto \psi(f \otimes 1)$. First, we prove that $\psi_{D}$ is a $k$-derivation. Observe that $k$-linearity is obvious. Now, we prove the Leibniz rule for $D_{\psi}$. Consider
+	by the Leibniz rule. Now, let $\psi\in \Hom_{K}(K \otimes_{k} K, M)$ so that $\psi(A) = 0$. Let $D_{\psi}\colon K \to M$ be the $k$-derivation defined by $f \mapsto \psi(1 \otimes f)$. First, we prove that $\psi_{D}$ is a $k$-derivation. Observe that $k$-linearity is obvious. Now, we prove the Leibniz rule for $D_{\psi}$. Consider
 	\begin{align*}
-		D_{\psi}(fg) = \psi(fg \otimes 1) &= \psi(f \otimes g + g \otimes f) \\ &= f \psi (1 \otimes g) + g \psi (1 \otimes f) \\ &= f D_{\psi} (f) + g D_{\psi} (g),
+		D_{\psi}(fg) = \psi(1 \otimes fg) &= \psi(f \otimes g + g \otimes f) \\ &= f \psi (1 \otimes g) + g \psi (1 \otimes f) \\ &= f D_{\psi} (f) + g D_{\psi} (g),
 	\end{align*}
 	where the third equality follows from the fact that $\psi$ vanishes in $A$. Finally, it is clear that $\varphi_{D_{\psi}} = \psi$. 
 \end{proof}
