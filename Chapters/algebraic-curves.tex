@@ -49,9 +49,10 @@ There is a natural map $A \to \widehat{A}$. In particular, since $A$ is separate
 		\[
 			\widehat{A} \cong k\left[[t_{1}, \ldots, t_{n}]\right].
 		\]
+		Where $t_{1}, \ldots t_{n}$ are mapped to generators of $\mathfrak{m}$.
 	\end{enumerate}
 	\begin{proof}
-	See Chapter 22 in \cite{comm-alg}.
+	See Chapter 22 in \cite{comm-alg}.  
 	\end{proof}
 	
 \end{theorem}
@@ -91,7 +92,7 @@ Let $k$ be a field.
 	\[
 		\mathfrak{a} = \left\langle t^{m}\right\rangle \quad\text{where}\quad m:=\min\{\nu(x)\colon x\in \mathfrak{a}\}.
 	\]
-	Indeed, given a nonzero $x \in \mathfrak{a}$, say $x = ut^{n}$ where $u \in A_{\nu}^{\times}$. Then $t^{n}\in \mathfrak{a}$. Son $n \geq m$. Set $y := ut^{n-m}$. Then $y\in A_\nu$ and $x = yt^{m}$, as desired. FInally, $\mathfrak{m} = \langle t\rangle$ and $\dim A_{\nu} = 1$. Therefore, $A$ is regular local of dimension one.
+	Indeed, given a nonzero $x \in \mathfrak{a}$, say $x = ut^{n}$ where $u \in A_{\nu}^{\times}$. Then $t^{n}\in \mathfrak{a}$. Son $n \geq m$. Set $y := ut^{n-m}$. Then $y\in A_\nu$ and $x = yt^{m}$, as desired. Finally, $\mathfrak{m} = \langle t\rangle$ and $\dim A_{\nu} = 1$. Therefore, $A$ is regular local of dimension one.
 \end{definition}
 We have the following characterization theorem for DVRs.
 \begin{theorem}\label{thm:characterization-of-DVRs}
@@ -113,28 +114,94 @@ We have the following characterization theorem for DVRs.
 \begin{example}\label{ex:stalk-of-regular-functions-as-a-DVR}
 	Let $(X,\O_{X})$ be an algebraic curve. Let $p \in X$ and consider $\O_{X,p}$. In this case $\O_{X,p}$ is a DVR. Let $t_{p}\in \O_{X,p}$ be an uniformizing parameter. Then, if $f \in k(X)$ it follows that $f = ut_{p}^{n}$ for some  unit $u\in \O_{X,p}$ and $n \in \Z$. Then, $\nu_{p}(f) = n$.
 \end{example}
-\textcolor{red}{I'll include further theory if necessary.}
 \section{Tate spaces over algebraic curves}
-Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$. Let $K := k(X)$. For all $p \in X$ we use the following notation $A_{p} := \widehat{\O_{X,p}}$ and $K_{p}:=\Frac A_{p}$. By \cref{thm:properties-adic-completion} and $\cref{thm:characterization-of-DVRs}$ it follows that $A_{p}$ is a DVR. Let $t_{p}$ be an uniformizing parameter in $A_{p}$. The topology in $K_{p}$ defined by letting $\{t_{p}^{n}A_{p}\}_{n\in \Z}$ be a system of neighborhoods of zero in $K_{p}$ is compatible with the valuation induced by $A_{p}$.
+Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$. Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \widehat{\O_{X,p}}$ and $K_{p}:=\Frac L_{p}$. From \cref{thm:properties-adic-completion} and $\cref{thm:characterization-of-DVRs}$ it follows that $L_{p}$ is a DVR. Let $t_{p}$ be an uniformizing parameter in $L_{p}$. The topology in $K_{p}$ defined by letting $\{t_{p}^{n}L_{p}\}_{n\in \Z}$ be a system of neighborhoods of zero in $K_{p}$. This system is compatible with the valuation induced by $L_{p}$.
 \begin{proposition}\label{prop:complete-fraction-field-is-a-Tate-space}
-	$K_{p}$ is a Tate space and $A_{p}$ is a c-lattice in $K_{p}$.
+	$K_{p}$ is a Tate space and $L_{p}$ is a c-lattice in $K_{p}$.
 \end{proposition}
 \begin{proof}
-	Observe that the map $t_{p}^{n}A_{p}/t_{p}^{n+1}A_{p} \to A_{p}/t_{p}A_{p}$ induced by $ft^{n}\mapsto f$ is an isomorphism. Then, the exactness of
+	Observe that the map $t_{p}^{n}L_{p}/t_{p}^{n+1}L_{p} \to L_{p}/t_{p}L_{p}$ induced by $ft^{n}\mapsto f$ is an isomorphism. Then, the exactness of
 	\[
-		0 \to t_{p}^{n}A_{p}/t_{p}^{n+1}A_{p} \to A_{p}/t_{p}^{n+1}A_{p} \to A_{p}/t_{p}^{n}A_{p} \to 0
+		0 \to t_{p}^{n}L_{p}/t_{p}^{n+1}L_{p} \to L_{p}/t_{p}^{n+1}L_{p} \to L_{p}/t_{p}^{n}L_{p} \to 0
 	\]
-	implies that every quotient $A_{p}/t_{p}^{n}A_{p}$ is finite-dimensional over $k$. Therefore, 
+	implies that every quotient $L_{p}/t_{p}^{n}L_{p}$ is finite-dimensional over $k$. Therefore, 
 	\[
-		A_{p} = \varprojlim_{n\geq 1} A_{p}/t_{p}^{n}A_{p}
+		L_{p} = \varprojlim_{n\geq 1} L_{p}/t_{p}^{n}L_{p}
 	\]
-	is complete and linearly compact. Since $A_{p}$ is open in $K_{p}$ then it is a c-lattice and $K_{p}$ is a Tate space.
+	is complete and linearly compact. Since $L_{p}$ is open in $K_{p}$ then it is a c-lattice and $K_{p}$ is a Tate space.
 \end{proof}
 \begin{remark}\label{rem:mutually-commensurable-system}
 \begin{enumerate}[label = (\alph*)]
-	\item Observe that $\{t_{p}^{n}A_{p}\}_{n\in \Z}$ is a mutually commensurable system of neighborhoods around zero of consisting of $k$-vector subspaces of $K_{p}$. 
+	\item Observe that $\{t_{p}^{n}L_{p}\}_{n\in \Z}$ is a mutually commensurable system of neighborhoods around zero of consisting of $k$-vector subspaces of $K_{p}$. 
 	\item Notice that multiplication by $f$ in $K_{p}$ is continuous in $K_{p}$, that is, $K_{p}$ (and particularly $K$) acts continuously over itself.
 \end{enumerate}
+\begin{definition}\label{def:residue-at-p}
+	Let $f,g \in K_{p}$. We define the residue of the differential $fdg$ at $p\in X$ to be
+	\[
+		\res_{p}(fdg) = \res_{K_{p}}(fdg).
+	\]
+	where $\res_{K_{p}}$ denotes the abstract residue defined in \cref{thm:existence-of-residue}.
+\end{definition}
+
 \end{remark}
+Let $f\in K_{p}$, observe that $fL_{p} = t_{p}^{n}L_{p}$ for some $n \in \Z$ and uniformizing parameter $t_{p} \in L_{p}$. 
+\begin{proposition}\label{prop:no-poles-zero-residue}
+	Let $p\in X$. If $\omega \in \Omega_{K_{p}/k}$ has no poles at $p$ then $\res_{p}(\omega) = 0$.
+\end{proposition}
+\begin{proof}
+	Clear from \cref{prop:residue-and-continuity}.
+\end{proof}
 
-
+\begin{theorem}\label{thm:resiude-coincides-with-coefficient}
+	Let $f,g \in K_{p}$. By the structure theorem in \cref{thm:properties-adic-completion} it follows that $f = \sum_{\nu \gg -\infty}^{\infty} a_{\nu}t_{p}^{\nu}$ and $g = \sum_{\mu \gg -\infty}^{\infty} b_{\mu}t_{p}^{\mu}$ for some $a_{\nu},b_{\mu} \in k$ and a uniformizing parameter $t_{p}\in L_{p} $. Recall that the formal derivative of $g$ is
+	\[
+		g' = \sum_{\mu \gg -\infty}^{\infty} \mu b_{\mu}t_{p}^{\mu -1}.
+	\]
+	Then,
+	\[
+		\res_{p}(fdg) = \text{coefficient of }t_{p}^{-1}\text{ in } fg'
+	\]
+	which is given by the Cauchy product
+	\[
+		\res_{p}(fdg) = \sum_{\mu + \nu = 0}\mu a_\nu{}b_{\mu}.
+	\]
+\end{theorem}
+\begin{proof}
+	Let
+	\[
+		\tilde{f} = \sum_{\nu\gg-\infty}^{N} a_{\nu}t_{p}^{\nu},\quad\text{and}\quad\tilde{g} = \sum_{\mu\gg-\infty}^{N} b_{\mu}t_{p}^{\mu}
+	\]
+	then 
+	\begin{align*}
+		\res_{p}(fdg) &= \res_{p}( (\tilde{f} + (f - \tilde{f}))d(\tilde{g} + (g - \tilde{g}))) \\
+		&= \res_{p}(\tilde{f}d\tilde{g}) + \res_{p}(\tilde{f}d(g - \tilde{g})) + \res_{p}((f-\tilde{f}) d\tilde{g}) \\ &+ \res_{p}( (f - \tilde{f})d(g-\tilde{g})).
+	\end{align*}
+	If $N$ is sufficiently large, then by \cref{prop:residue-and-continuity} it follows that 
+	\[
+		\res_{p}( (f - \tilde{f})d(g-\tilde{g})) = \res_{p}(\tilde{f}d(g - \tilde{g})) = \res_{p}((f-\tilde{f}) d\tilde{g}) = 0.
+	\]
+	Therefore, we can assume that only finitely many of the $a_{\nu}$ and $b_{\mu}$ are non-zero. Now, $fdg = f g' dt$ and by \cref{prop:residue-of-a-power} only the term of $t_{p}^{-1}$ can have non-zero residue. Then, by \cref{prop:residue-of-invertible-element}, it follows that
+	\[
+		\res_{p}(t_{p}^{-1}dt_{p}) = \dim_{k}(L_{p}/t_{p}L_{p}) = \dim_{k}k = 1. 	
+	\]
+	Hence, $k$-linearity of residue implies the desired conclusion.
+\end{proof}
+\begin{corollary}\label{cor:invriance-of-residue-coefficient}
+	Let $f\in K_{p}$. Then, the coefficient of $t_{p}^{-1}$ in the Laurent series expansion of $f$ is independent of the choice of uniformizing parameter $t_{p}$.	
+\end{corollary}
+\begin{remark}\label{rem:previouses-approaches-residues}
+	Before Tate introduced this approach to residues of differentials on algebraic curves, residues were defined by the formula in \cref{thm:resiude-coincides-with-coefficient}. However, to prove well-definition of such formula, it is necessary to argue that the coefficient of $t_{p}^{-1}$ is independent of the choice of uniformizing parameter $t_{p}$. In $\operatorname{char}k = 0$ one can realize $X$ as an analytical variety and reduce it to the invariance of the formula
+	\[
+		\res_{p}(\omega) = \frac{1}{2\pi i}\oint_{p} \omega.
+	\]
+	Nevertheless, in the general setting it is not obvious why invariance follows. In \cref{cor:invriance-of-residue-coefficient} we gave a clean but taxing proof of such result. We reference the reader to \cite{serre} Chapter 2 Section 10 for a direct proof.
+\end{remark}
+\subsection*{Adèles and the residue theorem}
+Our next goal is to prove the residue theorem.
+\begin{theorem}\label{thm:residue-theorem}
+	For $X$ an algebraic curve and $\omega \in \Omega_{K/k}$, then 
+	\[
+		\sum_{p\in X}\res_{p}(\omega) = 0.
+	\]
+\end{theorem}
+First, observe that the expression $\sum_{p\in X}\res_{p}(\omega) = 0$ makes sense by \cref{prop:no-poles-zero-residue} and the fact that $\omega$ has a finite amount of poles.
