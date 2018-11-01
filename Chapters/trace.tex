@@ -3,7 +3,7 @@
 We extend the definition of trace to a certain class of infinite rank endomorphisms in order to define an abstract residue. We follow the original structure of Tate's elegant article \cite{Tate} while translating his statements in the language of Tate's Linear Algebra.
 \section{Finite-potent maps and their trace}
 Let $k$ be a fixed field and $V$ a vector space over $k$. In this section we will extend the notion of trace of a linear endomorphism to include certain operators even when $V$ is infinite dimensional.
-\subsection*{Finite-potent maps}
+\subsection{Finite-potent maps}
 \begin{definition}\label{def:finite-potent}
 	We will say a linear map $f\colon V \to V$ is \textbf{finite-potent} if
 	\[
@@ -35,7 +35,7 @@ Observe that a trace-subspace for a finite-potent map $f$ is not unique. In part
 	\]
 	then $\tr_{V/W}(f) := \tr_{V/W}(\overline{f})$. The use of this notation is consistent throughout the document. 
 \end{notation}
-\subsection*{Trace}  If $f$ is a finite-potent map and $W$ is a trace-subspace for $f$ the \textbf{trace} $\tr_{V}(f)\in k$ of $f$ may be defined as
+\subsection{Trace}  If $f$ is a finite-potent map and $W$ is a trace-subspace for $f$ the \textbf{trace} $\tr_{V}(f)\in k$ of $f$ may be defined as
 \[
 	\tr_{V}(f) = \tr_{W}(f)
 \]
@@ -112,7 +112,7 @@ Observe that if $F$ is a finite-potent subspace of $\End_{k}(V)$ then every $f\i
 	\]
 	commutes. We conclude $\tr_{W}(fg) = \tr_{W'}(gf)$ and it follows $\tr_{V}(fg) = \tr_{V}(gf)$.
 \end{proof}
-\subsection*{Trace and Tate Spaces}\label{Tate-and-trace}
+\subsection{Trace and Tate Spaces}\label{Tate-and-trace}
 Suppose that $V$ is a Tate space and consider $\End_{k}(V)$ the space of continuous endomorphisms of $V$. By \cref{prop:compact-and-discrete-2-sided-ideal} and \cref{prop:discrete-compact-operators-present-the-whole-space} we have 2-sided ideals $\End_{0}(V), \End_{+}(V)$ and $\End_{-}(V)$ of $E$ such that $\End_{+}(V) + \End_{-}(V) = E$ and $\End_{0}(V) = \End_{+}(V) \cap \End_{-}(V)$. Moreover, \cref{rem:discrete-composition-compact} implies that $\End_{0}(V)$ is a finite-potent subspace.
 \begin{lemma}\label{lemm:traceless-commutator}
 	Suppose $f \in \End_{+}(V)$ and $g \in \End_{-}(V)$ or $f \in \End_{-}(V)$ and $g\in \End_{+}(V)$. Then the commutator $[f,g] = fg - gf$ belongs to $\End_{0}(V)$ and it is traceless.
@@ -315,7 +315,7 @@ With these tools at our hands we are ready to prove the existence of residue.
 	\]
 	imply the desired conclusion.
 \end{proof}
-\subsection*{Properties of residue}
+\subsection{Properties of residue}
 We prove some of the main properties of $\res$.
 \begin{proposition}\label{prop:linearity-residue}
 	For all $f,g \in K$ it follows that
@@ -422,7 +422,7 @@ In the following two propositions we examine the residue of a power.
 	\]
 	Observe that $\dim L/fL < \infty$ since $fL$ is open and $L$ is linearly compact.
 \end{proof}
-\subsection*{Relationship of residues under extensions}
+\subsection{Relationship of residues under extensions}
 Finally, we explore the case where $K'$ is a commutative $k$-algebra containing $K$. We will examine $\Omega_{K'/k}$ and $\Omega_{K/k}$ and the relationship between their residues. In this case the injection $K \to K'$ induces a map between $\Omega_{K/k} \to \Omega_{K'/k}$ which may not be injective. 
 \begin{proposition}\label{prop:residue-commutes-extension}
 	Let $V$ be a Tate space such that multiplication by any $f\in K'$ induces a continuous endomorphism in $\End_{k}(V)$. Therefore, for all $g\in K$ multiplication by $g$ is continuous as well. Hence, we can define

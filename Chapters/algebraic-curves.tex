@@ -1,8 +1,53 @@
 %!TEX root = ../main.tex
 \chapter{Algebraic curves}\label{ch:algebraic-curves}
-In the preceding chapter we presented the ``residue map'' in an abstract context. In this chapter, we explore residues on algebraic curves using Tate's construction. First, we recall briefly and with little detail the basic theory of algebraic projective curves. For a complete exposition we reference the reader to \cite{curves} and \cite{hartshorne}. We will borrow many results from commutative algebra, most of them can be found in \cite{Matsumura}, \cite{comm-alg} and \cite{atiyah}.
+In the preceding chapter we presented the ``residue map'' in an abstract context. In this chapter, we explore residues on algebraic curves using Tate's construction. First, we expose briefly sheaf theory and their cohomology.
+\section{Sheaf Theory} 
+We just assume (as in previous chapters) basic homological algebra and algebraic geometry (e.g. the first chapter in \cite{hartshorne}).
+
+Let $X$ be a topological space.
+\subsection{Presheaves and sheaves}
+\begin{definition}\label{def:presheaf}
+	A \textbf{presheaf} $\mathscr F$ over $X$ is a functor from the opposite category of open sets in $X$ ($U \to V \iff V\subseteq U$ ) to an arbitrary category $\mathcal{C}$ 
+	\[
+		\mathscr F\colon \mathsf{Op}(X)^{\mathtt{op}} \to \mathcal{C}.
+	\]
+	If $U \subseteq V$ then $\mathscr{F}(V) \to \mathscr{F}(U)$. We will call such map $\res^{V}_{U}$ the \textit{restriction} of $V$ to $U$. If $\mathcal{C}$ is $\mathsf{Ab}$ or $\mathsf{Mod}_{A}$ we will simply say a presheaf of abelian groups or $A$-modules respectively.
+\end{definition}
+\begin{definition}\label{def:sheaf}
+	A \textbf{sheaf} $\mathscr F$ on $X$ is a presheaf such that for every open set $U \subseteq X$ and every open cover $\mathscr U = \{U_{\alpha}\}_{\alpha}$ of $U$ the diagram
+	\[
+		\begin{tikzcd}
+			\mathscr{F}(U)\arrow[r] & \prod_{\alpha}\mathscr{F}(U_{\alpha}) \arrow[r, shift right] \arrow[r, shift left] & \prod_{\alpha, \beta} \mathscr{F}(U_{\alpha} \cap U_{\beta})
+		\end{tikzcd}
+	\]
+	is an equalizer. This equalizer can be understood by the following two axioms usually called \textit{sheaf axioms}
+	\begin{enumerate}[label = (\roman*)]
+		\item If $s,t \in \mathscr{F}(U)$ and $\res^{U}_{U_{\alpha}}(s) = \res^{U}_{U_{\alpha}}(t)$ for all $\alpha$ then $s = t$.
+		\item For a collection $\{s_{\alpha}\}_{\alpha}$ such that $\res^{U_{\alpha}}_{U_{\alpha}\cap U_{\beta}}(s_{\alpha}) = \res^{U_{\beta}}_{U_{\alpha}\cap U_{\beta}}(s_{\beta})$ for all $\alpha$ and $\beta$ there exists some $s \in \mathscr{F}(U)$ such that $\res^{U}_{U_{\alpha}}(s) = s_{\alpha}$.
+	\end{enumerate}
+\end{definition}
+\begin{example}\label{ex:examples-of-sheaves}
+	\begin{enumerate}[label = (\alph*)]
+		\item For all $U$ open in $X$ let $C(U)$ denote the ring of continuous functions $X \to \R$. This is a sheaf of rings over $X$. 
+		\item The example we are more interested in is the \textbf{structure sheaf} on a projective variety. That is, for a projective variety $X$ we denote by $\O_{X}(U)$ the ring of regular functions defined on $U$. It is clear that it is a presheaf of rings. The other conditions follow from the fact that a regular function is zero if and only if it is locally zero and it is locally regular if and only if it is locally regular.
+		\item As observed in the previous two examples, sheaves encode local behavior. For instance, let $\mathscr{G}(U)$ denote the ring of continuous constants functions $U \to \R$. In this case $\mathscr{G}$ in a presheaf but not a sheaf (if $X$ has at least two non trivial open sets), this follows from the fact that a locally constant function is not necessarily constant.
+	\end{enumerate}
+\end{example}
+The collection of presheaves of $\mathcal{C}$ over $X$ is a category. Indeed a morphism between two presheaves $\mathscr{F}$ and $\mathscr{G}$ is a natural transformation $\varphi\colon \mathscr{F} \to \mathscr{G}$. That is, for all $U \subseteq V$ open in $X$ the diagram
+\[
+	\begin{tikzcd}
+		\mathscr{F}(V) \arrow[r, "\varphi(V)"] \arrow[d, "\res^{V}_{U}"] & \mathscr{G}(U) \arrow[d, "\res^{V}_{U}"] \\
+		\mathscr{F}(U) \arrow[r, "\varphi(U)"] & \mathscr{G}(U)
+	\end{tikzcd}
+\]
+commutes. We denote $\mathsf{PSh}(X)$. Analogously, the collection of sheaves of $\mathcal{C}$ over $X$ is also a category. We denote it by $\mathsf{Sh}(X)$. 
+
+\subsection{Sheaf cohomology}
+
 \section{Basic theory of algebraic curves}
-Let $k$ be an algebraically closed field. Let $(X, \O_{X})$ be a projective algebraic variety. Then 
+In this section we recall briefly and with little detail the basic theory of algebraic projective curves. For a complete exposition we reference the reader to \cite{curves} and \cite{hartshorne}. We will borrow many results from commutative algebra, most of them can be found in \cite{Matsumura}, \cite{comm-alg} and \cite{atiyah}.
+
+Let $k$ be an algebraically closed field. Let $(X, \O_{X})$ be an algebraic projective variety. Then 
 \[
 	k(X) := \varinjlim_{U\subseteq X} \O_{X}(U)
 \]
@@ -24,7 +69,7 @@ of regular functions near $p$. We obtain natural injections
 	\]
 \end{proof}
 
-Moreover, $\O_{X,p}$ is a noetherian local ring of Krull dimension $\dim X$.
+In addition, $\O_{X,p}$ is a noetherian local ring of Krull dimension $\dim X$.
 Its maximal ideal of regular functions near $p$ that vanish in $p$ is denoted $\mathfrak{m}_{p}$. Observe that evaluation at $p$ yields the isomorphism $\O_{X,p}/\mathfrak{m}_{p} \cong k$.
 
 \subsection*{Smoothness and completeness}
@@ -66,7 +111,7 @@ We get the following result immediately from \cref{thm:properties-adic-completio
 \end{corollary}
 Now, we focus in one-dimensional varieties.
 \begin{definition}\label{def:algebraic-curve}
-	An \textbf{algebraic curve} is a one-dimensional smooth projective variety.
+	An \textbf{algebraic curve} is a one-dimensional smooth variety.
 \end{definition}
 In dimension $1$ smoothness can be interpreted in the language of valuations.
 \subsection*{Valuation theory}
@@ -109,7 +154,7 @@ We have the following characterization theorem for DVRs.
 	See Proposition 9.2 in \cite{atiyah}.
 \end{proof}
 \begin{corollary}\label{cor:smoothness-DVR-curves}
-	Let $X$ be a one-dimensional projective variety. Then, $X$ is smooth if and only if $\O_{X,p}$ is a DVR for all $p$.
+	Let $X$ be a one-dimensional variety. Then, $X$ is smooth if and only if $\O_{X,p}$ is a DVR for all $p$.
 \end{corollary}
 \begin{example}\label{ex:stalk-of-regular-functions-as-a-DVR}
 	Let $(X,\O_{X})$ be an algebraic curve. Let $p \in X$ and consider $\O_{X,p}$. In this case $\O_{X,p}$ is a DVR. Let $t_{p}\in \O_{X,p}$ be an uniformizing parameter. Then, if $f \in k(X)$ it follows that $f = ut_{p}^{n}$ for some  unit $u\in \O_{X,p}$ and $n \in \Z$. Then, $\nu_{p}(f) = n$.
@@ -120,31 +165,30 @@ Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$. L
 	$K_{p}$ is a Tate space and $L_{p}$ is a c-lattice in $K_{p}$.
 \end{proposition}
 \begin{proof}
-	Observe that the map $t_{p}^{n}L_{p}/t_{p}^{n+1}L_{p} \to L_{p}/t_{p}L_{p}$ induced by $ft^{n}\mapsto f$ is an isomorphism. Then, the exactness of
+	Observe that the map $\mathfrak{m}_{p}^{n}\O_{X,p}/\mathfrak{m}_{p}^{n+1}\O_{X,p} \to \O_{X,p}/\mathfrak{m}_{p}\O_{X,p}$ induced by inclusions is an isomorphism. Then, the exactness of
 	\[
-		0 \to t_{p}^{n}L_{p}/t_{p}^{n+1}L_{p} \to L_{p}/t_{p}^{n+1}L_{p} \to L_{p}/t_{p}^{n}L_{p} \to 0
+		0 \to \mathfrak{m}_{p}^{n}\O_{X,p}/\mathfrak{m}_{p}^{n+1}\O_{X,p} \to \O_{X,p}/\mathfrak{m}_{p}^{n+1}\O_{X,p} \to \O_{X,p}/\mathfrak{m}_{p}^{n}\O_{X,p} \to 0
 	\]
-	implies that every quotient $L_{p}/t_{p}^{n}L_{p}$ is finite-dimensional over $k$. Therefore, 
+	implies that every quotient $\O_{X,p}/\mathfrak{m}_{p}^{n}\O_{X,p}$ is finite-dimensional over $k$. Therefore, 
 	\[
-		L_{p} = \varprojlim_{n\geq 1} L_{p}/t_{p}^{n}L_{p}
+		L_{p} = \varprojlim_{n\geq 1} \O_{X,p}/\mathfrak{m}_{p}^{n}\O_{X,p}
 	\]
-	is complete and linearly compact. Since $L_{p}$ is open in $K_{p}$ then it is a c-lattice and $K_{p}$ is a Tate space.
+	is an inverse limit of finite-dimensional $k$-vector spaces. Hence, $L_{p}$ is complete and linearly compact by \cref{ex:tate-spaces}. Since $L_{p}$ is open in $K_{p}$ then it is a c-lattice and $K_{p}$ is a Tate space.
 \end{proof}
 \begin{remark}\label{rem:mutually-commensurable-system}
 \begin{enumerate}[label = (\alph*)]
 	\item Observe that $\{t_{p}^{n}L_{p}\}_{n\in \Z}$ is a mutually commensurable system of neighborhoods around zero of consisting of $k$-vector subspaces of $K_{p}$. 
-	\item Notice that multiplication by $f$ in $K_{p}$ is continuous in $K_{p}$, that is, $K_{p}$ (and particularly $K$) acts continuously over itself.
+	\item Let $f\in K_{p}$, observe that $fL_{p} = t_{p}^{n}L_{p}$ for some $n \in \Z$ and uniformizing parameter $t_{p} \in L_{p}$. It follows that multiplication by $f$ in $K_{p}$ is continuous in $K_{p}$, that is, $K_{p}$ (and particularly $K$) acts continuously over itself.
 \end{enumerate}
+\end{remark}
+
 \begin{definition}\label{def:residue-at-p}
 	Let $f,g \in K_{p}$. We define the residue of the differential $fdg$ at $p\in X$ to be
 	\[
 		\res_{p}(fdg) = \res_{K_{p}}(fdg).
 	\]
 	where $\res_{K_{p}}$ denotes the abstract residue defined in \cref{thm:existence-of-residue}.
-\end{definition}
-
-\end{remark}
-Let $f\in K_{p}$, observe that $fL_{p} = t_{p}^{n}L_{p}$ for some $n \in \Z$ and uniformizing parameter $t_{p} \in L_{p}$. 
+\end{definition} 
 \begin{proposition}\label{prop:no-poles-zero-residue}
 	Let $p\in X$. If $\omega \in \Omega_{K_{p}/k}$ has no poles at $p$ then $\res_{p}(\omega) = 0$.
 \end{proposition}
@@ -190,7 +234,7 @@ Let $f\in K_{p}$, observe that $fL_{p} = t_{p}^{n}L_{p}$ for some $n \in \Z$ and
 	Let $f\in K_{p}$. Then, the coefficient of $t_{p}^{-1}$ in the Laurent series expansion of $f$ is independent of the choice of uniformizing parameter $t_{p}$.	
 \end{corollary}
 \begin{remark}\label{rem:previouses-approaches-residues}
-	Before Tate introduced this approach to residues of differentials on algebraic curves, residues were defined by the formula in \cref{thm:resiude-coincides-with-coefficient}. However, to prove well-definition of such formula, it is necessary to argue that the coefficient of $t_{p}^{-1}$ is independent of the choice of uniformizing parameter $t_{p}$. In $\operatorname{char}k = 0$ one can realize $X$ as an analytical variety and reduce it to the invariance of the formula
+	Before Tate introduced this approach to residues of differentials on algebraic curves, residues were defined by the formula in \cref{thm:resiude-coincides-with-coefficient}. However, to prove well-definition of such formula, it is necessary to argue that the coefficient of $t_{p}^{-1}$ is independent of the choice of uniformizing parameter $t_{p}$. In $\operatorname{char}k = 0$ one can realize $X$ as an analytical variety and reduce independence to the invariance of the formula
 	\[
 		\res_{p}(\omega) = \frac{1}{2\pi i}\oint_{p} \omega.
 	\]
@@ -204,4 +248,86 @@ Our next goal is to prove the residue theorem.
 		\sum_{p\in X}\res_{p}(\omega) = 0.
 	\]
 \end{theorem}
-First, observe that the expression $\sum_{p\in X}\res_{p}(\omega) = 0$ makes sense by \cref{prop:no-poles-zero-residue} and the fact that $\omega$ has a finite amount of poles.
+First, observe that the expression $\sum_{p\in X}\res_{p}(\omega) = 0$ makes sense by \cref{prop:no-poles-zero-residue} and the fact that $\omega$ has a finite amount of poles. In order to prove this we will borrow an \textit{adèlic} approach from number theory.
+\begin{definition}\label{def:adele-ring-over-algebraic-curve}
+	Let $X$ be an algebraic curve. Let $Y \subseteq X$ be any subset. Let $\mathscr{F}$ denote the set of all finite subsets of $Y$. Let $S \in \mathscr{F}$, the $\mathbf{S}$-\textbf{adèle} of $K$ indexed by $Y$ is defined as the product
+	\[
+		\widetilde{K}_{Y,S} := \prod_{p\in Y\setminus S}L_{p} \times \prod_{p\in S}K_{p}
+	\]
+	in its product topology. The \textbf{adéle} $\widetilde{K}_{Y}$ of $K$ indexed by $Y$ is the direct limit of the system indexed by $\mathscr{F}$, namely, if $S \subseteq T$ there exists a injection $\iota_{ST}\colon \widetilde{K}_{Y,S} \hookrightarrow \widetilde{K}_{Y,T}$ given by the inclusion. Endow
+	\[
+		\widetilde{K}_{Y} = \varinjlim_{S \in \mathscr{F}} \widetilde{K}_{Y,S}
+	\]
+	with its direct limit topology. Usually, for $X = Y$ we will simply write $\widetilde{K}$ for $\widetilde{K}_{X}$.
+\end{definition}
+The adèle of $K$ is a particular case of a \textbf{restricted product} of a collection of topological spaces. In the literature, this construction is usually defined as a \textit{set} in terms of the product. We give this characterization in the following proposition.
+\begin{proposition}\label{prop:adèle-as-subset-of-product}
+	\[
+		\widetilde{K} = \{(f_{p})\colon f_{p} \in K_{p}\text{ for all }p \in Y\text{ and }f_{p}\in L_{p}\text{ for almost all }p\in Y\}
+	\]
+	where \textit{almost all} means for all but finitely many $p\in Y$, equipped with the following collection as a basis for its topology
+	\[
+		\left\{\prod_{p\in Y} U_{p} \colon U_{p}\text{ is open for all }p\in Y\text{ and }U_{p} = L_{p}\text{ for almost all }p\in Y\right\}.
+	\]
+\end{proposition}
+\begin{proof}
+	Let $K^{\sharp}$ be the topological space defined in the statement of the proposition. Observe that $K^{\sharp}$ is linearly topologized as a $k$-vector space. We will prove that $K^{\sharp}$ satisfies the universal property of $\widetilde{K}_{Y}$ in the category $\mathsf{LinTop}_{k}$. First, observe that the inclusion
+	\[
+		\widetilde{K}_{Y,S} \hookrightarrow K^{\sharp}
+	\]
+	is a continuous homomorphism and the diagram
+	\[
+		\begin{tikzcd}
+			& K^{\sharp} & \\
+			\widetilde{K}_{Y,S} \arrow[rr, "\iota_{ST}", hook]\arrow[ur, hook] & & \widetilde{K}_{Y,T} \arrow[lu, hook]
+		\end{tikzcd}
+	\]
+	commutes. Moreover, for every $P$ equipped with continuous homomorphisms $\varphi_{S}\colon \widetilde{K}_{Y,S}\to P$ such that the diagram 
+	\[
+		\begin{tikzcd}
+			& P & \\
+			\widetilde{K}_{Y,S} \arrow[rr, "\iota_{ST}", hook]\arrow[ur, hook, "\varphi_{S}"] & & \widetilde{K}_{Y,T} \arrow[lu, hook, "\varphi_{T}", swap]
+		\end{tikzcd}
+	\]
+	commutes. Then, define $\varphi\colon K^{\sharp} \to P$ as follows: for $(f_{p}) \in K^{\sharp}$ there exists a $S\in \mathscr{F}$ such that $f_{p} \in L_{p}$ if and only if $p \in S$. Define $\varphi( (f_{p})_{p\in Y} ) = \varphi_{S}( (f_{p})_{p\in Y} )$. This is a continuous homomorphism and it is the only one such that the diagram
+	\[
+		\begin{tikzcd}
+			& P & \\
+			& K^{\sharp} \arrow[u, "\varphi", dotted] & \\
+			\widetilde{K}_{X,S} \arrow[rr, "\iota_{ST}"]\arrow[uur, "\varphi_{S}"]\arrow[ur, hook] & & \widetilde{K}_{X,T} \arrow[luu, "\varphi_{T}", swap] \arrow[lu, hook]
+		\end{tikzcd}
+	\]
+	commutes. This implies $K^{\sharp} = \widetilde{K}_{Y}$ (or canonically isomorphic).
+\end{proof}
+\begin{remark}\label{rem:adèle-not-subspace-topology}
+	Observe that the topology in $\widetilde{K}$ is finer than the one it inherits as a subspace of the product $\prod_{p\in X}K_{p}$. For instance, observe that 
+	\[
+		\widetilde{L} := \prod_{p\in X}L_{p} 
+	\] 
+	is open in $\widetilde{K}$, but it is open in $\prod_{p\in X} K_{p}$ if and only if $X$ is finite. Moreover, notice that the product topology in $\widetilde{L}$ coincides with the subspace topology it inherits from $\widetilde{K}$. In addition, for $Y\subseteq X$, we define $\widetilde{L}_{Y}$ is the product indexed by $Y \subseteq X$.
+\end{remark}
+\begin{proposition}\label{prop:adèle-is-a-tate-space}
+	$\widetilde{K}_{Y}$ is a Tate space and $\widetilde{L}_{Y}$ is a c-lattice in $\widetilde{K}_{Y}$. 
+\end{proposition}
+\begin{proof}
+	First, observe that
+	\[
+		\prod_{p\in Y} L_{p} = \varprojlim_{p\in Y} L_{p} = \varprojlim_{p\in Y}\varprojlim_{n\geq 1} \O_{Y,p}/\mathfrak{m}_{p}^{n}\O_{Y,p} = \varprojlim_{(p,n)\in Y\times \N^{\geq 0}} \O_{Y,p}/\mathfrak{m}_{p}^{n}\O_{Y,p}
+	\] 
+	for $X$ realized as trivial category. Hence, $\widetilde{L}_{Y}$ is the inverse limit of a projective system of finite dimensional $k$-vector spaces. Therefore, $\widetilde{L}_{Y}$ is a complete linearly compact vector space over $k$. Since $\widetilde{L}_{Y}$ is open in $\widetilde{K}_{Y}$, it is a c-lattice in $\widetilde{K}_{Y}$ and $\widetilde{K}_{Y}$ is a Tate space.
+\end{proof}
+
+\begin{proposition}\label{prop:K-discrete-in-adèle}
+	$K$ is realized as a discrete vector subspace of $\widetilde{K}$ by means of the diagonal embedding $f \mapsto (f)_{p\in X}$. Moreover, $\widetilde{K}/K$ is linearly compact. 
+\end{proposition}
+\begin{proof}
+	Observe that 
+	\[
+		K\cap \widetilde{L} = \bigcap_{p\in X}\O_{X,p} = \O_{X}(X).
+	\]
+	Indeed, the first equality is obvious and the second follows from the fact that a regular function is globally defined on $X$ if and only if it is regular at every point $p$. Since $X$ is projective, $\O_{X}(X) \cong k$ (see, e.g \cite{hartshorne} Chapter 1 Theorem 3.4). Therefore, $K\cap \widetilde{L}$ is a finite-dimensional $k$-vector space, thus discrete. Since $\widetilde{L}$ is open, it follows that $K$ is discrete. We claim that $\widetilde{K}/(\widetilde{L} + K)$ is finite dimensional. Consider the exact sequence of abelian sheaves on $X$
+	\[
+		0 \rightarrow \O_{X} \rightarrow  { K } ^ { 0 } \stackrel { \delta } { \rightarrow }  { K } ^ { 1 } \rightarrow 0
+	\]
+	where for all $U$ open in $X$ we let $K^{0}(U) = \operatorname{Im}(K \to \widetilde{K}_{U})$ by the diagonal embedding and $K^{1}(U) = \widetilde{K}_{U}/\widetilde{L}_{U} = \bigoplus_{p\in U}K_{p}/L_{p}$. The map $\delta(U)\colon \widetilde{K}_{U} \to \widetilde{K}_{U}/\widetilde{L}_{U}$ is the natural projection.
+\end{proof}
