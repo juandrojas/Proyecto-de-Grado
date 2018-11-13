@@ -1,48 +1,48 @@
 %!TEX root = ../main.tex
 \chapter{Algebraic curves}\label{ch:algebraic-curves}
-In the preceding chapter we presented the ``residue map'' in an abstract context. In this chapter, we explore residues on algebraic curves using Tate's construction. First, we expose briefly sheaf theory and their cohomology.
-\section{Sheaf Theory} 
-We just assume (as in previous chapters) basic homological algebra and algebraic geometry (e.g. the first chapter in \cite{hartshorne}).
+In the preceding chapter we presented the ``residue map'' in an abstract context. In this chapter, we explore residues on algebraic curves using Tate's construction. 
+%\section{Sheaf Theory} 
+%We just assume (as in previous chapters) basic homological algebra and algebraic geometry (e.g. the first chapter in \cite{hartshorne}).
 
-Let $X$ be a topological space.
-\subsection{Presheaves and sheaves}
-\begin{definition}\label{def:presheaf}
-	A \textbf{presheaf} $\mathscr F$ over $X$ is a functor from the opposite category of open sets in $X$ ($U \to V \iff V\subseteq U$ ) to an arbitrary category $\mathcal{C}$ 
-	\[
-		\mathscr F\colon \mathsf{Op}(X)^{\mathtt{op}} \to \mathcal{C}.
-	\]
-	If $U \subseteq V$ then $\mathscr{F}(V) \to \mathscr{F}(U)$. We will call such map $\res^{V}_{U}$ the \textit{restriction} of $V$ to $U$. If $\mathcal{C}$ is $\mathsf{Ab}$ or $\mathsf{Mod}_{A}$ we will simply say a presheaf of abelian groups or $A$-modules respectively.
-\end{definition}
-\begin{definition}\label{def:sheaf}
-	A \textbf{sheaf} $\mathscr F$ on $X$ is a presheaf such that for every open set $U \subseteq X$ and every open cover $\mathscr U = \{U_{\alpha}\}_{\alpha}$ of $U$ the diagram
-	\[
-		\begin{tikzcd}
-			\mathscr{F}(U)\arrow[r] & \prod_{\alpha}\mathscr{F}(U_{\alpha}) \arrow[r, shift right] \arrow[r, shift left] & \prod_{\alpha, \beta} \mathscr{F}(U_{\alpha} \cap U_{\beta})
-		\end{tikzcd}
-	\]
-	is an equalizer. This equalizer can be understood by the following two axioms usually called \textit{sheaf axioms}
-	\begin{enumerate}[label = (\roman*)]
-		\item If $s,t \in \mathscr{F}(U)$ and $\res^{U}_{U_{\alpha}}(s) = \res^{U}_{U_{\alpha}}(t)$ for all $\alpha$ then $s = t$.
-		\item For a collection $\{s_{\alpha}\}_{\alpha}$ such that $\res^{U_{\alpha}}_{U_{\alpha}\cap U_{\beta}}(s_{\alpha}) = \res^{U_{\beta}}_{U_{\alpha}\cap U_{\beta}}(s_{\beta})$ for all $\alpha$ and $\beta$ there exists some $s \in \mathscr{F}(U)$ such that $\res^{U}_{U_{\alpha}}(s) = s_{\alpha}$.
-	\end{enumerate}
-\end{definition}
-\begin{example}\label{ex:examples-of-sheaves}
-	\begin{enumerate}[label = (\alph*)]
-		\item For all $U$ open in $X$ let $C(U)$ denote the ring of continuous functions $X \to \R$. This is a sheaf of rings over $X$. 
-		\item The example we are more interested in is the \textbf{structure sheaf} on a projective variety. That is, for a projective variety $X$ we denote by $\O_{X}(U)$ the ring of regular functions defined on $U$. It is clear that it is a presheaf of rings. The other conditions follow from the fact that a regular function is zero if and only if it is locally zero and it is locally regular if and only if it is locally regular.
-		\item As observed in the previous two examples, sheaves encode local behavior. For instance, let $\mathscr{G}(U)$ denote the ring of continuous constants functions $U \to \R$. In this case $\mathscr{G}$ in a presheaf but not a sheaf (if $X$ has at least two non trivial open sets), this follows from the fact that a locally constant function is not necessarily constant.
-	\end{enumerate}
-\end{example}
-The collection of presheaves of $\mathcal{C}$ over $X$ is a category. Indeed a morphism between two presheaves $\mathscr{F}$ and $\mathscr{G}$ is a natural transformation $\varphi\colon \mathscr{F} \to \mathscr{G}$. That is, for all $U \subseteq V$ open in $X$ the diagram
-\[
-	\begin{tikzcd}
-		\mathscr{F}(V) \arrow[r, "\varphi(V)"] \arrow[d, "\res^{V}_{U}"] & \mathscr{G}(U) \arrow[d, "\res^{V}_{U}"] \\
-		\mathscr{F}(U) \arrow[r, "\varphi(U)"] & \mathscr{G}(U)
-	\end{tikzcd}
-\]
-commutes. We denote $\mathsf{PSh}(X)$. Analogously, the collection of sheaves of $\mathcal{C}$ over $X$ is also a category. We denote it by $\mathsf{Sh}(X)$. 
+%Let $X$ be a topological space.
+%\subsection{Presheaves and sheaves}
+%\begin{definition}\label{def:presheaf}
+%	A \textbf{presheaf} $\mathscr F$ over $X$ is a functor from the opposite category of open sets in $X$ ($U \to V \iff V\subseteq U$ ) to an arbitrary category $\mathcal{C}$ 
+%	\[
+%		\mathscr F\colon \mathsf{Op}(X)^{\mathtt{op}} \to \mathcal{C}.
+%	\]
+%	If $U \subseteq V$ then $\mathscr{F}(V) \to \mathscr{F}(U)$. We will call such map $\res^{V}_{U}$ (not to be confused with \textit{residue}) the \textit{restriction} of $V$ to $U$. If $\mathcal{C}$ is $\mathsf{Ab}$ or $\mathsf{Mod}_{A}$ we will simply say a presheaf of abelian groups or $A$-modules respectively.
+%\end{definition}
+%\begin{definition}\label{def:sheaf}
+%	A \textbf{sheaf} $\mathscr F$ on $X$ is a presheaf such that for every open set $U \subseteq X$ and every open cover $\mathscr U = \{U_{\alpha}\}_{\alpha}$ of $U$ the diagram
+%	\[
+%		\begin{tikzcd}
+%			\mathscr{F}(U)\arrow[r] & \prod_{\alpha}\mathscr{F}(U_{\alpha}) \arrow[r, shift right] \arrow[r, shift left] & \prod_{\alpha, \beta} \mathscr{F}(U_{\alpha} \cap U_{\beta})
+%		\end{tikzcd}
+%	\]
+%	is an equalizer. This equalizer can be understood by the following two axioms usually called \textit{sheaf axioms}
+%	\begin{enumerate}[label = (\roman*)]
+%		\item If $s,t \in \mathscr{F}(U)$ and $\res^{U}_{U_{\alpha}}(s) = \res^{U}_{U_{\alpha}}(t)$ for all $\alpha$ then $s = t$.
+%		\item For a collection $\{s_{\alpha}\}_{\alpha}$ such that $\res^{U_{\alpha}}_{U_{\alpha}\cap U_{\beta}}(s_{\alpha}) = \res^{U_{\beta}}_{U_{\alpha}\cap U_{\beta}}(s_{\beta})$ for all $\alpha$ and $\beta$ there exists some $s \in \mathscr{F}(U)$ such that $\res^{U}_{U_{\alpha}}(s) = s_{\alpha}$.
+%	\end{enumerate}
+%\end{definition}
+%\begin{example}\label{ex:examples-of-sheaves}
+%	\begin{enumerate}[label = (\alph*)]
+%		\item For all $U$ open in $X$ let $C(U)$ denote the ring of continuous functions $U \to \R$. This is a sheaf of rings over $X$. 
+%		\item The example we are more interested in is the \textbf{structure sheaf} on a projective variety. That is, for a projective variety $X$ we denote by $\O_{X}(U)$ the ring of regular functions defined on $U$. It is clear that it is a presheaf of rings. The other conditions follow from the fact that a regular function is zero if and only if it is locally zero and it is locally regular if and only if it is locally regular.
+%		\item As observed in the previous two examples, sheaves encode local behavior. For instance, let $\mathscr{G}(U)$ denote the ring of continuous constants functions $U \to \R$. In this case $\mathscr{G}$ in a presheaf but not a sheaf (if $X$ has at least two non trivial open sets), this follows from the fact that a locally constant function is not necessarily constant.
+%	\end{enumerate}
+%\end{example}
+%The collection of presheaves of $\mathcal{C}$ over $X$ is a category. Indeed a morphism between two presheaves $\mathscr{F}$ and $\mathscr{G}$ is a natural transformation $\varphi\colon \mathscr{F} \to \mathscr{G}$. That is, for all $U \subseteq V$ open in $X$ the diagram
+%\[
+%	\begin{tikzcd}
+%		\mathscr{F}(V) \arrow[r, "\varphi(V)"] \arrow[d, "\res^{V}_{U}"] & \mathscr{G}(U) \arrow[d, "\res^{V}_{U}"] \\
+%		\mathscr{F}(U) \arrow[r, "\varphi(U)"] & \mathscr{G}(U)
+%	\end{tikzcd}
+%\]
+%commutes. We denote $\mathsf{PSh}(X)$. Analogously, the collection of sheaves of $\mathcal{C}$ over $X$ is also a category. We denote it by $\mathsf{Sh}(X)$. 
 
-\subsection{Sheaf cohomology}
+%\subsection{Sheaf cohomology}
 
 \section{Basic theory of algebraic curves}
 In this section we recall briefly and with little detail the basic theory of algebraic projective curves. For a complete exposition we reference the reader to \cite{curves} and \cite{hartshorne}. We will borrow many results from commutative algebra, most of them can be found in \cite{Matsumura}, \cite{comm-alg} and \cite{atiyah}.
@@ -72,7 +72,7 @@ of regular functions near $p$. We obtain natural injections
 In addition, $\O_{X,p}$ is a noetherian local ring of Krull dimension $\dim X$.
 Its maximal ideal of regular functions near $p$ that vanish in $p$ is denoted $\mathfrak{m}_{p}$. Observe that evaluation at $p$ yields the isomorphism $\O_{X,p}/\mathfrak{m}_{p} \cong k$.
 
-\subsection*{Smoothness and completeness}
+\subsection{Smoothness and completeness}
 \begin{definition}\label{def:regular-local-ring}
 	A local ring $(A, \mathfrak{m})$, where $\mathfrak{m}$ denotes its maximal ideal, is called \textbf{regular} if $\dim_{A/\mathfrak{m}} \mathfrak{m}/\mathfrak{m}^{2} = \dim A$. 
 \end{definition}
@@ -114,7 +114,7 @@ Now, we focus in one-dimensional varieties.
 	An \textbf{algebraic curve} is a one-dimensional smooth variety.
 \end{definition}
 In dimension $1$ smoothness can be interpreted in the language of valuations.
-\subsection*{Valuation theory}
+\subsection{Valuation theory}
 Let $k$ be a field. 
 \begin{definition}\label{def:discrete-valuation}
 	A \textbf{discrete valuation} is a surjective group homomorphism $\nu\colon k^{\times} \to \Z$ such that, for every $x\in k^{\times}$ and $y \neq -x$ in $k^{\times}$
@@ -159,8 +159,61 @@ We have the following characterization theorem for DVRs.
 \begin{example}\label{ex:stalk-of-regular-functions-as-a-DVR}
 	Let $(X,\O_{X})$ be an algebraic curve. Let $p \in X$ and consider $\O_{X,p}$. In this case $\O_{X,p}$ is a DVR. Let $t_{p}\in \O_{X,p}$ be an uniformizing parameter. Then, if $f \in k(X)$ it follows that $f = ut_{p}^{n}$ for some  unit $u\in \O_{X,p}$ and $n \in \Z$. Then, $\nu_{p}(f) = n$.
 \end{example}
+\subsection{Morphisms}
+Let $(X,\O_{X})$ and $(Y,\O_{Y})$ be two algebraic curves. 
+\begin{proposition}\label{prop:non-constant-morphism-is-dominant}
+	A non-constant morphism $\varphi\colon X\to Y$ is \textbf{dominant}, i.e, the image of $X$ is dense in $Y$. Therefore, every non-constant morphism from $X$ to $Y$ yields a field extension $k(Y)\subseteq k(X)$.
+\end{proposition}
+\begin{proof}
+	We have that $Z = \overline{\varphi(X)}$ is closed and irreducible in $Y$. Suppose that $Z \neq Y$. We may intersect with affine space such that $Z \cap \A^{n}\neq \emptyset$. It follows that $Z\cap \A^{n}\neq Y\cap \A^{n}$, otherwise their projective closures will coincide. Hence, the ideal defined by $Z$ is properly contained in the ideal defined by $Y$. Since $\dim Y = 1$ it follows that $\dim Z = 0$, a contradiction.
+\end{proof}
+
+\begin{proposition}\label{prop:non-constant-morphism-is-surjective}
+	A non-constant morphism $\varphi\colon X\to Y$ is surjective. 
+\end{proposition}
+
+\begin{proof}
+	The map yields a field extension $k(Y) \subseteq k(X)$. Given a point $p\in Y$ consider the corresponding DVR $A = \O_{Y,p}\subseteq k(Y)$. Let $B_{0}$ be the integral closure of $A$ in $k(X)$. If we localize at a maximal ideal of $B_{0}$ we obtain a DVR $B \subseteq k(X)$. Then $B = \O_{X,q}$ for some $q \in X$. Then $q \mapsto p$. 
+\end{proof}
+
+
+\subsection{Divisors}
+Let $X$ be an algebraic curve. 
+\begin{definition}\label{def:divisors}
+	A \textbf{divisor} $D$ on $X$ is a finite formal sum of points on $X$, namely
+	\[
+		D = \sum_{p\in X} n_{p}p, \quad n_{p}\in \Z,\text{ and }n_{p} = 0 \quad\text{for almost all } p.
+	\]
+	The \textbf{degree} of $D$ is
+	\[
+		\deg D := \sum_{p\in X}n_{p}.
+	\]
+	We say that a divisor $D$ is \textbf{effective} and write $D\geq 0$ if $n_{p}\geq 0$ for all $p\in X$. We write $D\geq D'$ if the difference $D - D'$ is an effective divisor. \\
+	If $f\in k(X)$ is a non-zero rational function on $X$, the \textbf{principal divisor} $(f)$ is defined by
+	\[
+		(f):=\sum_{p\in X}\nu_{p}(f)p.
+	\]
+	In other words, $(f)$ is the sum of the zeroes of $f$ minus the sum of poles of $f$, counting multiplicities. Observe that $(f) + (g) = (fg)$. 
+
+	We say that two divisors $D$ and $D'$ are \textbf{linearly equivalent} if the differ by a principal divisor, that is, there exists some rational function $f$ such that $D + (f) = D'$.
+
+	Given a divisor $D = \sum_{p}n_{p}p$ we define the $k$-vector space
+	\[
+		L(D) := \{f\in k(X)\colon f = 0\text{ or } \nu_{p}(f) \geq -n_{p}\}.
+	\]
+	For instance, if $D$ is effective $L(D)$ consists of rational functions having a pole at $p\in X$ of order at worst $n_{p}$ for each $p\in X$. We write $\ell(D) := \dim_{k}(L(D))$.
+\end{definition}
+%\begin{proposition}\label{prop:degree-of-principal-divisor}
+	%For all $f\in k(X)^{\times}$ the principal divisor of $f$ has zero degree.
+%\end{proposition}
+%\begin{proof}
+	
+%\end{proof}
+
 \section{Tate spaces over algebraic curves}
-Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$. Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \widehat{\O_{X,p}}$ and $K_{p}:=\Frac L_{p}$. From \cref{thm:properties-adic-completion} and $\cref{thm:characterization-of-DVRs}$ it follows that $L_{p}$ is a DVR. Let $t_{p}$ be an uniformizing parameter in $L_{p}$. The topology in $K_{p}$ defined by letting $\{t_{p}^{n}L_{p}\}_{n\in \Z}$ be a system of neighborhoods of zero in $K_{p}$. This system is compatible with the valuation induced by $L_{p}$.
+Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$.
+\subsection{Residue in coordinates}
+Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \widehat{\O_{X,p}}$ and $K_{p}:=\Frac L_{p}$. From \cref{thm:properties-adic-completion} and $\cref{thm:characterization-of-DVRs}$ it follows that $L_{p}$ is a DVR. Let $t_{p}$ be an uniformizing parameter in $L_{p}$. The topology in $K_{p}$ defined by letting $\{t_{p}^{n}L_{p}\}_{n\in \Z}$ be a system of neighborhoods of zero in $K_{p}$. This system is compatible with the valuation induced by $L_{p}$.
 \begin{proposition}\label{prop:complete-fraction-field-is-a-Tate-space}
 	$K_{p}$ is a Tate space and $L_{p}$ is a c-lattice in $K_{p}$.
 \end{proposition}
@@ -228,7 +281,7 @@ Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$. L
 	\[
 		\res_{p}(t_{p}^{-1}dt_{p}) = \dim_{k}(L_{p}/t_{p}L_{p}) = \dim_{k}k = 1. 	
 	\]
-	Hence, $k$-linearity of residue implies the desired conclusion.
+	Hence, by $k$-linearity of residue implies the desired conclusion.
 \end{proof}
 \begin{corollary}\label{cor:invriance-of-residue-coefficient}
 	Let $f\in K_{p}$. Then, the coefficient of $t_{p}^{-1}$ in the Laurent series expansion of $f$ is independent of the choice of uniformizing parameter $t_{p}$.	
@@ -238,17 +291,10 @@ Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$. L
 	\[
 		\res_{p}(\omega) = \frac{1}{2\pi i}\oint_{p} \omega.
 	\]
-	Nevertheless, in the general setting it is not obvious why invariance follows. In \cref{cor:invriance-of-residue-coefficient} we gave a clean but taxing proof of such result. We reference the reader to \cite{serre} Chapter 2 Section 10 for a direct proof.
+	Nevertheless, in the general setting it is not obvious why invariance follows. In \cref{cor:invriance-of-residue-coefficient} we gave a clean but theory-demanding proof of such result. We reference the reader to \cite{serre} Chapter 2 Section 10 for a direct proof.
 \end{remark}
-\subsection*{Adèles and the residue theorem}
-Our next goal is to prove the residue theorem.
-\begin{theorem}\label{thm:residue-theorem}
-	For $X$ an algebraic curve and $\omega \in \Omega_{K/k}$, then 
-	\[
-		\sum_{p\in X}\res_{p}(\omega) = 0.
-	\]
-\end{theorem}
-First, observe that the expression $\sum_{p\in X}\res_{p}(\omega) = 0$ makes sense by \cref{prop:no-poles-zero-residue} and the fact that $\omega$ has a finite amount of poles. In order to prove this we will borrow an \textit{adèlic} approach from number theory.
+\subsection{Adèles and the residue theorem}
+Our next goal is to prove the residue theorem. In order to prove it, we will take an \textit{adèlic} approach, borrowing many techniques from number theory.
 \begin{definition}\label{def:adele-ring-over-algebraic-curve}
 	Let $X$ be an algebraic curve. Let $Y \subseteq X$ be any subset. Let $\mathscr{F}$ denote the set of all finite subsets of $Y$. Let $S \in \mathscr{F}$, the $\mathbf{S}$-\textbf{adèle} of $K$ indexed by $Y$ is defined as the product
 	\[
@@ -263,7 +309,7 @@ First, observe that the expression $\sum_{p\in X}\res_{p}(\omega) = 0$ makes sen
 The adèle of $K$ is a particular case of a \textbf{restricted product} of a collection of topological spaces. In the literature, this construction is usually defined as a \textit{set} in terms of the product. We give this characterization in the following proposition.
 \begin{proposition}\label{prop:adèle-as-subset-of-product}
 	\[
-		\widetilde{K} = \{(f_{p})\colon f_{p} \in K_{p}\text{ for all }p \in Y\text{ and }f_{p}\in L_{p}\text{ for almost all }p\in Y\}
+		\widetilde{K}_{Y} = \{(f_{p})\colon f_{p} \in K_{p}\text{ for all }p \in Y\text{ and }f_{p}\in L_{p}\text{ for almost all }p\in Y\}
 	\]
 	where \textit{almost all} means for all but finitely many $p\in Y$, equipped with the following collection as a basis for its topology
 	\[
@@ -300,12 +346,17 @@ The adèle of $K$ is a particular case of a \textbf{restricted product} of a col
 	commutes. This implies $K^{\sharp} = \widetilde{K}_{Y}$ (or canonically isomorphic).
 \end{proof}
 \begin{remark}\label{rem:adèle-not-subspace-topology}
-	Observe that the topology in $\widetilde{K}$ is finer than the one it inherits as a subspace of the product $\prod_{p\in X}K_{p}$. For instance, observe that 
+	Observe that the topology in $\widetilde{K}_{Y}$ is finer than the one it inherits as a subspace of the product $\prod_{p\in Y}K_{p}$. For instance, observe that 
 	\[
-		\widetilde{L} := \prod_{p\in X}L_{p} 
+		\widetilde{L}_{Y} := \prod_{p\in Y}L_{p} 
 	\] 
-	is open in $\widetilde{K}$, but it is open in $\prod_{p\in X} K_{p}$ if and only if $X$ is finite. Moreover, notice that the product topology in $\widetilde{L}$ coincides with the subspace topology it inherits from $\widetilde{K}$. In addition, for $Y\subseteq X$, we define $\widetilde{L}_{Y}$ is the product indexed by $Y \subseteq X$.
+	is open in $\widetilde{K}$, but it is open in $\prod_{p\in Y} K_{p}$ if and only if $Y$ is finite. 
 \end{remark}
+If $D = \sum_{p}n_{p}p$ is a divisor, let
+\[
+	\widetilde{K}(D) = \{(f_{p})_{p}\in \widetilde{K}\colon \nu_{p}(f_{p}) \geq -n_{p}\}
+\]
+a $k$-vector subspace of $\widetilde{K}$. By the description we gave in \cref{prop:adèle-as-subset-of-product} $\widetilde{K}(D)$ is open for all divisors $D$ and they form a system of neighborhoods around zero of mutually commensurable vector subspaces in $\widetilde{K}$. In this notation, $\widetilde{K}(0) = \widetilde{L}$.
 \begin{proposition}\label{prop:adèle-is-a-tate-space}
 	$\widetilde{K}_{Y}$ is a Tate space and $\widetilde{L}_{Y}$ is a c-lattice in $\widetilde{K}_{Y}$. 
 \end{proposition}
@@ -318,16 +369,146 @@ The adèle of $K$ is a particular case of a \textbf{restricted product} of a col
 \end{proof}
 
 \begin{proposition}\label{prop:K-discrete-in-adèle}
-	$K$ is realized as a discrete vector subspace of $\widetilde{K}$ by means of the diagonal embedding $f \mapsto (f)_{p\in X}$. Moreover, $\widetilde{K}/K$ is linearly compact. 
+	$K$ is realized as a discrete vector subspace of $\widetilde{K}$ by means of the diagonal embedding $f \mapsto (f)_{p\in X}$. 
 \end{proposition}
 \begin{proof}
 	Observe that 
 	\[
 		K\cap \widetilde{L} = \bigcap_{p\in X}\O_{X,p} = \O_{X}(X).
 	\]
-	Indeed, the first equality is obvious and the second follows from the fact that a regular function is globally defined on $X$ if and only if it is regular at every point $p$. Since $X$ is projective, $\O_{X}(X) \cong k$ (see, e.g \cite{hartshorne} Chapter 1 Theorem 3.4). Therefore, $K\cap \widetilde{L}$ is a finite-dimensional $k$-vector space, thus discrete. Since $\widetilde{L}$ is open, it follows that $K$ is discrete. We claim that $\widetilde{K}/(\widetilde{L} + K)$ is finite dimensional. Consider the exact sequence of abelian sheaves on $X$
-	\[
-		0 \rightarrow \O_{X} \rightarrow  { K } ^ { 0 } \stackrel { \delta } { \rightarrow }  { K } ^ { 1 } \rightarrow 0
-	\]
-	where for all $U$ open in $X$ we let $K^{0}(U) = \operatorname{Im}(K \to \widetilde{K}_{U})$ by the diagonal embedding and $K^{1}(U) = \widetilde{K}_{U}/\widetilde{L}_{U} = \bigoplus_{p\in U}K_{p}/L_{p}$. The map $\delta(U)\colon \widetilde{K}_{U} \to \widetilde{K}_{U}/\widetilde{L}_{U}$ is the natural projection.
+	Indeed, the first equality is obvious and the second follows from the fact that a regular function is globally defined on $X$ if and only if it is regular at every point $p$. Since $X$ is projective and geometrically irreducible, $\O_{X}(X) \cong k$ (see, e.g \cite{hartshorne} Chapter 1 Theorem 3.4). Therefore, $K\cap \widetilde{L}$ is a finite-dimensional $k$-vector space, thus discrete. Since $\widetilde{L}$ is open, it follows that $K$ is discrete. 
 \end{proof}
+Our next objective is to show that $\widetilde{K}/K$ is linearly compact. To prove this, for a divisor $D = \sum_{p\in X}n_{p}p$ we study the quotient
+\[
+	I(D) := \widetilde{K}(D)/(\widetilde{K}(D) + K).
+\]
+By construction we have the following exact sequence
+\[
+	0 \to L(D) \to K \to \widetilde{K}/\widetilde{K}(D) \to I(D) \to 0.
+\]
+An element $(\overline{f}_{p})_{p}\in \widetilde{K}/\widetilde{K}(D)$ can be described as follows: at each point $p \in X$, $\overline{f}_{p}$ is given by a \textbf{Laurent tail}
+\[
+	\overline{f}_{p} = a_{\nu}t_{p}^{\nu} + a_{\nu + 1}t_{p}^{\nu+1} + \ldots + a_{-n_{p}-1}t_{p}^{-n_{p}-1}
+\]
+where $t_{p}$ is a uniformizing parameter at $p$, $\nu\in \Z$, $\nu\leq n_{p}$, and $a_{i}\in k$. Moreover, only finitely many $\overline{f}_{p}$ are non-zero.
+\begin{example}\label{ex:I(D)-for-P^1}
+	Let $X = \P^{1}$. We claim $I(0) = 0$. Indeed, an element $\overline { f } \in \widetilde{K} / \widetilde{K} ( 0 )$ is a finite collection of Laurent tails as above, where $n _ { p } = 0$ for all $p .$ Choose an affine coordinate $x = X _ { 1 } / X _ { 0 }$ on $\mathbb { P } ^ { 1 }$ such that the points $p _ { 1 } , \ldots , p _ { k }$ such that $\overline { f } _ { p } \neq 0$ lie in the affine piece $\A _ { x } ^ { 1 } = \left( X _ { 0 } \neq 0 \right) \subset \mathbb { P } ^ { 1 } ,$ with $x$ coordinates $\alpha _ { 1 } , \ldots , \alpha _ { k } .$ Then $x - \alpha _ { i }$ is a local parameter at $p _ { i } ,$ and we can write 
+	\[
+		\overline { f } _ { p_ { i } } = g _ { i } = a _ { \nu _ { i } , i } \left( x - \alpha _ { i } \right) ^ { \nu _ { i } } + \cdots + a _ { - 1 , i } ( x - \alpha_{1} ) ^ { - 1 }
+	\]
+	Define $g = \sum g _ { i } \in k ( X ) ,$ then $g$ has Laurent tail $\overline { f } _ { p _ { i } }$ at $p _ { i }$ and is regular elsewhere, that is, $g \mapsto \overline { f } \in \widetilde{K}/ \widetilde{K} ( 0 ) .$ Hence $I ( 0 ) = 0$ as claimed.
+\end{example}
+\begin{lemma}\label{lemm:inequality-divisors-yields-surjection}
+	Suppose $D\leq D'$. Then, there is a natural surjection $I(D) \to I(D')$, and the kernel has dimension
+	\[
+		(\deg D' - \ell(D')) - (\deg D - \ell(D)).
+	\]
+\end{lemma}
+\begin{proof}
+	By definition $\widetilde{K}(D) \subseteq \widetilde{K}(D')$, so $I(D)$ surjects onto $I(D')$. Consider the commutative diagram 
+	\[
+	\begin{tikzcd}
+		0  \ar[r] &  K/L(D) \ar[d] \ar[r] & \widetilde{K}/\widetilde{K}(D) \ar[d] \ar[r] & I(D) \ar[d] \ar[r] & 0 \\
+		0 \ar[r] &  K/L(D')  \ar[r] & \widetilde{K}/\widetilde{K}(D')  \ar[r] & I(D')  \ar[r] & 0
+	\end{tikzcd}
+	\]
+	The vertical arrows are surjective, so the kernels form an exact sequence
+	\[
+	0 \to L(D')/L(D) \to \widetilde{K}(D')/\widetilde{K}(D) \to M \to 0
+	\]
+	where $M = \ker(I(D) \to I(D'))$. Finally, observe that $\widetilde{K}(D')/\widetilde{K}(D)$ has dimension $\deg D' - \deg D$. Indeed, writing $D = \sum_{p}n_{p}p$ and $D' = \sum_{p}n_{p}'p$, an element $(\overline{f}_{p})_{p} \in \widetilde{K}(D')/\widetilde{K}(D)$ is given by Laurent tails 
+	\[
+	 \overline{f}_{p} =  a _ { - n _ { p } ^ { \prime } } t_{p} ^ { - n _ { p } ^ { \prime } } + a _ { - n _ { p } ^ { \prime } + 1 } t_{p} ^ { - n _ { p } ^ { \prime } + 1 } + \cdots + a _ { - n _ { p } - 1 } t_{p} ^ { - n _ { p } - 1 }
+	\]
+	where $t_{p}$ denotes a uniformizing parameter at $p$. So, 
+	\[
+		\dim_{k} \widetilde{K}(D')/\widetilde{K}(D) = \sum_{p}(n_{p}' - n_{p}) = \deg D' - \deg D
+	\]
+	as claimed. This yields the formula for $\dim_{k}M$.
+\end{proof}
+\begin{lemma}\label{lemm:bound-on-L(D)}
+	There exists $N \in \N$ such that $\deg D - \ell(D)\leq N$ for all divisors $D$ on $X$.
+\end{lemma}
+\begin{proof}
+	Let $f \in K$ be a non-constant rational function and 
+	\[
+		F = (1 : f)\colon X \to \P^{1}
+	\]
+	the associated morphism. Let $A = F^{*}(0 : 1)$, so $A$ is the divisor of degree $d$ given by the sum of the poles of $f$ with multiplicities. Let $D$ be a divisor on $X$. We claim that there exists a linearly equivalent divisor $D'$ such that $D' \leq nA$ for some $n \in \N$. Indeed, write $D = \sum_{p}n_{p}p$, and define 
+	\[
+		h = \prod_{p\in S}(f - f(p))^{n_{p}}
+	\]
+	where
+	\[
+		S = \{p \in X\colon n_{p} > 0, f(p)\neq \infty\}.
+	\]
+	Then $(h) \geq D - nA$ for some $n \in \N$, that is, $D' := D - (h) \leq nA$, as desired. 
+
+	We now establish the result for divisors $D = nA$ for $n\in \N$. The morphism $F$ corresponds to the field extension $k(f) \subseteq k(X)$ of degree $d$. Pick a basis $g_{1}, \ldots, g_{d}$ for $k(X)$ over $k(f)$. Then, by the construction in the previous paragraph, there exist polynomials $q_{i}(t) \in k[t]$ such that $q_{i}(f)g_{i} \in L(n_{0}A)$ for all $1 \leq i \leq d$ and some $n_{0}\in \N$. Indeed, let $D = -(g_{i})$ and define $q_{i}(f) = h$ as above. Then $(hg_{i}) = -D' \leq n_{i}A$ for some $n_{i}\in \N$. Let $n_{0} = \max{n_{i}}$. Then $f^{j}p_{i}(f)g_{i} \in L(nA)$ for each $1 \leq i \leq d$ and $0 \leq j \leq n - n_{0}$. Moreover, these functions are linearly independent over $k(f)$ because $g_{1},\ldots,g_{d}$ are linearly independent over $k(f)$. So,
+	\[
+		\ell(nA) \geq (n - n_{0} + 1)d = \deg nA - (n_{0} - 1)d,
+	\]
+	that is, $\deg nA - \ell(nA) \leq N$ where $N:= (n_{0} -1)d$. 
+
+	Combining our results, if $D$ and $D'$ are linearly equivalent and $D' \leq nA$ then 
+	\[
+		\deg D - \ell(D) = \deg D' - \ell(D') \leq \deg nA - \ell(nA) \leq N. 		
+	\]
+\end{proof}
+\begin{theorem}\label{thm:I(D)-is-finite-dimensional}
+	$\dim_{k}I(D) < \infty$.
+\end{theorem}
+\begin{proof}
+	By \cref{lemm:bound-on-L(D)} there exists a divisor $D_{0}$ on $X$ such that $\deg D_{0} - \ell(D_{0})$ is maximal. We claim that $I(D_{0}) = 0$. Indeed, otherwise let $(\overline{f}_{p})_{p}\in I(D)$ nonzero. Pick $D' \geq D_{0}$  $D '= \sum_{p}n_{p}' p$ such that $\nu_{p}(f_{p}) \geq -n_{p}'$ for all $p\in X$, then $(f_{p})_{p}$ lies in the kernel of the surjection $I(D_{0})\to I(D')$. So $\deg D' - \ell(D') > \deg(D_{0}) - \ell(D_{0})$ by \cref{lemm:inequality-divisors-yields-surjection}, a contradiction. 
+
+	If $D\leq D'$ we have a surjection $I(D) \to I(D')$ with finite-dimensional kernel by \cref{lemm:inequality-divisors-yields-surjection}. Thus $I(D) \sim I(D')$. Since $I(D_{0})$ is finite dimensional, we deduce that $I(D)$ is finite dimensional for every divisor $D$.
+\end{proof}
+\begin{corollary}\label{cor:adele-mod-K-is-linearly-compact}
+	$\widetilde{K}/K$ is linearly compact.
+\end{corollary}
+\begin{proof}
+	For every divisor $D$ on $X$ the exact sequence
+	\[
+	0 \to (\widetilde{K}(D) + K)/ K \to \widetilde{K}/K \to I(D) \to 0,
+	\]
+	the fact that the collection $\widetilde{K}(D)$ is a system of neighborhoods around zero of vector subspaces in $\widetilde{K}$ and \cref{thm:I(D)-is-finite-dimensional} yield the result.
+\end{proof}
+\begin{corollary}\label{cor:residue-adéle-trivial}
+	For all $p\in X$
+	\[
+		\res_{\widetilde{K}}(\Omega_{K/k}) = 0.
+	\]
+\end{corollary}
+\begin{proof}
+	The statement follows from \cref{prop:linearity-residue-closed-submodule}, \cref{prop:residue-trivial-tate-space}, \cref{prop:K-discrete-in-adèle} and \cref{cor:adele-mod-K-is-linearly-compact}.
+\end{proof}
+
+Now, we are ready to prove the residue theorem. 
+\begin{theorem}\label{thm:residue-theorem}
+	For $X$ an algebraic curve and $\omega \in \Omega_{K/k}$, the identity 
+	\[
+		\sum_{p\in X}\res_{p}(\omega) = 0
+	\]
+	holds. 
+\end{theorem}
+\begin{proof}
+	First, observe that the expression $\sum_{p\in X}\res_{p}(\omega) = 0$ makes sense by \cref{prop:no-poles-zero-residue} and the fact that $\omega$ has a finite amount of poles. Now, it is enough to prove the statement for $\omega = fdg$ for $f,g \in K$. Let $p_{1}, \ldots, p_{n}$ be the collection of poles of $f$ and $g$ combined. Then, the product $K_{p_{1}} \oplus K_{p_{2}} \oplus \cdots K_{p_{n}}$ is a closed $K$-submodule of $\widetilde{K}$ (it is the kernel of the projection on the coordinates different than $p_{i}$). Choose $M$ a complementary subspace. Then
+	\[
+		\widetilde{K} = K_{p_{1}} \oplus K_{p_{2}} \oplus \cdots K_{p_{n}} \oplus M. 
+	\] 
+	Let $U = \widetilde{L} \cap M$. Then $U$ is a c-lattice in $M$ and $fU \subseteq U$ and $gU \subseteq U$. Hence, \cref{prop:residue-and-continuity} yields
+	\[
+		\res_{M}(\omega) = 0.
+	\]
+	Therefore, by \cref{prop:direct-sum-residue} and \cref{cor:residue-adéle-trivial} it follows that
+	\[
+		0 = \res_{\widetilde{K}}(\omega) = \sum_{p\in X}\res_{p}(\omega).
+	\]
+\end{proof}
+
+% sheaves
+%We claim that $\widetilde{K}/(\widetilde{L} + K)$ is finite dimensional. Consider the exact sequence of abelian sheaves on $X$
+%\[
+%	0 \rightarrow \O_{X} \rightarrow  { K } ^ { 0 } \stackrel { \delta } { \rightarrow }  { K } ^ { 1 } \rightarrow 0
+%\]
+%where for all $U$ open in $X$ we let $K^{0}(U) = \operatorname{Im}(K \to \widetilde{K}_{U})$ by the diagonal embedding and $K^{1}(U) = \widetilde{K}_{U}/\widetilde{L}_{U} = \bigoplus_{p\in U}K_{p}/L_{p}$. The map $\delta(U)\colon \widetilde{K}_{U} \to \widetilde{K}_{U}/\widetilde{L}_{U}$ is the natural projection.
