@@ -137,7 +137,7 @@ Let $k$ be a field.
 	\[
 		\mathfrak{a} = \left\langle t^{m}\right\rangle \quad\text{where}\quad m:=\min\{\nu(x)\colon x\in \mathfrak{a}\}.
 	\]
-	Indeed, given a nonzero $x \in \mathfrak{a}$, say $x = ut^{n}$ where $u \in A_{\nu}^{\times}$. Then $t^{n}\in \mathfrak{a}$. Son $n \geq m$. Set $y := ut^{n-m}$. Then $y\in A_\nu$ and $x = yt^{m}$, as desired. Finally, $\mathfrak{m} = \langle t\rangle$ and $\dim A_{\nu} = 1$. Therefore, $A$ is regular local of dimension one.
+	Indeed, given a nonzero $x \in \mathfrak{a}$, say $x = ut^{n}$ where $u \in A_{\nu}^{\times}$. Then $t^{n}\in \mathfrak{a}$. Son $n \geq m$. Set $y := ut^{n-m}$. Then $y\in A_\nu$ and $x = yt^{m}$, as desired. Finally, $\mathfrak{m} = \langle t\rangle$ and $\dim A_{\nu} = 1$. Therefore, $A$ is regular local ring of dimension one.
 \end{definition}
 We have the following characterization theorem for DVRs.
 \begin{theorem}\label{thm:characterization-of-DVRs}
@@ -281,7 +281,7 @@ Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \wide
 	\[
 		\res_{p}(t_{p}^{-1}dt_{p}) = \dim_{k}(L_{p}/t_{p}L_{p}) = \dim_{k}k = 1. 	
 	\]
-	Hence, by $k$-linearity of residue implies the desired conclusion.
+	Hence, $k$-linearity of residue implies the desired conclusion.
 \end{proof}
 \begin{corollary}\label{cor:invriance-of-residue-coefficient}
 	Let $f\in K_{p}$. Then, the coefficient of $t_{p}^{-1}$ in the Laurent series expansion of $f$ is independent of the choice of uniformizing parameter $t_{p}$.	
@@ -380,9 +380,9 @@ a $k$-vector subspace of $\widetilde{K}$. By the description we gave in \cref{pr
 \end{proof}
 Our next objective is to show that $\widetilde{K}/K$ is linearly compact. To prove this, for a divisor $D = \sum_{p\in X}n_{p}p$ we study the quotient
 \[
-	I(D) := \widetilde{K}(D)/(\widetilde{K}(D) + K).
+	I(D) := \widetilde{K}/(\widetilde{K}(D) + K).
 \]
-By construction we have the following exact sequence
+Many techniques here are taken from \cite{fulton}. By construction we have the following exact sequence
 \[
 	0 \to L(D) \to K \to \widetilde{K}/\widetilde{K}(D) \to I(D) \to 0.
 \]
@@ -426,7 +426,7 @@ where $t_{p}$ is a uniformizing parameter at $p$, $\nu\in \Z$, $\nu\leq n_{p}$, 
 	\]
 	as claimed. This yields the formula for $\dim_{k}M$.
 \end{proof}
-\begin{lemma}\label{lemm:bound-on-L(D)}
+\begin{lemma}[Riemann's theorem]\label{lemm:bound-on-L(D)}
 	There exists $N \in \N$ such that $\deg D - \ell(D)\leq N$ for all divisors $D$ on $X$.
 \end{lemma}
 \begin{proof}
@@ -484,7 +484,7 @@ where $t_{p}$ is a uniformizing parameter at $p$, $\nu\in \Z$, $\nu\leq n_{p}$, 
 \end{proof}
 
 Now, we are ready to prove the residue theorem. 
-\begin{theorem}\label{thm:residue-theorem}
+\begin{theorem}[Residue Theorem]\label{thm:residue-theorem}
 	For $X$ an algebraic curve and $\omega \in \Omega_{K/k}$, the identity 
 	\[
 		\sum_{p\in X}\res_{p}(\omega) = 0
@@ -506,6 +506,89 @@ Now, we are ready to prove the residue theorem.
 	\]
 \end{proof}
 \section{Riemann-Roch formula}
+We finish up this chapter by proving the Riemann-Roch formula by means of adèlic methods. 
+
+\subsection{Differential pairing and the adèlic complex}
+Let $X$ be an algebraic curve, $K$ its function field and $\widetilde{K}$ it associated adèle ring. In the previous section we introduced the \textbf{adèlic complex} of $X$, that is, for every divisor $D$ one has the complex $\mathcal{A}(D)$ 
+\[
+	K\oplus \widetilde{K}(D) \to \widetilde{K}, \quad (\alpha,\beta) \mapsto \alpha - \beta.
+\]
+This complex is quasi-isomorphic to the complexes
+\[
+	\widetilde{K}(D) \to \widetilde{K}/K, \quad K\to \widetilde{K}/\widetilde{K}(D)
+\]
+and we have $H^{0}(\mathcal{A}(D)) = K \cap \widetilde{K}(D)$ and $H^{1}(\mathcal{A}(D)) = \widetilde{K}/(\widetilde{K}(D) + K)$. Since $\widetilde{K}(D)$ is linearly compact and $K$ is discrete it follows that $\dim_{k}H^{0}(\mathcal{A}(D)) < \infty$. Moreover, we proved in \cref{thm:I(D)-is-finite-dimensional} that $H^{1}(\mathcal{A}(D))$ is finite-dimensional. To study these cohomology groups we will introduce the notion of canonical divisor and the differential pairing.
+\vspace{5mm}
+
+First, we will extend the valuation $\nu_{p}$ for all $p\in X$ for differentials $\omega\in \Omega_{K/k}$. Let $t_{p}$ be a uniformizing parameter at $p$. Then, write $\omega = f dt_{p}$ for $f\in K$ and set $\nu_{p}(\omega) = \nu_{p}(f)$. This formula does not depend on the choice of uniformizing parameter $t_{p}$.
+\begin{definition}\label{def:canonical-divisor}
+	Let $\omega\in \Omega_{K/k}$. We define the \textbf{canonical divisor} $W$ of $\omega$ to be the principal divisor associated to $\omega$. 
+\end{definition}
+\begin{remark}\label{rem:canonical-divisor-are-all-linearly-equivalent}
+	The fact (not proven here) that $\dim_{K}\Omega_{K/k} = 1$ implies that all canonical divisors are linearly equivalent.
+\end{remark}
+\begin{definition}\label{def:differential-pairing}
+	For a differential $\omega\in \Omega_{K/k}$ we define the differential pairing $\langle -, -\rangle$ on $\widetilde{K} \times \widetilde{K}$ by the formula
+	\[{}
+		\langle (f_{p})_{p}, (g_{p})_{p}\rangle =  ((f_{p})_{p}, (g_{p})_{p})\mapsto \sum_{p\in X}	\res_{p}(f_{p}g_{p}\omega).
+	\]
+	Observe that $\langle -,-\rangle$ is continuous. Indeed, let $D = 2W$ where $W$ is the canonical divisor of $\omega$. Then $\widetilde{K}(D) \times \widetilde{K}(D)$ is mapped to zero under the differential pairing.	 
+\end{definition}
+For a $k$-vector subspace $V \subseteq \widetilde{K}$ let $V^{\perp} = \{(f_{p})_{p} \in \widetilde{K}\colon \langle V, (f_{p})_{p}\rangle = 0\}$.
+\begin{lemma}\label{lemm:complement-of-K}
+	$K \subseteq K^{\perp}$ and $K^{\perp}$ is a $K$-vector space. 
+\end{lemma}
+\begin{proof}
+	The Residue Theorem \cref{thm:residue-theorem} implies that $K \subseteq K^{\perp}$. The fact that $K^{\perp}$ is a $K$-space is obvious.
+\end{proof}
+In fact, one can prove a stronger statement.
+\begin{lemma}\label{lemm:K-equals-its-complement}
+	$K = K^{\perp}$.
+\end{lemma}
+\begin{proof}
+	Consider the quotient $K^{\perp}/K$. It is a closed subspace of $\widetilde{K}/K$ because the pairing $\langle -,-\rangle$ is continuous. Hence, it is linearly compact. Moreover, the pairing map yields an injection $K^{\perp} \hookrightarrow (\widetilde{K}/K)^{*}$. Since $(\widetilde{K}/K)^{*}$ is a discrete space by \cref{lemm:duality-d-lattice-c-lattice}. It follows that $\dim_{k}K^{\perp}/K < \infty$. Then, the fact that $\dim_{k} K$ is infinite and $K^{\perp}$ is a $K$-space yields that $K^{\perp} = K$.
+\end{proof}
+Now, the complement of $\widetilde{K}(D)$ for a divisor $D$ is characterized by the canonical divisor. Indeed, from the definition of $W$ it follows that for all divisors $D$
+\[
+	\widetilde{K}(D)^{\perp} = \widetilde{K}(W - D).
+\]
+\begin{lemma}\label{lemm:duality-h^0-h^1}
+	For a divisor $D$
+	\[
+		H^{0}(\mathcal{A}(D)) \cong H^{1}(\mathcal{A}(W - D)).
+	\]
+\end{lemma}
+\begin{proof}
+	We will prove that $H^{0}(\mathcal{A}(D))^{*}\cong \widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp}$. This yields the desired isomorphism, since
+	\begin{align*}
+		H^{0}(\mathcal{A}(D)) &= (K\cap \widetilde{K}(D))^{\perp}\\
+		&= K^{\perp} + \widetilde{K}(D)^{\perp} \\
+		&= K + \widetilde{K}(W - D) \quad (\text{By }\cref{lemm:K-equals-its-complement})
+	\end{align*}
+	Hence, $\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp} \cong H^{1}(\mathcal{A}(W - D))$. Now, observe that the differential pairing induces an injection $\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp} \hookrightarrow H^{0}(\mathcal{A}(D))^{*}$. Moreover, the differential pairing also induces an injection $H^{0}(\mathcal{A}(D)) \hookrightarrow (\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp})^{*}$. The transpose map yields a surjection
+	\[
+		(\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp}) = (\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp})^{**} \twoheadrightarrow H^{0}(\mathcal{A}(D))^{*}
+	\]
+	Since $H^{0}(\mathcal{A}(D))$ is finite-dimensional we conclude 
+	\[
+		H^{0}(\mathcal{A}(D))^{*}\cong \widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp}
+	\]	
+\end{proof}
+Now, \cref{lemm:duality-h^0-h^1} yields $\dim_{k}(H^{0}(\mathcal{A}(D))) = \dim_{k}H^{1}(\mathcal{A}(W - D))$. So, for the Euler characteristic of the complex $\mathcal{A}(D)$ we obtain
+\[
+	\chi_{\mathcal{A}(D)} = \dim_{k}H^{0}(\mathcal{A}(D)) - \dim_{k}H^{1}(\mathcal{A}(D)) = \chi_{\mathcal{A}(W - D)}.
+\]
+One can prove that
+\[
+	\deg D = \dim_{k}\left(\frac{\widetilde{K}(D)}{\widetilde{K}(D)\cap\widetilde{K}(0)}\right) - \dim_{k}\left(\frac{\widetilde{K}(0)}{\widetilde{K}(D)\cap\widetilde{K}(0)}\right) = \chi_{\mathcal{A}(D)} - \chi_{\mathcal{A}(0)}
+\]
+From these relations it follows the well-known Riemann-Roch formula in its adèlic form.
+\begin{theorem}[adélic Riemann-Roch]\label{thm:riemann-roch-adèle}
+	\[
+		\dim_{k} H^{0}(\mathcal{A}(D)) = \dim_{k}H^{0}(\mathcal{A}(W - D)) + \deg D + \chi_{\mathcal{A}(0)}
+	\]
+\end{theorem}
+
 % sheaves
 %We claim that $\widetilde{K}/(\widetilde{L} + K)$ is finite dimensional. Consider the exact sequence of abelian sheaves on $X$
 %\[

@@ -282,7 +282,7 @@ Hence, $[f_{+},g_{+}]\in E_0$. Similarly, $[f,g_{+}]$ and $[f_{+}, g]$ belong to
 	\] 
 	Choices of $f_{\pm}$ are not unique, but for practical reasons we will not worry about those issues. 
 \end{notation}
-\cref{lemm:trace-only-depends-on-K} implies that the assignment $(f,g) \mapsto \tr([f_{+}, g_{+}])$  is well-defined. Observe that this assignment $k$-bilinear by \cref{prop:linearity-trace}. Thus, there exists a map
+\cref{lemm:trace-only-depends-on-K} implies that the assignment $(f,g) \mapsto \tr([f_{+}, g_{+}])$  is well-defined. Observe that this assignment is $k$-bilinear by \cref{prop:linearity-trace}. Thus, there exists a map
 \begin{align*}
 	r\colon &K\otimes_{k} K \to k \\
 	&f \otimes g \mapsto \tr([f_{+}, g_{+}]).
@@ -343,7 +343,7 @@ We prove some of the main properties of $\res$.
 	\overline{f_{+}}&\in \End_{+}(V/W), \quad\text{and} \\
 	f_{+} \circ \iota &\in \End_{+}(W),
 	\end{align*}
-	These statements are straightforward to prove and we leave them as an exercise to the reader.
+	These statements are straightforward from definitions.
 \end{proof}
 \begin{proposition}\label{prop:direct-sum-residue}
 	If $V$ is the direct sum of two closed submodules $W_{1}$ and $W_{2}$ then 
@@ -360,11 +360,11 @@ If our Tate space is trivial so its residue.
 	If $V$ is either linearly compact or discrete then $\res_{V}(\Omega_{K/k}) = 0$.
 \end{proposition}
 \begin{proof}
-	If $V$ is linearity compact then $\End_{+}(V) = E$ and $f_{+} = f$ for all $f \in K$. Since $[f,g] = 0$ then 
+	If $V$ is linearity compact then $\End_{+}(V) = \End_{k}(V)$ and $f_{+} = f$ for all $f \in K$. Since $[f,g] = 0$ then 
 	\begin{align}\label{eqn:trivial-residue}
 		\res_{V}(fdg) = 0.
 	\end{align}
-	On the other hand, if $V$ is discrete then $E = \End_{-}(V)$. Thus, $f = 0 \mod \End_{-}(V)$ for all $f \in K$. Thus, (\ref{eqn:trivial-residue}) holds.
+	On the other hand, if $V$ is discrete then $\End_{k}(V) = \End_{-}(V)$. Thus, $f = 0 \mod \End_{-}(V)$ for all $f \in K$. Thus, (\ref{eqn:trivial-residue}) holds.
 \end{proof}
 \begin{proposition}\label{prop:residue-and-continuity}
 	Let $f$ and $g$ belong to $K$. Then, if there exists a c-lattice $L$ in $V$ so that $fL + fgL + fg^{2}L \subseteq L$ it holds $\res_{V}(fdg) = 0$. In particular, when there exists $L$ a c-lattice so that $fL \subseteq L$ and $gL \subseteq L$ then $\res_{V}(fdg) = 0$.
