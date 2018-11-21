@@ -111,7 +111,7 @@ We get the following result immediately from \cref{thm:properties-adic-completio
 \end{corollary}
 Now, we focus in one-dimensional varieties.
 \begin{definition}\label{def:algebraic-curve}
-	An \textbf{algebraic curve} is a one-dimensional smooth variety.
+	A \textbf{smooth algebraic curve} is a one-dimensional smooth variety.
 \end{definition}
 In dimension $1$ smoothness can be interpreted in the language of valuations.
 \subsection{Valuation theory}
@@ -157,10 +157,10 @@ We have the following characterization theorem for DVRs.
 	Let $X$ be a one-dimensional variety. Then, $X$ is smooth if and only if $\O_{X,p}$ is a DVR for all $p$.
 \end{corollary}
 \begin{example}\label{ex:stalk-of-regular-functions-as-a-DVR}
-	Let $(X,\O_{X})$ be an algebraic curve. Let $p \in X$ and consider $\O_{X,p}$. In this case $\O_{X,p}$ is a DVR. Let $t_{p}\in \O_{X,p}$ be an uniformizing parameter. Then, if $f \in k(X)$ it follows that $f = ut_{p}^{n}$ for some  unit $u\in \O_{X,p}$ and $n \in \Z$. Then, $\nu_{p}(f) = n$.
+	Let $(X,\O_{X})$ be a smooth algebraic curve. Let $p \in X$ and consider $\O_{X,p}$. In this case $\O_{X,p}$ is a DVR. Let $t_{p}\in \O_{X,p}$ be an uniformizing parameter. Then, if $f \in k(X)$ it follows that $f = ut_{p}^{n}$ for some  unit $u\in \O_{X,p}$ and $n \in \Z$. Then, $\nu_{p}(f) = n$.
 \end{example}
 \subsection{Morphisms}
-Let $(X,\O_{X})$ and $(Y,\O_{Y})$ be two algebraic curves. 
+Let $(X,\O_{X})$ and $(Y,\O_{Y})$ be two smooth algebraic curves. 
 \begin{proposition}\label{prop:non-constant-morphism-is-dominant}
 	A non-constant morphism $\varphi\colon X\to Y$ is \textbf{dominant}, i.e, the image of $X$ is dense in $Y$. Therefore, every non-constant morphism from $X$ to $Y$ yields a field extension $k(Y)\subseteq k(X)$.
 \end{proposition}
@@ -178,7 +178,7 @@ Let $(X,\O_{X})$ and $(Y,\O_{Y})$ be two algebraic curves.
 
 
 \subsection{Divisors}
-Let $X$ be an algebraic curve. 
+Let $X$ be a smooth algebraic curve. 
 \begin{definition}\label{def:divisors}
 	A \textbf{divisor} $D$ on $X$ is a finite formal sum of points on $X$, namely
 	\[
@@ -211,7 +211,7 @@ Let $X$ be an algebraic curve.
 %\end{proof}
 
 \section{Tate spaces over algebraic curves}
-Let $(X,\O_{X})$ be an algebraic curve over an algebraically closed field $k$.
+Let $(X,\O_{X})$ be a smooth algebraic curve over an algebraically closed field $k$.
 \subsection{Residue in coordinates}
 Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \widehat{\O_{X,p}}$ and $K_{p}:=\Frac L_{p}$. From \cref{thm:properties-adic-completion} and $\cref{thm:characterization-of-DVRs}$ it follows that $L_{p}$ is a DVR. Let $t_{p}$ be an uniformizing parameter in $L_{p}$. The topology in $K_{p}$ defined by letting $\{t_{p}^{n}L_{p}\}_{n\in \Z}$ be a system of neighborhoods of zero in $K_{p}$. This system is compatible with the valuation induced by $L_{p}$.
 \begin{proposition}\label{prop:complete-fraction-field-is-a-Tate-space}
@@ -296,7 +296,7 @@ Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \wide
 \subsection{Adèles and the residue theorem}
 Our next goal is to prove the residue theorem. In order to prove it, we will take an \textit{adèlic} approach, borrowing many techniques from number theory.
 \begin{definition}\label{def:adele-ring-over-algebraic-curve}
-	Let $X$ be an algebraic curve. Let $Y \subseteq X$ be any subset. Let $\mathscr{F}$ denote the set of all finite subsets of $Y$. Let $S \in \mathscr{F}$, the $\mathbf{S}$-\textbf{adèle} of $K$ indexed by $Y$ is defined as the product
+	Let $X$ be a smooth algebraic curve. Let $Y \subseteq X$ be any subset. Let $\mathscr{F}$ denote the set of all finite subsets of $Y$. Let $S \in \mathscr{F}$, the $\mathbf{S}$-\textbf{adèle} of $K$ indexed by $Y$ is defined as the product
 	\[
 		\widetilde{K}_{Y,S} := \prod_{p\in Y\setminus S}L_{p} \times \prod_{p\in S}K_{p}
 	\]
@@ -485,7 +485,7 @@ where $t_{p}$ is a uniformizing parameter at $p$, $\nu\in \Z$, $\nu\leq n_{p}$, 
 
 Now, we are ready to prove the residue theorem. 
 \begin{theorem}[Residue Theorem]\label{thm:residue-theorem}
-	For $X$ an algebraic curve and $\omega \in \Omega_{K/k}$, the identity 
+	For $X$ a smooth algebraic curve and $\omega \in \Omega_{K/k}$, the identity 
 	\[
 		\sum_{p\in X}\res_{p}(\omega) = 0
 	\]
@@ -509,7 +509,7 @@ Now, we are ready to prove the residue theorem.
 We finish up this chapter by proving the Riemann-Roch formula by means of adèlic methods. 
 
 \subsection{Differential pairing and the adèlic complex}
-Let $X$ be an algebraic curve, $K$ its function field and $\widetilde{K}$ it associated adèle ring. In the previous section we introduced the \textbf{adèlic complex} of $X$, that is, for every divisor $D$ one has the complex $\mathcal{A}(D)$ 
+Let $X$ be a smooth algebraic curve, $K$ its function field and $\widetilde{K}$ it associated adèle ring. In the previous section we introduced the \textbf{adèlic complex} of $X$, that is, for every divisor $D$ one has the complex $\mathcal{A}(D)$ 
 \[
 	K\oplus \widetilde{K}(D) \to \widetilde{K}, \quad (\alpha,\beta) \mapsto \alpha - \beta.
 \]
@@ -578,16 +578,105 @@ Now, \cref{lemm:duality-h^0-h^1} yields $\dim_{k}(H^{0}(\mathcal{A}(D))) = \dim_
 \[
 	\chi_{\mathcal{A}(D)} = \dim_{k}H^{0}(\mathcal{A}(D)) - \dim_{k}H^{1}(\mathcal{A}(D)) = \chi_{\mathcal{A}(W - D)}.
 \]
-One can prove that
+Our next objective is to prove that
 \[
-	\deg D = \dim_{k}\left(\frac{\widetilde{K}(D)}{\widetilde{K}(D)\cap\widetilde{K}(0)}\right) - \dim_{k}\left(\frac{\widetilde{K}(0)}{\widetilde{K}(D)\cap\widetilde{K}(0)}\right) = \chi_{\mathcal{A}(D)} - \chi_{\mathcal{A}(0)}
+	\deg D =  \chi_{\mathcal{A}(D)} - \chi_{\mathcal{A}(0)}.
 \]
+\begin{definition}\label{def:fredholm-map}
+	A linear map between two $k$-vector spaces $f\colon V \to W$ is a \textbf{Fredholm map} if $\ker f$ and $\coker f$ are finite-dimensional. Then, the \textbf{index} of $f$ is the Euler Characteristic of the complex
+	\[
+		V \xrightarrow{f} W
+	\]
+	i.e,
+	\[
+		\operatorname{ind}(f) = \dim_{k}\ker f - \dim_{k}\coker f
+	\]
+\end{definition}
+In our case, the natural maps
+\[
+	K\oplus \widetilde{K}(D) \to \widetilde{K}, \quad \widetilde{K}(D) \to \widetilde{K}/K, \quad K\to \widetilde{K}/\widetilde{K}(D)
+\]
+are all Fredholm with index equal to $\chi_{\mathcal{A}(D)}$. The following is an important property of Fredholm maps.
+\begin{lemma}\label{lemm:additivity-of-index-composition}
+	Let $U \xrightarrow{f} V \xrightarrow{g} W$ be Fredholm maps. Then $g \circ f$ is Fredholm and
+	\[
+		\operatorname{ind}(g \circ f) = \operatorname{ind}(f) + \operatorname{ind}(g).
+	\]
+\end{lemma}
+\begin{proof}
+Consider the following commutative diagram with exact rows
+\[
+	\begin{tikzcd}
+	& 0 \ar[r] \ar[d] & U \ar[r, "1"] \ar[d, "f"] & U \ar[r] \ar[d, "g\circ f"] & 0 \\
+		0 \ar[r] & \ker g \ar[r] & V \ar[r, "g"] & W & & 
+	\end{tikzcd}
+\]
+By the Snake Lemma we get an exact sequence
+\[
+	0 \to \ker f \to \ker (g \circ f) \to \ker g \to \coker f \to \coker (g\circ f). 
+\]
+Now, consider this time the diagram
+\[
+	\begin{tikzcd}
+	& U \ar[r, "f"] \ar[d, "g\circ f"] & V \ar[r] \ar[d, "g"] & \coker f \ar[r] \ar[d] & 0 \\
+		0 \ar[r] & W \ar[r, "1"] & W \ar[r] & 0 & & 
+	\end{tikzcd}
+\]
+and again, an application of the Snake Lemma yields an exact sequence
+\[
+	\ker (g \circ f) \to \ker g \to \coker f \to \coker (g \circ f) \to \coker g \to 0.
+\]
+Gluing these two exact sequences one gets
+\begin{multline}\label{eqn:long-exact}
+	0 \to \ker f \to \ker (g \circ f) \to \ker g \to \coker f  \\ \to \coker (g \circ f) \to \coker g \to 0.
+\end{multline}
+Then, $g \circ f$ is Fredholm. For the index, since (\ref{eqn:long-exact}) is an exact sequence of finite-dimensional vector spaces, it follows that
+\begin{multline*}
+	\dim_{k}\ker f - \dim_{k}\ker (g \circ f) + \dim_{k}\ker g  \\ - \dim_{k}\coker f + \dim_{k}\coker (g \circ f) - \dim_{k} \coker g = 0
+\end{multline*}
+which yields the desired formula.
+\end{proof}	
+Let $D$ be an effective divisor. Then, we have an injection $\widetilde{K}(0) \to \widetilde{K}(D)$ such that the following diagram commutes
+\[
+	\begin{tikzcd}
+		\widetilde{K}(0) \ar[r] \ar[d] & \widetilde{K}/K \\
+		\widetilde{K}(D) \ar[ur] &
+	\end{tikzcd}
+\]
+\begin{lemma}\label{lemm:equation-effective-divisors}
+	If $D$ is a divisor. It follows that 
+	\[
+		\deg D =  \chi_{\mathcal{A}(D)} - \chi_{\mathcal{A}(0)}
+	\]
+\end{lemma}
+\begin{proof}
+	Suppose $D$ is effective. By \cref{lemm:additivity-of-index-composition} it follows that
+	\[
+		\chi_{\mathcal{A}(D)} = -\dim_{k}\coker(\widetilde{K}(0) \to \widetilde{K}(D)) + \chi_{\mathcal{A}(D)}.
+	\]
+	Observe that $\dim_{k}\coker(\widetilde{K}(0) \to \widetilde{K}(D)) = \deg D$. This yields the desired conclusion. The general case follows by considering $D'$ effective such that $D + D'$ is effective.
+\end{proof}
 From these relations it follows the well-known Riemann-Roch formula in its adèlic form.
-\begin{theorem}[adélic Riemann-Roch]\label{thm:riemann-roch-adèle}
+
+\begin{theorem}[adèlic Riemann-Roch]\label{thm:riemann-roch-adèle}
 	\[
 		\dim_{k} H^{0}(\mathcal{A}(D)) = \dim_{k}H^{0}(\mathcal{A}(W - D)) + \deg D + \chi_{\mathcal{A}(0)}
 	\]
 \end{theorem}
+\begin{proof}
+	Using the two formulas
+	\[
+		\deg D = \chi_{\mathcal{A}(D)} - \chi_{\mathcal{A}(0)}, \quad \dim_{k}H^{0}(\mathcal{A}(D)) = \dim_{k}H^{1}(\mathcal{A}(W - D))
+	\]
+	we get
+	\[
+		\dim_{k}H^{0}(\mathcal{A}(D)) = \dim_{k}H^{0}(\mathcal{A}(W - D)) + \deg D + \chi_{\mathcal{A}(0)}. 
+	\]
+	In the notation of the previous section and putting $g = \dim_{k}H^{1}(\mathcal{A}(0))$
+	\[
+		\ell(D) = \ell(W - D) + \deg D + 1 - g.
+	\]
+\end{proof}
 
 % sheaves
 %We claim that $\widetilde{K}/(\widetilde{L} + K)$ is finite dimensional. Consider the exact sequence of abelian sheaves on $X$
