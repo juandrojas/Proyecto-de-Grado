@@ -4,27 +4,37 @@ In this chapter we explore linear topologies on vector spaces in order to introd
 \section{Linear topologies}
 Let $k$ be a field. From now on, a vector space will always mean a $k$-vector space.
 \begin{definition}\label{def:linear_topology}
-A \textbf{linear topology} on a vector space $V$ is a separated (Hausdorff) topology which is invariant under translations and which admits a base of open neighborhoods of zero consisting of vector subspaces. A vector space equipped with a linear topology will be referred as \textbf{linearly topologized}.
+A \textbf{linear topology} on a vector space $V$ is a separated (Hausdorff) topology, which is invariant under translations and admits a base of open neighborhoods of zero consisting of vector subspaces. A vector space equipped with a linear topology will be referred as \textbf{linearly topologized}.
 \end{definition}
-If we endow $k$ with the discrete topology then $V$ will become a topological vector space. From now on, endow $k$ with the discrete topology. \\
+If we endow $k$ with the discrete topology, then $V$ becomes a topological vector space. From now on, endow $k$ with the discrete topology. \\
 Linear topologies behave nicely under basic topological operations.
 \begin{theorem}\label{thm:linear_topologies_properties}
-Let $V$ be a linearly topologized vector space. Then
+Let $V$ be a linearly topologized vector space. 
 	\begin{enumerate}[label = (\alph*)]
-		\item If $W \subseteq V$ is a vector subspace then $W$ is linearly topologized as well.
-		\item If $W \subseteq V$ is a closed vector subspace then $V/W$ is linearly topologized under its quotient topology.
-		\item If $\{V_{\alpha}\}_{\alpha}$ is a collection of linearly topologized vector spaces its product $\prod_{\alpha} V_{\alpha}$ (in its product topology) and its direct sum $\bigoplus_{\alpha} V_{\alpha}$ (as a subspace of the product) are linearly topologized.
+		\item If $W \subseteq V$ is a vector subspace, then $W$ is linearly topologized as well.
+		\item If $W \subseteq V$ is a closed vector subspace, then $V/W$ is linearly topologized under its quotient topology. 
+		\item If $\{V_{\alpha}\}_{\alpha}$ is a collection of linearly topologized vector spaces, then its product $\prod_{\alpha} V_{\alpha}$ (in its product topology) and its direct sum $\bigoplus_{\alpha} V_{\alpha}$ (as a subspace of the product) are linearly topologized.
 		\item If $W$ is a vector subspace of $V$, then its topological closure $\overline{W}$ also is a vector subspace of $V$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	If $\mathscr{U}$ is a system of neighborhoods around zero consisting of vector subspaces in $V$ then $\{U\cap W\mid U \in \mathscr{U}\}$ is a system of neighborhoods around zero consisting of vector subspaces in $W$. For (b), let $\pi\colon V \to V/W$ be the quotient map. Since $\pi$ is open and surjective the image of a local base is a local base; moreover, the image of a vector subspace under $\pi$ is a vector subspace. In addition, since $W$ is closed it follows that $V/W$ is Hausdorff.  Now, for (c) let $\{U_{\alpha, \beta}\}_{\beta}$ be a local base of zero in $V_{\alpha}$ of vector subspaces, the products $U_{\alpha_{1}, \beta_{1}} \times \ldots \times U_{\alpha_{n}, \beta_{n}} \times \prod_{\gamma} V_{\gamma}$, where $\gamma$ ranges over $\alpha \neq \alpha_{1}, \ldots, \alpha_{n}$, for any set $\{(\alpha_{1}, \beta_{1}, \ldots, \alpha_{n}, \beta_{n})\}$ form a fundamental system of neighborhoods around zero in $\prod_{\alpha} V_{\alpha}$ of open vector subspaces. Note that since $\bigoplus_{\alpha} V_{\alpha} \subseteq \prod_{\alpha} V_{\alpha}$ is a vector subspace (c) follows from (a). Finally, for (d), suppose $x,y\in \overline{W}$, then, for every open vector subspace $U$, $(x + U)\cap W \neq \emptyset$ and $(y + U)\cap W \neq \emptyset$, therefore for every $\alpha, \beta \in k$ we have $(\alpha x + U)\cap W \neq \emptyset$ and $(\beta y + U)\cap W \neq \emptyset$. Hence, $(\alpha x + \beta y + U)\cap W\neq \emptyset$ for every open vector subspace $U$ and every pair $\alpha, \beta\in k$. It follows (d).
+	If $\mathscr{U}$ is a system of neighborhoods around zero consisting of vector subspaces in $V$, then $\{U\cap W\mid U \in \mathscr{U}\}$ is a system of neighborhoods around zero consisting of vector subspaces of $W$. For (b), let $\pi\colon V \to V/W$ be the quotient map. Since $\pi$ is open and surjective, the image of a local base is a local base; moreover, the image of a vector subspace under $\pi$ is a vector subspace. In addition, since $W$ is closed, it follows that $V/W$ is Hausdorff.  Now, for (c), let $\{U_{\alpha, \beta}\}_{\beta}$ be a local base of zero in $V_{\alpha}$ of vector subspaces. Then the products $U_{\alpha_{1}, \beta_{1}} \times \ldots \times U_{\alpha_{n}, \beta_{n}} \times \prod_{\gamma} V_{\gamma}$, where $\gamma$ ranges over $\alpha \neq \alpha_{1}, \ldots, \alpha_{n}$, for any set $\{(\alpha_{1}, \beta_{1}, \ldots, \alpha_{n}, \beta_{n})\}$ form a fundamental system of neighborhoods around zero in $\prod_{\alpha} V_{\alpha}$ of open vector subspaces. Since $\bigoplus_{\alpha} V_{\alpha} \subseteq \prod_{\alpha} V_{\alpha}$ is a vector subspace, (c) follows from (a). Finally, for (d), suppose $x,y\in \overline{W}$. Then for every open vector subspace $U$ it follows that $(x + U)\cap W \neq \emptyset$ and $(y + U)\cap W \neq \emptyset$. Therefore, for every $\alpha, \beta \in k$ we have $(\alpha x + U)\cap W \neq \emptyset$ and $(\beta y + U)\cap W \neq \emptyset$. Hence, $(\alpha x + \beta y + U)\cap W\neq \emptyset$ for every open vector subspace $U$ and every pair $\alpha, \beta\in k$. 
 \end{proof}
 \begin{corollary}\label{cor:limits-and-colimits-in-lintop-category}
-	Let $\mathsf{LinTop}_{k}$ denote the category of linearly topologized vector spaces over $k$, where morphisms are given by continuous linear homomorphisms. Then, limits exist in $\mathsf{LinTop}_{k}$. 
+	Let $\mathsf{LinTop}_{k}$ denote the category of linearly topologized vector spaces over $k$, where morphisms are given by continuous linear homomorphisms. Then limits exist in $\mathsf{LinTop}_{k}$. 
 \end{corollary}
 \begin{proof}
-	By \cref{thm:linear_topologies_properties} it follows that kernels and arbitrary products exist in $\mathsf{LinTop}_{k}$; therefore, limits exist in $\mathsf{LinTop}_{k}$. 
+	By \cref{thm:linear_topologies_properties}, it follows that kernels and arbitrary products exist in $\mathsf{LinTop}_{k}$; therefore, limits exist in $\mathsf{LinTop}_{k}$. 
+\end{proof}
+\begin{proposition}\label{prop:open-implies-closed}
+	Let $W \subseteq V$ be an open vector subspace of $V$. Then $W$ is closed.
+\end{proposition}
+\begin{proof}
+	Observe that
+	\[
+		V - W = \bigcup_{x \notin W} W + x.
+	\]
+	Since $W$ is open, every translation $W + x$ is also open. Then $W$ is closed.
 \end{proof}
 
 \begin{proposition}\label{prop:finite_dimensional_linear_topologies}
@@ -35,7 +45,7 @@ A finite dimensional linearly topologized vector space $V$ is discrete.
 	\[
 		\bigcap_{U \in \mathscr{U}}U = \{0\},
 	\]
-	for $\mathscr{U}$ a system of neighborhoods of zero consisting of vector subspaces of $V$. Since $V$ is finite dimensional there exist $U_{1}, \ldots, U_{n} \in \mathscr{U}$ such that
+	for $\mathscr{U}$ a system of neighborhoods of zero consisting of vector subspaces of $V$. Since $V$ is finite dimensional, there exist $U_{1}, \ldots, U_{n} \in \mathscr{U}$ such that
 	\[
 		\bigcap_{U \in \mathscr{U}}U = U_{1}\cap \ldots \cap U_{n} = \{0\}.
 	\]
@@ -49,22 +59,22 @@ A finite dimensional linearly topologized vector space $V$ is discrete.
 	for a system of neighborhoods of zero $\mathscr{U}$ consisting of vector subspaces of $V$.
 \end{proposition}
 \begin{proof}
-	Since every $W + U$ is open, it is also closed. Hence the intersection is closed. If $x\in V - \overline{W}$, then $(x + U)\cap W = \{0\}$ for some $U \in \mathscr{U}$. Hence, $x\notin W + U$. This proves the proposition.
+	Since every $W + U$ is open, it is also closed. Hence their intersection is closed. If $x\in V - \overline{W}$, then $(x + U)\cap W = \{0\}$ for some $U \in \mathscr{U}$. Hence, $x\notin W + U$. This proves the proposition.
 \end{proof}
 \subsection{Commensurability}
 We introduce a partial order on the set of vector subspaces of a vector space $V$.
 \begin{definition}\label{def:commensurability}
 	For vector subspaces $A$ and $B$ of a vector space $V$ we say that $A \prec B$ if the quotient $A/(A\cap B) \cong (A+B)/B$ is finite dimensional (or equivalently $A \subseteq B + W$ for some finite dimensional $W$). In addition, we say that $A$ and $B$ are \textbf{commensurable} (denoted $A \sim B$) if $A \prec B$ and $B \prec A$.
 \end{definition}
-Observe that $A \sim B$ if and only if $(A+B)/(A\cap B) \cong A/(A\cap B) \oplus B/(A \cap B)$ is finite dimensional. We will constantly refer to a vector space $V$ being finite dimensional as $V \sim 0$.
+Observe that $A \sim B$ if and only if $(A+B)/(A\cap B) \cong A/(A\cap B) \oplus B/(A \cap B)$ is finite dimensional. To shorten notation, we will constantly refer to a vector space $V$ being finite dimensional as $V \sim 0$.
 \begin{proposition}\label{prop:equivalence-relation}
-	Let $V$ be a vector spaces and $A,B$ and $C$ be vector subspaces, then:
+	Let $V$ be a vector space and $A,B$ and $C$ be vector subspaces.
 	\begin{enumerate}[label = (\alph*)]
-		\item If $A \sim B$ and $B \sim C$ then
+		\item If $A \sim B$ and $B \sim C$, then
 		\[
-			\frac{A+B+C}{A \cap B \cap C} \sim 0
+			\frac{A+B+C}{A \cap B \cap C} \sim 0.
 		\]
-		\item If $A \prec B$ and $B \prec C$ then $A \prec C$. Moreover, commensurability is an equivalence relation.
+		\item If $A \sim B$ and $B \sim C$, then $A \sim C$. Moreover, commensurability is an equivalence relation.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -77,7 +87,7 @@ Observe that $A \sim B$ if and only if $(A+B)/(A\cap B) \cong A/(A\cap B) \oplus
 		0 \to \frac{A\cap B}{A \cap B \cap C} \to \frac{A+B}{A \cap B \cap C}
 		\to \frac{A+B}{A \cap B} \to 0
 	\]
-	induced by inclusions. The first inclusion plus the fact that $B \sim C$ imply that $(A\cap B)/(A \cap B \cap C)$ is finite dimensional. Now, since $A \sim B$ it follows that $(A+B)/(A \cap B)$ is finite dimensional. Therefore, using the second exact sequence we conclude that $(A+B)/(A \cap B \cap C)$ is finite dimensional. A symmetrical argument shows that $(B+C)/(A \cap B \cap C) \sim 0$. These prove (a). For (b), the inclusion
+	induced by inclusions. The first inclusion plus the fact that $B \sim C$ imply that $(A\cap B)/(A \cap B \cap C)$ is finite dimensional. Now, since $A \sim B$, $(A+B)/(A \cap B)$ is finite dimensional. Therefore, using the second exact sequence, we conclude that $(A+B)/(A \cap B \cap C)$ is finite dimensional. A symmetrical argument shows that $(B+C)/(A \cap B \cap C) \sim 0$. These prove (a). For (b), the inclusion
 	\[
 		0 \to \frac{A+C}{A\cap C} \to \frac{A+B+C}{A \cap B \cap C}
 	\]
@@ -85,10 +95,10 @@ Observe that $A \sim B$ if and only if $(A+B)/(A\cap B) \cong A/(A\cap B) \oplus
 \end{proof}
 Now, we state and prove some useful properties on the relation $\prec$.
 \begin{lemma}\label{lemm:properties-order-well-behaved-under-operations}
-Let $V$ be a vector space and $A,B$ vector subspaces of $V$. Then
+Let $V$ be a vector space and $A,B$ vector subspaces of $V$. 
 \begin{enumerate}[label = (\alph*)]
-	\item If $A \subseteq B$ it follows $A \prec B$.
-	\item If $A \prec B$ then $f(A) \prec f(B)$ for any $k$-linear map $f$
+	\item If $A \subseteq B$, then $A \prec B$.
+	\item If $A \prec B$, then $f(A) \prec f(B)$ for any $k$-linear map $f$
 	\item Let $\{A_{i}\}_{i=1}^{m}$ and $\{B_{j}\}_{j=1}^{n}$ be two collections of vector subspaces of $V$. Then,
 	\[
 		\sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j} \iff A_{i} \prec B_{j}\text{  for all } i \text{ and } j.
@@ -96,15 +106,15 @@ Let $V$ be a vector space and $A,B$ vector subspaces of $V$. Then
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-	First, (a) is immediate from the definition of $\prec$. Second, for (b) the map $f$ factors as
+	First, (a) is immediate from the definition of $\prec$. Second, for (b, the map $f$ factors as
 	\[
-		A/(A\cap B) \to f(A)/(f(A)\cap f(B)) \to 0
+		A/(A\cap B) \to f(A)/(f(A)\cap f(B)) \to 0.
 	\]
-	Finally, for (c), if $\sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j}$ holds then by (a) above, for all $i$ and $j$ we have
+	Finally, for (c), if $\sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j}$ holds, then by (a) above, for all $i$ and $j$ we have
 	\[
-		A_{i} \prec \sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j} \prec B_{j}
+		A_{i} \prec \sum_{i=1}^{m} A_{i} \prec \bigcap_{j=1}^{n} B_{j} \prec B_{j}.
 	\]
-	On the other hand, if $A_{i} \prec B_{j}$ for all $i$ and $j$ then there exist finite dimensional subspaces $W_{ij}$ such that $A_{i} \subseteq B_{j} + W_{ij}$ for all $i$ and $j$. Therefore,
+	On the other hand, if $A_{i} \prec B_{j}$ for all $i$ and $j$, then there exist finite dimensional subspaces $W_{ij}$ such that $A_{i} \subseteq B_{j} + W_{ij}$ for all $i$ and $j$. Therefore,
 	\[
 		\sum_{i=1}^{m} A_{i} \subseteq \bigcap_{j=1}^{n} B_{j} + \sum_{i=1}^{m} \sum_{j=1}^{n} W_{ij}.
 	\]
@@ -126,39 +136,39 @@ Next, we consider another useful lemma.
 		\frac{A + A' + B + B'}{A\cap A'\cap B\cap B'} \quad\text{and,}\quad
 		 \frac{A + A' + B + B'}{(A\cap A') + (B\cap B')}
 	\]	
-	are finite dimensional. Since, $(A + A' + B + B')/(A+A')\cap(B+B')$ is a quotient of the second space and $((A \cap A') + (B \cap B'))/((A\cap A')\cap(B\cap B'))$ is a subspace of the first space we can conclude $A + B \sim A' + B'$ and $A \cap B \sim A' \cap B'$.
+	are finite dimensional. Since $(A + A' + B + B')/(A+A')\cap(B+B')$ is a quotient of the second space and $((A \cap A') + (B \cap B'))/((A\cap A')\cap(B\cap B'))$ is a subspace of the first space, we can conclude $A + B \sim A' + B'$ and $A \cap B \sim A' \cap B'$.
 \end{proof}
-If we consider the set of equivalence classes of $\sim$ on a vector space $V$ then $\prec$ is a partial order on it and by \cref{lemm:commensurability-addition-and-intersection} above it inherits operations $\cap$ and $+$.
+Therefore, the set of equivalence classes of $\sim$ is partially ordered by $\prec$. Moreover, by \cref{lemm:commensurability-addition-and-intersection}, it inherits operations $\cap$ and $+$.
 \subsection{Linear compactness}
 \begin{definition}\label{def:linear_compactness}
 	Let $V$ be a linearly topologized vector space. A closed vector subspace $L \subseteq V$ is \textbf{linearly compact} (respectively \textbf{linearly cocompact}) if for every open vector subspace $U$ we have $L \prec U$ (respectively $V/(L+U) \sim 0$). 
 \end{definition}
 \begin{remark}\label{rem:lefschetz-linear-compactness}
-	Linear compactness was introduced by S. Lefschetz in his influential \cite{Lefschetz-Alg-Top} using different terms. He defined a coset of $V$ (also called linear variety) to be a set $x + W$ where $x\in V$ and $W$ is a subspace $V$. Then, he defined a linearly topologized vector space $V$ to be linearly compact if for every collection of closed cosets $X_{\alpha}$ having the finite intersection property follows that $\bigcap_{\alpha} X_{\alpha} \neq \emptyset$. In these terms, linear compactness seems like a natural generalization of compactness for linearly topologized vector spaces. We extend this discussion in \cref{rem:lef-vs-beilinson}.
+	Linear compactness was introduced by S. Lefschetz in his influential \cite{Lefschetz-Alg-Top} using different terms. He defined a coset of $V$ (also called linear variety) to be a set $x + W$ where $x\in V$ and $W$ is a subspace $V$. Then, he defined a linearly compact vector space to be a linearly topologized vector space $V$ such that for every collection of closed cosets $X_{\alpha}$ having the finite intersection property, it follows that $\bigcap_{\alpha} X_{\alpha} \neq \emptyset$. In these terms, linear compactness seems like a natural generalization of compactness for linearly topologized vector spaces. We extend this discussion in \cref{rem:lef-vs-beilinson}.
 \end{remark}
 Linear compactness behaves just as compactness if one uses the correct words.
 \begin{theorem}\label{thm:linear_compactness_properties}
-	Let $V$ be a linearly compact vector space, then
+	Let $V$ be a linearly compact vector space.
 	\begin{enumerate}[label = (\alph*)]
-		\item If $A \subseteq V$ is a vector subspace satisfying $A \prec U$ for all open vector subspaces $U$ of $V$ then $\overline{A}$ is linearly compact.
-		\item If $f\colon V \to W$ is a continuous linear homomorphism then $\overline{f(V)}$ is linearly compact.
-		\item If $V$ is discrete then $V \sim 0$.
+		\item If $A \subseteq V$ is a vector subspace satisfying $A \prec U$ for all open vector subspaces $U$ of $V$, then $\overline{A}$ is linearly compact.
+		\item If $f\colon V \to W$ is a continuous linear homomorphism, then $\overline{f(V)}$ is linearly compact.
+		\item If $V$ is discrete, then $V \sim 0$.
 		\item Every closed vector subspace of $V$ is linearly compact.
-		\item (Tychonov) If $\{V_{\alpha}\}_{\alpha}$ is a collection of linearly compact vector spaces then its product $\prod_{\alpha} V_{\alpha}$ and its direct sum $\bigoplus_{\alpha}V_{\alpha}$ are linearly compact.
+		\item (Tychonov) If $\{V_{\alpha}\}_{\alpha}$ is a collection of linearly compact vector spaces, then its product $\prod_{\alpha} V_{\alpha}$ and its direct sum $\bigoplus_{\alpha}V_{\alpha}$ are linearly compact.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	Let $U$ be any open vector subspace of $V$. Then, $A + U$ is closed, that is $A + U = \overline{A + U} \supseteq \overline{A} + U \supseteq A + U$, thus, $\overline{A} + U = A + U$. Since, $(A + U)/U \sim 0$ it follows that $(\overline{A} + U)/U \sim 0$. 
+	Let $U$ be any open vector subspace of $V$. Then $A + U$ is closed, that is $A + U = \overline{A + U} \supseteq \overline{A} + U \supseteq A + U$. Hence, $\overline{A} + U = A + U$. Since $(A + U)/U \sim 0$, it follows that $(\overline{A} + U)/U$ is finite dimensional. 
 
-	For (b), since $f$ is a continuous linear map $V \prec f^{-1}(U)$ for all $U$ open vector subspaces of $W$. Hence by \cref{lemm:properties-order-well-behaved-under-operations} $f(V) \prec U$ for all open vector subspaces $U$ of $W$. The previous observation and (b) yield (a). If $V$ is discrete, then $\{0\}$ is an open vector subspace of $V$; therefore, $V$ is finite dimensional.
+	For (b), since $f$ is a continuous linear map, it follows that $V \prec f^{-1}(U)$ for all $U$ open vector subspace of $W$. Hence, by \cref{lemm:properties-order-well-behaved-under-operations} $f(V) \prec U$ for all open vector subspaces $U$ of $W$. The previous observation and (b) yield (a). If $V$ is discrete, then $\{0\}$ is an open vector subspace of $V$; therefore, $V$ is finite dimensional.
 
-	For (d), if $A \subseteq V$ is a closed vector subspace, and $V \prec U$ for all open vector subspaces $U$ by \cref{lemm:properties-order-well-behaved-under-operations} we get $A \prec U$. 
+	For (d), if $A \subseteq V$ is a closed vector subspace, and $V \prec U$ for all open vector subspaces $U$ by \cref{lemm:properties-order-well-behaved-under-operations}, we get $A \prec U$. 
 
-	Finally, for (d), it is enough proving for open vector subspaces $U = \prod_{\beta} U_{\beta} \times \prod_{\gamma} V_{\gamma}$ where $\beta$ ranges over a finite set, $\gamma$ ranges over $\alpha \neq \beta$ and $U_{\beta}$ is an open vector subspace of $V_{\beta}$. Then, the quotient
+	Finally, for (e), it is enough to prove the statement for open vector subspaces of the form $U = \prod_{\beta} U_{\beta} \times \prod_{\gamma} V_{\gamma}$, where $\beta$ ranges over a finite set, $\gamma$ ranges over $\alpha \neq \beta$ and $U_{\beta}$ is an open vector subspace of $V_{\beta}$. In this case, the quotient
 	\[
-		\prod_{\alpha}V_{\alpha} / U \cong \prod_{\beta} V_{\beta}/U_{\beta}
+		\prod_{\alpha}V_{\alpha} / U \cong \prod_{\beta} V_{\beta}/U_{\beta},
 	\]
-	where $\cong$ is a topological and algebraic isomorphism. Since $V_{\alpha}$ is linearly compact for all $\alpha$ and $\beta$ ranges over a finite set we conclude that $\prod_{\alpha} V_{\alpha} / U$ is finite dimensional; therefore, $\prod_{\alpha} V_{\alpha}$ is linearly compact. The proof is analogous for $\bigoplus_{\alpha} V_{\alpha}$.
+	where $\cong$ is a topological and algebraic isomorphism. Since $V_{\alpha}$ is linearly compact for all $\alpha$ and $\beta$ ranges over a finite set, we conclude that $\prod_{\alpha} V_{\alpha} / U$ is finite dimensional; therefore, $\prod_{\alpha} V_{\alpha}$ is linearly compact. The proof is analogous for $\bigoplus_{\alpha} V_{\alpha}$.
 \end{proof} 
 \subsection{Completion}
 In this subsection we expose with little detail the properties of completion. A general reference for completion of arbitrary modules over a commutative ring is \cite{Matsumura} Section 8. 
@@ -189,7 +199,7 @@ In this subsection we expose with little detail the properties of completion. A 
 	\[
 		\widehat{V} = \varprojlim_{U\in \mathscr{U}} V/U = \varprojlim_{\lambda\in \Lambda} V/U_{\lambda}
 	\]
-	is the \textbf{completion} of $V$. Observe that existence of such limit is guaranteed by \cref{cor:limits-and-colimits-in-lintop-category}. Recall that $\widehat{V}$ can be described as a subspace of the product 
+	is the \textbf{completion} of $V$. Observe that existence of such limit is guaranteed by \cref{cor:limits-and-colimits-in-lintop-category}. Recall that $\widehat{V}$ can be described as a subspace of the product by
 	\[
 		\widehat{V} = \{(\overline{x_{\lambda}})_{\lambda}\in \prod_{\lambda\in \Lambda} V/U_{\lambda}\colon  \overline{x_{\mu}} = \pi_{\mu}^{\lambda}(\overline{x_{\lambda}}) \text{ for all } \mu \leq \lambda \},
 	\] 
@@ -197,7 +207,7 @@ In this subsection we expose with little detail the properties of completion. A 
 	\[
 		V \to \widehat{V}
 	\]
-	induced by the quotient maps $\pi_{\mu}$. This map is continuous and its image is dense in $\widehat{V}$. If the map $V \to \widehat{V}$ is a topological isomorphism we say that $V$ is \textbf{complete}. Let $\mathscr{U} = \{U_{\lambda}\}_{\lambda\in \Lambda}$ and $\mathscr{U}' = \{U'_{\lambda'}\}_{\lambda' \in \Lambda}$ be two different systems of neighborhoods of consisting of vector subspaces in $V$. Then for all $\lambda \in \Lambda$ there exists $\lambda'\in \Lambda'$ such that $U_{\lambda'} \subseteq U_{\lambda}$ and for all $\mu'\in \Lambda'$ there exists $\mu\in \Lambda$ such that $U_{\mu}\subseteq U_{\mu'}$. This implies that $\varprojlim_{U\in \mathscr{U}} V/U$ and $\varprojlim_{U'\in \mathscr{U}'} V/U'$ satisfy the same universal property. Therefore, they are canonically isomorphic. In other words, the completion does not depend on the choice of filtration $\mathscr{U}$.
+	induced by the quotient maps $\pi_{\mu}$. This map is continuous and its image is dense in $\widehat{V}$. If the map $V \to \widehat{V}$ is a topological isomorphism we say that $V$ is \textbf{complete}. Let $\mathscr{U} = \{U_{\lambda}\}_{\lambda\in \Lambda}$ and $\mathscr{U}' = \{U'_{\lambda'}\}_{\lambda' \in \Lambda}$ be two different systems of neighborhoods consisting of vector subspaces of $V$. Then for all $\lambda \in \Lambda$ there exists $\lambda'\in \Lambda'$ such that $U_{\lambda'} \subseteq U_{\lambda}$ and for all $\mu'\in \Lambda'$ there exists $\mu\in \Lambda$ such that $U_{\mu}\subseteq U_{\mu'}$. This implies that $\varprojlim_{U\in \mathscr{U}} V/U$ and $\varprojlim_{U'\in \mathscr{U}'} V/U'$ satisfy the same universal property. Therefore, they are canonically isomorphic. In other words, the completion does not depend on the choice of filtration $\mathscr{U}$.
 \end{definition}
 %\begin{proposition}\label{prop:completeness-is-exact-functor}
 %Let $V$ be a linearly topologized vector space and $W$ a vector subspace. Then
@@ -233,26 +243,26 @@ In this subsection we expose with little detail the properties of completion. A 
 \section{Tate spaces}
 \subsection{Lattices}
 \begin{definition}\label{def:c-lattice}
-	If $V$ is a linearly topologized vector space we say that a \textbf{c-lattice} is an open linearly compact subspace of $V$, \textit{dually} a discrete linearly cocompact subspace is a \textbf{d-lattice}.
+	If $V$ is a linearly topologized vector space we say that a \textbf{c-lattice} is an open linearly compact subspace of $V$. \textit{Dually}, a discrete linearly cocompact subspace is a \textbf{d-lattice}.
 \end{definition}
 First, we prove that existence of a c-lattice in a linearly topologized vector space is equivalent to existence of a d-lattice.
 \begin{proposition}\label{prop:c-lattice-iff-d-lattice}
 	A linearly topologized vector space $V$ contains a c-lattice if and only if it contains a d-lattice. 
 \end{proposition}
 \begin{proof}
-	Suppose $L$ is a c-lattice in $V$. Choose any direct complement $D$ of $L$, that is, $V = L \oplus D$. Since $L$ is open, then $D$ is discrete as $D\cap L = 0$, thus ${0}$ is open in $D$. Moreover, $D$ is closed it is the kernel the projection $V \to L$ (which is continuous because $L$ is open). Finally, we check that $D$ is linearly cocompact: let $U$ be any open vector subspace of $V$, the composition $L \hookrightarrow V \twoheadrightarrow V/(D+U)$ induces a surjection 
+	Suppose $L$ is a c-lattice in $V$. Choose any direct complement $D$ of $L$, that is, $V = L \oplus D$. Since $L$ is open, $D$ is discrete. Moreover, $D$ is closed because it is the kernel of the projection $V \to L$ (which is continuous because $L$ is open). Finally, we check that $D$ is linearly cocompact: let $U$ be any open vector subspace of $V$, then the composition $L \hookrightarrow V \twoheadrightarrow V/(D+U)$ induces a surjection 
 	\[
 		L/(L \cap U) \twoheadrightarrow V/(D+U).
 	\]
-	Since $\dim L / (L \cap U) < \infty$ we conclude that $\dim V/(D+U) < \infty$. \\
-	Now, suppose $D$ is a d-lattice. Thus, there exists an open vector subspace $U$ such that $U \cap D = 0$. This time, choose $L$ a direct complement for $D$ containing $U$. Then, the projection $V \to D$ is continuous because $U$ is mapped to zero. Therefore, $L$ is open. Now, we prove that $L$ is linearly compact. Let $U$ be any open vector subspace. Then, the composition $V \twoheadrightarrow L \twoheadrightarrow L/(L \cap U)$ induces a surjection
+	Since $\dim L / (L \cap U) < \infty$, we conclude that $\dim V/(D+U) < \infty$. \\
+	Now, suppose $D$ is a d-lattice. Thus, there exists an open vector subspace $U$ such that $U \cap D = 0$. This time choose $L$ a direct complement for $D$ containing $U$. Then the projection $V \to D$ is continuous because $U$ is mapped to zero. Therefore, $L$ is open. Now, we prove that $L$ is linearly compact. Let $U$ be any open vector subspace. Then the composition $V \twoheadrightarrow L \twoheadrightarrow L/(L \cap U)$ induces a surjection
 	 \[
 	 	V/(D + (L \cap U)) \twoheadrightarrow L/(L \cap U).
 	 \]
 	 Since both $L$ and $U$ are open, so is $L\cap U$. Therefore, $\dim V/(D + (L \cap U)) < \infty$. It follows that $\dim L/(L \cap U) < \infty$ and $L$ is linearly compact.  
 \end{proof}
 \begin{remark}\label{up-to-finite-dimension}
-	Note that in the proof of \cref{prop:c-lattice-iff-d-lattice} it is not strictly necessary to choose a direct complement, one can choose a direct complement up to finite dimension; that is, $L + D \sim V$ and $L \cap D \sim 0$. 
+	Note that in the proof of \cref{prop:c-lattice-iff-d-lattice} it is not strictly necessary to choose a direct complement. One can choose a direct complement up to finite dimension; that is, $L + D \sim V$ and $L \cap D \sim 0$. 
 \end{remark}
 %We now give a characterization of lattices in terms of the relation $\prec$.
 %\begin{proposition}\label{prop:maximality-lattices}
@@ -266,13 +276,13 @@ First, we prove that existence of a c-lattice in a linearly topologized vector s
 	If $V$ admits a c-lattice, then the set of c-lattices constitutes a system of neighborhoods of zero consisting of mutually commensurable vector subspaces.
 \end{proposition}
 \begin{proof}
-	If $L$ and $L'$ are two c-lattices in $V$ then $L \prec L'$ and $L' \prec L$ because both are open. Therefore, all c-lattices are commensurable. Moreover, if $U$ is any open vector subspace and $L$ is a c-lattice we claim that $L \cap U$ is a c-lattice as well. Indeed, let $U'$ be any open vector subspace, then $L\cap U \prec L\prec U'$. In addition, since $L$ and $U$ are open, so is $L \cap U$. Hence, $L \cap U \subseteq U$ is a c-lattice. This proves the statement.
+	If $L$ and $L'$ are two c-lattices in $V$, then $L \prec L'$ and $L' \prec L$ because both are open. Therefore, all c-lattices are commensurable. Moreover, if $U$ is any open vector subspace and $L$ is a c-lattice, we claim that $L \cap U$ is a c-lattice as well. Indeed, let $U'$ be any open vector subspace, then $L\cap U \prec L\prec U'$. In addition, since $L$ and $U$ are open, so is $L \cap U$. Hence, $L \cap U \subseteq U$ is a c-lattice. This proves the statement.
 \end{proof}
 We are now ready to introduce the definition of a Tate space.
 \begin{definition}\label{def:tate-vector-space}
-	A linearly topologized vector space $V$ is a \textbf{Tate space} if it is complete and admits a c-lattice. By \cref{prop:lattices-are-basis} and the observation in \cref{def:completion} it follows that
+	A linearly topologized vector space $V$ is a \textbf{Tate space} if it is complete and admits a c-lattice. By \cref{prop:lattices-are-basis} and the observation in \cref{def:completion}, it follows that
 	\[
-		V \cong \varprojlim_{L \in \mathscr{U}} V/L
+		V \cong \varprojlim_{L \in \mathscr{U}} V/L,
 	\]
 	where $\mathscr{U}$ runs through all c-lattices of $V$.
 \end{definition}
@@ -280,15 +290,13 @@ We are now ready to introduce the definition of a Tate space.
 We give some examples of Tate spaces.
 \begin{enumerate}[label = (\alph*)]
 	\item Any vector space endowed with the discrete topology is a Tate space.
-	\item If $\{V_{\alpha}\}_{\alpha}$ is any projective system of finite dimensional vector spaces (thus, each one endowed with the discrete topology by \cref{prop:finite_dimensional_linear_topologies}), let $V$ be their inverse limit endowed with the inverse limit topology. We claim that this is a linearly compact space. Indeed, if we realize $V$ as a subspace of the product $\prod_{\alpha} V_{\alpha}$, a basic open vector subspace in $V$ is given by
+	\item Let $\{V_{\alpha}\}_{\alpha}$ be any projective system of finite dimensional vector spaces (thus, each one endowed with the discrete topology by \cref{prop:finite_dimensional_linear_topologies}). Let $V$ be their inverse limit endowed with the inverse limit topology. We claim that this is a linearly compact space. Indeed, if we realize $V$ as a subspace of the product $\prod_{\alpha} V_{\alpha}$, then a basic open vector subspace in $V$ is a subspace of the form
 	\[
 	\{(x_{\alpha})_{\alpha} \in V \colon x_{\alpha_{1}} = x_{\alpha_{2}} = \cdots = x_{\alpha_{n}} = 0\}
-	\] for some finite collection of indices $\alpha_{1}, \ldots, \alpha_{n}$. Hence, the quotient of $V$ by any basic open vector subspace is a vector subspace of a finite product of $V_{\alpha}$. Since all $V_{\alpha}$ are finite dimensional, we conclude that $V$ is linearly compact. Observe that a system of neighborhoods consisting of vector subspaces of $V$ is the collection of kernels of the projections $V \to V_{\alpha}$. Therefore, $V$ is complete.
+	\] for some finite collection of indices $\alpha_{1}, \ldots, \alpha_{n}$. Hence, the quotient of $V$ by any basic open vector subspace is a vector subspace of a finite product of $V_{\alpha}$. Since all $V_{\alpha}$ are finite dimensional, we conclude that $V$ is linearly compact. Observe that a system of neighborhoods consisting of vector subspaces of $V$ is the collection of kernels of the projections $V \to V_{\alpha}$. Therefore, $V$ is complete. Moreover, it is straightforward to prove that every complete linearly compact space arises in this way.
 
-	\item Let $V = k\left((t)\right)$ with the topology generated by letting $t^{n}k\left[[t]\right]$ for $n \in \Z$ be a system of neighborhoods of zero. Then, $V = k\left[[t]\right] \oplus t k[t^{-1}]$ where $k\left[[t]\right]$ is the completion of $k[x]$ in the $\left\langle x\right\rangle$-adic topology, hence by the previous item linearly compact and, since it is open is a c-lattice. By the argument given in \cref{prop:c-lattice-iff-d-lattice} $t k[t^{-1}]$ is a d-lattice. Therefore, $V$ is a Tate space that is neither linearly compact nor discrete.
-	
+	\item Let $V = k\left((t)\right)$ with the topology generated by letting $t^{n}k\left[[t]\right]$ for $n \in \Z$ be a system of neighborhoods of zero. Then $V = k\left[[t]\right] \oplus t k[t^{-1}]$ where $k\left[[t]\right]$ is the completion of $k[x]$ in the $\left\langle x\right\rangle$-adic topology. Hence, by the previous item, $k\left[[t]\right]$ is linearly compact and, since it is open, it is a c-lattice. By the argument given in \cref{prop:c-lattice-iff-d-lattice}, $t k[t^{-1}]$ is a d-lattice. Therefore, $V$ is a Tate space that is neither linearly compact nor discrete.
 	\end{enumerate}
-
 \end{example}
 A closer look at the previous examples motivates the following proposition:
 \begin{proposition}\label{prop:characterization-of-tate-spaces-as-inverse-limits}
@@ -309,25 +317,23 @@ A closer look at the previous examples motivates the following proposition:
 	
 \end{proposition}
 \begin{proof}
-	By the observation in \cref{def:tate-vector-space} such collection is simply the collection of c-lattices in $V$. Now, suppose that such collection exists in $V$. Then, $\mathscr{U}$ is a system of neighborhoods of zero consisting of mutually commensurable open vector subspaces in V, any $U \in \mathscr{U}$ is a c-lattice and $V$ is complete.
+	By the observation in \cref{def:tate-vector-space}, such collection is simply the collection of c-lattices in $V$. Now, suppose that such collection exists in $V$. Then $\mathscr{U}$ is a system of neighborhoods of zero consisting of mutually commensurable open vector subspaces in $V$, any $U \in \mathscr{U}$ is a c-lattice and $V$ is complete.
 \end{proof}
-
-
 \subsection{Duality}
-If $V$ is a Tate space we consider the following topology on the dual space $V^{*}$ (where by dual space we mean topological dual). Open vector subspaces are given by
+Let $V$ be a Tate space and consider the following topology on the dual space $V^{*}$ (where by dual space we mean topological dual). We let the subspaces of the form
 \[
-	L^{\perp} = \{\phi\in V^{*} \colon \phi\lvert_{L} = 0\}
+	L^{\perp} = \{\phi\in V^{*} \colon \phi\lvert_{L} = 0\},
 \]
-where $L$ is a linearly compact subspace. Equivalently, one can define open vector subspaces in $V^{*}$ to be $D^{*}$ where $D$ a direct complement of a linearly compact vector subspace $L$ in $V$ (in this case $D^{*} \hookrightarrow V^{*}$ using the decomposition $L\oplus D$).  \\
+where $L$ is a linearly compact subspace, to be a system of neighborhoods of zero. Equivalently, one can define open vector subspaces in $V^{*}$ to be sets of the form $D^{*}$ where $D$ is a direct complement of a linearly compact vector subspace $L$ in $V$ (in this case $D^{*} \hookrightarrow V^{*}$ using the decomposition $L\oplus D$).  \\
 First, we prove that the word \emph{dually} in \cref{def:linear_compactness} actually makes sense. 
 
 \begin{lemma}\label{lemm:duality-d-lattice-c-lattice}
 	Duality interchanges linearly compact with discrete spaces and vice-versa. 
 \end{lemma}
 \begin{proof}
-	If $L$ is a linearly compact vector space, then $L^{\perp}$ is open in $L^{*}$, thus $L^{*}$ is discrete. If $D$ is discrete, then $D \cong k^{\oplus \Lambda}$ for some $\Lambda$ and endowing $k^{\oplus \Lambda}$ with the discrete topology the previous isomorphism is a homeomorphism as well. Moreover, since $D$ is discrete every linear functional is continuous. Using \cref{cor:limits-and-colimits-in-lintop-category} and the well known identity (where maps are isomorphisms in $\mathsf{LinTop}_{k}$)
+	If $L$ is a linearly compact vector space, then $L^{\perp}$ is open in $L^{*}$. Thus, $L^{*}$ is discrete. If $D$ is discrete, then $D \cong k^{\oplus \Lambda}$ for some $\Lambda$ and endowing $k^{\oplus \Lambda}$ with the discrete topology. Moreover, since $D$ is discrete, every linear functional is continuous. Using \cref{cor:limits-and-colimits-in-lintop-category} and the well known identity (where maps are isomorphisms in $\mathsf{LinTop}_{k}$)
 	\[
-		(k^{\oplus \Lambda})^{*} = \Hom_{k}(k^{\oplus \Lambda}, k) \cong \prod_{\Lambda} \Hom_{k}(k, k) \cong \prod_{\Lambda} k
+		(k^{\oplus \Lambda})^{*} = \Hom_{k}(k^{\oplus \Lambda}, k) \cong \prod_{\Lambda} \Hom_{k}(k, k) \cong \prod_{\Lambda} k,
 	\]
 	we get the desired result by Tychonov's theorem in \cref{thm:linear_compactness_properties}. 
 \end{proof}
@@ -335,21 +341,21 @@ First, we prove that the word \emph{dually} in \cref{def:linear_compactness} act
 	A closer look at the proof of the previous lemma indicates that the dual space of a discrete space is always complete.
 \end{remark}
 \begin{proposition}\label{prop:dual-space-is-tate}
-	If $V$ is a Tate space then $V^{*}$ is also a Tate space.
+	If $V$ is a Tate space, then $V^{*}$ is also a Tate space.
 \end{proposition}
 \begin{proof}
-	If we decompose $V = L \oplus D$ where $L$ is a c-lattice and $D$ a d-lattice then $V^{*} \cong L^{*} \oplus D^{*}$ and by \cref{lemm:duality-d-lattice-c-lattice} $L^{*}$ is discrete and $D^{*}$ is linearly compact. Observe that $D^{*}$ is open in $V^{*}$ since it is the kernel of the projection $V^{*} \to V^{*}/L^{\perp}$ and $V^{*}/L^{\perp}$ is discrete by the description of our topology in the dual $V^{*}$. Since $L^{*}$ is discrete, then it is complete. Moreover, by \cref{rem:dual-of-discrete-is-complete} $D^{*}$ is complete. Hence, so is $V^{*}$.
+	If we decompose $V = L \oplus D$, where $L$ is a c-lattice and $D$ a d-lattice, then $V^{*} \cong L^{*} \oplus D^{*}$. Therefore, by \cref{lemm:duality-d-lattice-c-lattice}, $L^{*}$ is discrete and $D^{*}$ is linearly compact. Observe that $D^{*}$ is open in $V^{*}$ because it is the kernel of the projection $V^{*} \to V^{*}/L^{\perp}$ and $V^{*}/L^{\perp}$ is discrete by the description of our topology in the dual $V^{*}$. Since $L^{*}$ is discrete, it is complete. Moreover, by \cref{rem:dual-of-discrete-is-complete}, $D^{*}$ is complete. Hence, $V^{*}$ is complete.
 \end{proof}
 We are now ready to prove the duality theorem for Tate spaces.
 \begin{theorem}\label{thm:self-duality}
 	For a Tate space $V$ the canonical map $V \to V^{**}$ is an isomorphism.
 \end{theorem}
 \begin{proof}
-	It is enough to prove it for complete linearly compact spaces and discrete spaces, as every Tate space can be decomposed into a direct sum of a c-lattice and a d-lattice. First, suppose $D$ is a discrete vector space. Then, the canonical map
+	It is enough to prove it for complete linearly compact spaces and discrete spaces, as every Tate space can be decomposed into a direct sum of a c-lattice and a d-lattice. First, suppose $D$ is a discrete vector space. Then the canonical map
 	\[
 		\operatorname{ev}\colon D \to D^{**}
 	\]
-	is open and continuous because $D$ and $D^{**}$ are both discrete by \linebreak \cref{lemm:duality-d-lattice-c-lattice}. Moreover, it is injective, because for every nonzero $x \in D$ there exists a linear continuous functional $\phi\in D^{*}$ such that $\phi(x)\neq 0$. Finally, we prove surjectivity. Let $\psi \in D^{**}$. Since $\ker \psi$ is open it contains a basic open vector subspace $A^{\perp}$ such that $A \subseteq D$ is a linearly compact subspace. Since $D^{*}$ is linearly compact it follows that $D^{*} \sim A^{\perp}$, that is, the quotient $D^{*}/A^{\perp}$ is finite dimensional. Recall that the inclusion $\iota\colon A \to D$ induces an isomorphism $D^{*}/A^{\perp} \to A^{*}$ which is a homeomorphism since both spaces are discrete. We can factor $\psi$ so that the following diagram commutes
+	is open and continuous because $D$ and $D^{**}$ are both discrete by \linebreak \cref{lemm:duality-d-lattice-c-lattice}. Moreover, it is injective. Indeed, for every nonzero $x \in D$ there exists a linear continuous functional $\phi\in D^{*}$ such that $\phi(x)\neq 0$. Finally, we prove surjectivity. Let $\psi \in D^{**}$. Since $\ker \psi$ is open, it contains a basic open vector subspace $A^{\perp}$ such that $A \subseteq D$ is a linearly compact subspace. Since $D^{*}$ is linearly compact, it follows that $D^{*} \sim A^{\perp}$, that is, the quotient $D^{*}/A^{\perp}$ is finite dimensional. Recall that the inclusion $\iota\colon A \to D$ induces an isomorphism $D^{*}/A^{\perp} \to A^{*}$ which is a homeomorphism since both spaces are discrete. We can factor $\psi$ so that the following diagram commutes
 	\[
 	\begin{tikzcd}
 		D^{*} \arrow[r, "\psi"] \arrow[d] & k \\
@@ -357,13 +363,13 @@ We are now ready to prove the duality theorem for Tate spaces.
 		A^{*} \arrow[ruu, dashed, swap, bend right, "\overline{\psi}"]
 	\end{tikzcd}
 	\]
-	However, $A^{*}$ is finite dimensional, therefore, there exists $a \in A$ such that $\overline{\psi} = \operatorname{ev}_{a}$ as maps $A^{*}\to k$. Moreover, since $A^{\perp} \subseteq \ker\psi$ we conclude that $\psi = \operatorname{ev}_{a}$ as maps $D^{*} \to k$. This implies surjectivity. Thus $D \to D^{**}$ is an isomorphism of topological vector spaces. \\
+	However, $A^{*}$ is finite dimensional, therefore, there exists $a \in A$ such that $\overline{\psi} = \operatorname{ev}_{a}$ as maps $A^{*}\to k$. Moreover, since $A^{\perp} \subseteq \ker\psi$, we conclude that $\psi = \operatorname{ev}_{a}$ as maps $D^{*} \to k$. This implies surjectivity. Thus, $D \to D^{**}$ is an isomorphism of topological vector spaces. \\
 
-	Now, suppose $L$ is a complete linearly compact space. We check first that the map 
+	Now, suppose $L$ is a complete linearly compact space. We claim that the map 
 	\[
 		\operatorname{ev}\colon L \to L^{**}
 	\]
-	is continuous. Let $A^{\perp}$ be an open vector subspace in $L^{**}$ where $A \subseteq L^{*}$ is a linearly compact subspace. By \cref{lemm:duality-d-lattice-c-lattice} $L^{*}$ is discrete, hence $A$ is finite dimensional. Suppose that $A = \operatorname{span}(\phi_{1},\ldots,\phi_{n})$ for some $\phi_{1},\ldots,\phi_{n} \in A$. Then, $\operatorname{ev}^{-1}(A^{\perp}) = \ker \phi_{1} \cap \ldots \cap \ker \phi_{n}$ which is open in $L$. Now, we check that $\operatorname{ev}$ is injective. Let $v \in L$ be a nonzero vector. Choose a decomposition of $L = U \oplus F$ where $U$ is open and $F$ is finite dimensional containing $v$ (this can be done because $L$ is separated and linearly compact). Let $\phi$ be a linear functional such that $\phi\lvert_{U} = 0$ and $\phi(v) \neq 0$. Since $U$ is open and $F$ discrete such $\phi$ exists and it is continuous. Now, we check that $\operatorname{ev}$ is surjective. Let $\mathscr{U} = \{U_{\lambda}\}_{\lambda\in \Lambda}$ be a system of neighborhoods consisting of open vector subspaces. Let $\psi\colon L^{*} \to k$ be a continuous linear functional. The dual map of $\pi_{\lambda}\colon L \to L/U_{\lambda}$ yields an injection $\pi_{\lambda}^{*}\colon(L/U)^{*} \hookrightarrow L^{*}$ for every $U_{\lambda} \in \mathscr{U}$. Since $L$ is linearly compact, the vector space $L/U_{\lambda}$ is finite dimensional. Thus, there exists a unique $\overline{x_{\lambda}}\in L$ such that $\psi \circ \pi_{\lambda}^{*} = \operatorname{ev}_{\overline{x_{\lambda}}}$ where $\operatorname{ev}\colon L/U_{\lambda} \to (L/U_{\lambda})^{**}$. In addition, observe that if $\mu\leq \lambda $ there is an induced injection $\pi_{\mu}^{\lambda*}\colon(L/U_{\mu})^{*} \hookrightarrow (L/U_{\lambda})^{*}$ such that the following diagram
+	is continuous. Indeed, let $A^{\perp}$ be an open vector subspace in $L^{**}$, where $A \subseteq L^{*}$ is a linearly compact subspace. By \cref{lemm:duality-d-lattice-c-lattice}, $L^{*}$ is discrete. Hence, $A$ is finite dimensional. Suppose that $A = \operatorname{span}(\phi_{1},\ldots,\phi_{n})$ for some $\phi_{1},\ldots,\phi_{n} \in A$. Then $\operatorname{ev}^{-1}(A^{\perp}) = \ker \phi_{1} \cap \ldots \cap \ker \phi_{n}$, which is open in $L$. Now, we check that $\operatorname{ev}$ is injective. Let $v \in L$ be a nonzero vector. Choose a decomposition of $L = U \oplus F$ where $U$ is open and $F$ is finite dimensional containing $v$ (this can be done because $L$ is separated and linearly compact). Let $\phi$ be a linear functional such that $\phi\lvert_{U} = 0$ and $\phi(v) \neq 0$. Since $U$ is open and $F$ discrete such $\phi$ exists and it is continuous. Now, we check that $\operatorname{ev}$ is surjective. Let $\mathscr{U} = \{U_{\lambda}\}_{\lambda\in \Lambda}$ be a system of neighborhoods consisting of open vector subspaces. Let $\psi\colon L^{*} \to k$ be a continuous linear functional. The dual map of $\pi_{\lambda}\colon L \to L/U_{\lambda}$ yields an injection $\pi_{\lambda}^{*}\colon(L/U)^{*} \hookrightarrow L^{*}$ for every $U_{\lambda} \in \mathscr{U}$. Since $L$ is linearly compact, the vector space $L/U_{\lambda}$ is finite dimensional. Thus, there exists a unique $\overline{x_{\lambda}}\in L$ such that $\psi \circ \pi_{\lambda}^{*} = \operatorname{ev}_{\overline{x_{\lambda}}}$ where $\operatorname{ev}\colon L/U_{\lambda} \to (L/U_{\lambda})^{**}$. In addition, observe that if $\mu\leq \lambda $ there is an induced injection $\pi_{\mu}^{\lambda*}\colon(L/U_{\mu})^{*} \hookrightarrow (L/U_{\lambda})^{*}$ such that the following diagram
 	\[
 	\begin{tikzcd}
 		L^{*} \arrow[rr, "\psi"] & & k \\
@@ -379,70 +385,70 @@ We are now ready to prove the duality theorem for Tate spaces.
 	&= (\phi_{\mu} \circ \pi_{\mu}^{\lambda})(\overline{x_{\lambda}}) \\
 	&= \phi_{\mu}(\pi_{\mu}^{\lambda}(\overline{x_{\lambda}}))
 	\end{align*}
-	holds. Therefore, $\overline{x_\mu} = \pi_{\mu}^{\lambda}(\overline{x_{\lambda}})$ for all $\mu \leq \lambda$. Then, $(x_{\lambda})_{\lambda\in \Lambda}$ is contained in the completion $\widehat{V}$ as described in \cref{def:completion}. Since $V \to \widehat{V}$ is an isomorphism, there exists $x\in L$ such that $\pi_{\lambda}(x) = \overline{x_{\lambda}}$ for all $\lambda\in \Lambda$. We claim that $\psi = \operatorname{ev}_{x}$. Let $\phi \in L^{*}$. Then, $\ker\phi$ is open and there exists $\lambda\in \Lambda$ such that $U_{\lambda} \subseteq \ker\phi$. Hence, we can factor $\phi$ as follows
+	holds. Therefore, $\overline{x_\mu} = \pi_{\mu}^{\lambda}(\overline{x_{\lambda}})$ for all $\mu \leq \lambda$. Then $(x_{\lambda})_{\lambda\in \Lambda}$ belongs to the completion $\widehat{V}$ as described in \cref{def:completion}. Since $V \to \widehat{V}$ is an isomorphism, there exists $x\in L$ such that $\pi_{\lambda}(x) = \overline{x_{\lambda}}$ for all $\lambda\in \Lambda$. We claim that $\psi = \operatorname{ev}_{x}$. Let $\phi \in L^{*}$. Then $\ker\phi$ is open and there exists $\lambda\in \Lambda$ such that $U_{\lambda} \subseteq \ker\phi$. Hence, we can factor $\phi$ as follows
 	\[
 	\begin{tikzcd}
 		L \arrow[r, "\phi"] \arrow[d, swap, "\pi_{\lambda}"] & k \\
 		L/U_{\lambda} \arrow[ur, swap, "\phi_{\lambda}"] &
 	\end{tikzcd}
 	\]
-	Now, since $L/U$ is discrete it follows that $\phi_{\lambda}$ is continuous. Moreover, $\pi_{\lambda}^{*}(\phi_{\lambda}) = \phi$. Hence
+	Now, since $L/U$ is discrete, it follows that $\phi_{\lambda}$ is continuous. Moreover, $\pi_{\lambda}^{*}(\phi_{\lambda}) = \phi$. Hence,
 	\[
 		\psi(\phi) = \psi(\pi_{\lambda}^{*}(\phi_{\lambda})) = \phi_{\lambda}(\overline{x_{\lambda}}) = \phi_{\lambda}(\pi_{\lambda}(x) = \phi(x).
 	\]
-	This implies surjectivity of $\operatorname{ev}\colon L \to L^{**}$. Finally, we prove that $\operatorname{ev}$ is open. Let $U$ be any open vector subspace in $L$, thus $L = U \oplus F$ for some finite dimensional $F$. We claim that $\operatorname{ev}(U) = (F^{*})^{\perp}$. First, the inclusion $\operatorname{ev}(U) \subseteq (F^{*})^{\perp}$ is immediate. Let $\psi \in (F^{*})^{\perp}$. Let $x \in L$ such that $\operatorname{ev}_{x} = \psi$. Write $x = u + f$ where $u \in U$ and $f \in F$. Hence, $\operatorname{ev}_{x} = \operatorname{ev}_{u} + \operatorname{ev}_{f}$. Since $\operatorname{ev}$ is injective, it follows that there exists some $\phi\in F^{*}$ such that $\phi(f) \neq 0$ if $f$ is nonzero. Therefore, $f = 0$ and $\psi \in \operatorname{ev}(U)$. This concludes the proof.
+	This implies surjectivity of $\operatorname{ev}\colon L \to L^{**}$. Finally, we prove that $\operatorname{ev}$ is open. Let $U$ be any open vector subspace in $L$. Then $L = U \oplus F$ for some finite dimensional $F$. We claim that $\operatorname{ev}(U) = (F^{*})^{\perp}$. First, the inclusion $\operatorname{ev}(U) \subseteq (F^{*})^{\perp}$ is immediate. Let $\psi \in (F^{*})^{\perp}$ and $x \in L$ such that $\operatorname{ev}_{x} = \psi$. Write $x = u + f$, where $u \in U$ and $f \in F$. Hence, $\operatorname{ev}_{x} = \operatorname{ev}_{u} + \operatorname{ev}_{f}$. Since $\operatorname{ev}$ is injective, there exists some $\phi\in F^{*}$ such that $\phi(f) \neq 0$ if $f$ is nonzero. Therefore, $f = 0$ and $\psi \in \operatorname{ev}(U)$. This concludes the proof.
 \end{proof}
 \begin{remark}\label{rem:completeness-is-necessary-for-sel-duality}
-	Observe that completeness cannot be dropped in the definition of a Tate space while preserving duality. Indeed, if $V$ is linearly compact but not complete its dual is discrete by \cref{lemm:duality-d-lattice-c-lattice} and by \cref{rem:dual-of-discrete-is-complete} its double dual is complete, hence $V \to V^{**}$ cannot be an isomorphism. In fact, during the proof of the duality theorem we checked that $V^{**}$ is the completion of $V$. 
+	Observe that completeness cannot be dropped in the definition of a Tate space while preserving duality. Indeed, if $V$ is linearly compact but not complete, then its dual is discrete by \cref{lemm:duality-d-lattice-c-lattice}. Moreover, by \cref{rem:dual-of-discrete-is-complete}, $V^{**}$ is complete. Hence, $V \to V^{**}$ cannot be an isomorphism. In fact, by a similar argument in the proof of the duality theorem, one can see that $V^{**}$ is the completion of $V$. 
 \end{remark}
 \begin{remark}\label{rem:lef-vs-beilinson}
-	We now discuss definitions of linearly compact spaces as given in \cite{Lefschetz-Alg-Top} and \cite{Chiral}. In \cite{Lefschetz-Alg-Top} it is proven that a linearly compact vector space must be complete while our definition does not imply it necessarily. However, when $V$ is a complete space both definitions coincide. Indeed, Lefschetz proves that every linearly compact space is the dual of a discrete space which coincides with our definition of a complete linearly compact vector space by \cref{thm:self-duality}. Therefore, his definition of a \textbf{locally linearly compact vector space} (that is, a linearly topologized vector space admitting an open linearly compact vector subspace) coincides with our notion of Tate space.
+	We now discuss definitions of linearly compact spaces as given in \cite{Lefschetz-Alg-Top} and \cite{Chiral}. In \cite{Lefschetz-Alg-Top} Lefschetz proves that a linearly compact vector space must be complete space. However, from our definition a linearly compact spaces is not necessarily complete. Nevertheless, when $V$ is a complete space both definitions coincide. Indeed, Lefschetz proves that every linearly compact space is the dual of a discrete space, which coincides with our definition of a complete linearly compact vector space by \cref{thm:self-duality}. Therefore, his definition of a \textbf{locally linearly compact vector space} (that is, a linearly topologized vector space admitting an open linearly compact vector subspace) coincides with our notion of Tate space.
 \end{remark}
 \subsection{Morphisms}
 \begin{definition}\label{def:linearly-compact-and-discrete-morphisms}
 	A morphism $f\colon V\to W$ of Tate spaces is said to be \textbf{linearly compact} if the closure of $f(V)$ is linearly compact in $W$. Dually, it is \textbf{discrete} if $\ker f$ is open in $V$. 
 \end{definition}
-First, we check the duality natural property for morphisms of Tate spaces.
+First, we check the natural duality property for morphisms of Tate spaces.
 \begin{proposition}\label{prop:duality-discrete-compact-maps}
 	A morphism $f\colon V\to W$ of Tate spaces is linearly compact if and only if $f^{*}$ is discrete.
 \end{proposition}
 \begin{proof}
-	Suppose $f^{*}$ is linearly compact, then $\ker f^{*} = f(V)^{\perp}$. However, if $\phi\in W^{*}$ and $\phi(f(V)) = 0$ then $\phi(\overline{f(V)}) = 0$ by continuity of $\phi$. Therefore, $\ker f^{*} = \overline{f(V)}^{\perp}$ which is open because $\overline{f(V)}$ is linearly compact. Now, suppose $f^{*}$ is discrete. Thus, $\ker f^{*}$ contains a basic open subspace $A^{\perp}$ such that $A$ is linearly compact in $W$. Therefore, $f(V)\subseteq A$ then $\overline{f(V)} \subseteq A$ and by item (c) in \cref{thm:linear_compactness_properties} $\overline{f(V)}$ is linearly compact.
+	Suppose $f^{*}$ is linearly compact, then $\ker f^{*} = f(V)^{\perp}$. However, if $\phi\in W^{*}$ and $\phi(f(V)) = 0$, then $\phi(\overline{f(V)}) = 0$ by continuity of $\phi$. Therefore, $\ker f^{*} = \overline{f(V)}^{\perp}$, which is open because $\overline{f(V)}$ is linearly compact. Now, suppose $f^{*}$ is discrete. Then $\ker f^{*}$ contains a basic open subspace $A^{\perp}$ such that $A$ is linearly compact in $W$. Therefore, $f(V)\subseteq A$ and $\overline{f(V)} \subseteq A$. Moreover, by item (c) in \cref{thm:linear_compactness_properties}, $\overline{f(V)}$ is linearly compact.
 \end{proof}
-Discrete and linearly compact operators form a 2-sided ideal in $\Hom$; that is
+Discrete and linearly compact endomorphisms form a 2-sided ideal in $\Hom$; that is
 \begin{proposition}\label{prop:compact-and-discrete-2-sided-ideal}
-	If $f$ is a linearly compact morphism (respectively discrete) then its composition with an arbitrary morphism of Tate spaces is also linearly compact (respectively discrete). 
+	If $f$ is a linearly compact morphism (respectively discrete), then its composition with an arbitrary morphism of Tate spaces is also linearly compact (respectively discrete). 
 \end{proposition}
 \begin{proof}
-	Let $A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D$ be morphisms of Tate spaces such that $g$ is linearly compact. Then, $\overline{g\circ f(A)} \subseteq \overline{g(B)}$ which is linearly compact, thus $\overline{g\circ f(A)}$ is linearly compact as well. On the other hand, note that $h(\overline{g(B)}) \subseteq \overline{h\circ g(B)}$; therefore $\overline{h(\overline{g(B)})} = \overline{h\circ g(B)}$. However, $\overline{g(B)}$ is linearly compact and by item (b) of \cref{thm:linear_compactness_properties} $\overline{h(\overline{g(B)})}$ is linearly compact. In addition, the statement for discrete operators follows from \cref{prop:duality-discrete-compact-maps}.
+	Let $A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D$ be morphisms of Tate spaces such that $g$ is linearly compact. Then $\overline{g\circ f(A)} \subseteq \overline{g(B)}$, which is linearly compact. Thus, $\overline{g\circ f(A)}$ is linearly compact as well. On the other hand, note that $h(\overline{g(B)}) \subseteq \overline{h\circ g(B)}$; therefore, $\overline{h(\overline{g(B)})} = \overline{h\circ g(B)}$. However, $\overline{g(B)}$ is linearly compact. Hence, by item (b) of \cref{thm:linear_compactness_properties}, $\overline{h(\overline{g(B)})}$ is linearly compact. Observe that the statement for discrete endomorphisms follows from \cref{prop:duality-discrete-compact-maps}.
 \end{proof}
 \begin{remark}\label{rem:discrete-composition-compact}
 If $f$ is a compact operator and $g$ is a discrete operator, then $gf$ is of \textbf{finite-rank}; that is, $\dim gf(V) < \infty$.  
 \end{remark}
 \begin{proof}
-	We have $\overline{f(V)} \prec \ker g$, therefore, $\overline{f(V)}/(\overline{f(V)} \cap \ker g)$ is finite dimensional. We have a surjection
+	We have $\overline{f(V)} \prec \ker g$; therefore, $\overline{f(V)}/(\overline{f(V)} \cap \ker g)$ is finite dimensional. Observe that the surjection
 	\[
 		\frac{\overline{f(V)}}{\overline{f(V)}\cap \ker g} \to gf(V)
 	\]
-	which implies that $gf$ is of finite-rank.
+	implies that $gf$ is of finite-rank.
 \end{proof}
 \begin{definition}\label{def:2-sided-ideals-in-hom}
-	Let $V$ and $W$ be Tate spaces. \linebreak We denote $\Hom_{+}(V,W)$ to be the set of linearly compact morphisms and $\Hom_{-}(V,W)$ the set of discrete ones. Let
-	\[
-		\Hom_{0}(V,W):=\Hom_{+}(V,W) \cap \Hom_{-}(V,W).
-	\]
+	Let $V$ and $W$ be Tate spaces. We denote by $\Hom_{+}(V,W)$ the set of linearly compact morphisms and by $\Hom_{-}(V,W)$ the set of discrete endomorphisms. Moreover, their intersection is denoted by $\Hom_{0}(V,W)$.
 \end{definition}
 \begin{proposition}\label{prop:discrete-compact-operators-present-the-whole-space}
-	The sets $\Hom_{-}(V,W), \Hom_{+}(V,W)$ and \linebreak $\Hom_{0}(V,W)$ are vector subspaces of $\Hom(V,W)$. Moreover,
+	The sets 
+	\[
+		\Hom_{-}(V,W), \Hom_{+}(V,W) \text{ and, } \Hom_{0}(V,W)
+	\]
+	are vector subspaces of $\Hom(V,W)$. Moreover,
 	\[
 		\Hom_{-}(V,W) + \Hom_{+}(V,W) = \Hom(V,W).
 	\]
 \end{proposition}
 \begin{proof}
-	Let $L$ be a c-lattice in $V$ and consider $\pi\colon V \to L$ be a continuous linear projection. Then $\pi$ realized as an element of $\End(V)$ satisfies $\pi \in\End_{+}(V)$ and $1 -\pi\in\End_{-}(V)$. Hence, by \cref{prop:compact-and-discrete-2-sided-ideal} for every $f\in \Hom(V,W)$ $f\circ \pi$ and $f\circ (1 - \pi)$ are linearly compact and discrete respectively. It follows
+	Let $L$ be a c-lattice in $V$ and consider $\pi\colon V \to L$ a continuous linear projection. Observe that $\pi \in\End_{+}(V)$ and $1 -\pi\in\End_{-}(V)$. Hence, by \cref{prop:compact-and-discrete-2-sided-ideal}, for every $f\in \Hom(V,W)$ it follows that $f\circ \pi$ and $f\circ (1 - \pi)$ are linearly compact and discrete endomorphisms respectively. Therefore,
 	\[
 		\Hom_{-}(V,W) + \Hom_{+}(V,W) = \Hom(V,W).
 	\]
 	The other statements are immediate.
 \end{proof}
-\textcolor{red}{I'll include further theory if necessary.}

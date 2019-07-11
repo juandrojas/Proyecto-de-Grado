@@ -1,6 +1,6 @@
 %!TEX root = ../main.tex
 \chapter{Trace and Residue}\label{ch:trace-and-residue}
-We extend the definition of trace to a certain class of infinite rank endomorphisms in order to define an abstract residue. We follow the original structure of Tate's elegant article \cite{Tate} while translating his statements in the language of Tate's Linear Algebra.
+We extend the definition of trace to a certain class of infinite rank endomorphisms in order to define an abstract residue. We follow the original structure of Tate's elegant article \cite{tate} while translating his statements in the language of Tate's Linear Algebra.
 \section{Finite-potent maps and their trace}
 Let $k$ be a fixed field and $V$ a vector space over $k$. In this section we will extend the notion of trace of a linear endomorphism to include certain operators even when $V$ is infinite dimensional.
 \subsection{Finite-potent maps}
@@ -16,35 +16,35 @@ The following is characterization of finite-potent endomorphisms.
 	A linear map $f\colon V \to V$ is finite-potent if and only if there exists a subspace $W \subseteq V$ such that
 	\begin{enumerate}[label = (\roman*)]
 		\item $\dim f(W) < \infty$,
-		\item $f(W) \subseteq W$,
+		\item $f(W) \subseteq W$ and
 		\item the induced map $\bar{f}\colon V/W \to V/W$ is nilpotent.
 	\end{enumerate}
-	A subspace $W$ is a \textbf{trace-subspace} for $f$ if satisfies the previous previous properties.   
+	A subspace $W$ is a \textbf{trace-subspace} for $f$ if satisfies the previous properties.   
 \end{lemma}
 \begin{proof}
-	If $f$ is finite-potent choose $W = f^{n}(V)$ for sufficiently large $n$. The first condition follows from definition. Also, $f(W) = f^{n+1}(V) \subseteq f^{n}(V) = W$. In addition, $\bar{f}^{n} = 0$. On the other hand, if such $W$ exists, note that condition (ii) assures that $\bar{f}$ is well defined. Moreover, as $\bar{f}$ is nilpotent, $f^{n}V \subseteq W$ for sufficiently large $n$ and by condition (i) above $\dim f^{n}(V) < \infty$.
+	If $f$ is finite-potent, choose $W = f^{n}(V)$ for sufficiently large $n$. The first condition follows from definition. Also, $f(W) = f^{n+1}(V) \subseteq f^{n}(V) = W$. In addition, $\bar{f}^{n} = 0$. On the other hand, if such $W$ exists, note that condition (ii) assures that $\bar{f}$ is well defined. Moreover, as $\bar{f}$ is nilpotent, $f^{n}V \subseteq W$ for sufficiently large $n$ and by condition (i) above $\dim f^{n}(V) < \infty$.
 \end{proof}
 Observe that a trace-subspace for a finite-potent map $f$ is not unique. In particular, if $W$ is trace-subspace for $f$ then $f^{n}(W)$ is trace-subspace for $f$ for all $n$.
 \begin{notation}\label{not:trace}
-	If $f$ is a finite-rank endomorphism in a vector space $V$ we will denote its ordinary trace by $\tr_{V}(f)$. Moreover, if $W$ is a subspace of $V$ invariant under $f$, that is, $f(W) \subseteq W$ then $\tr_{W}(f) := \tr_{W}(f\lvert_{W})$. In addition, if $\overline{f}$ is the induced map such that the following diagram commutes
+	If $f$ is a finite-rank endomorphism in a vector space $V$, we will denote its ordinary trace by $\tr_{V}(f)$. Moreover, if $W$ is a subspace of $V$ invariant under $f$, that is, $f(W) \subseteq W$, then $\tr_{W}(f) := \tr_{W}(f\lvert_{W})$. In addition, if $\overline{f}$ is the induced map such that the following diagram commutes
 	\[
 	\begin{tikzcd}
 		V \arrow[r, "f"] \arrow[d, "\pi_{W}"] & V \arrow[d, "\pi_{W}"] \\
-		V/W \arrow[r, "\overline{f}"] & V/W
+		V/W \arrow[r, "\overline{f}"] & V/W,
 	\end{tikzcd} 
 	\]
 	then $\tr_{V/W}(f) := \tr_{V/W}(\overline{f})$. The use of this notation is consistent throughout the document. 
 \end{notation}
-\subsection{Trace}  If $f$ is a finite-potent map and $W$ is a trace-subspace for $f$ the \textbf{trace} $\tr_{V}(f)\in k$ of $f$ may be defined as
+\subsection{Trace}  If $f$ is a finite-potent map and $W$ is a trace-subspace for $f$, the \textbf{trace} $\tr_{V}(f)\in k$ of $f$ is defined by
 \[
-	\tr_{V}(f) = \tr_{W}(f)
+	\tr_{V}(f) := \tr_{W}(f).
 \]
 Observe that $\tr_{W}(f)$ is well-defined because $f\lvert_{W}$ is of finite-rank. 
 \begin{proposition}\label{prop:trace-does-not-depend-on-W}
 	The definition of $\tr_{V}$ does not depend on the choice of trace-subspace for $f$.
 \end{proposition}
 \begin{proof}
-	Suppose $W_{1}, W_{2} \subseteq V$ are two trace-subspaces for $f$ then $W = W_{1} + W_{2}$ is trace-subspace for $f$ as well. Hence, the induced maps on $W/W_{1}$ and $W/W_{2}$ are nilpotent. Therefore, $\tr_{W/W_{1}}(f) = \tr_{W/W_{2}}(f) = 0$ and using the well-known identify of the ordinary trace
+	Suppose $W_{1}, W_{2} \subseteq V$ are two trace-subspaces for $f$, then $W = W_{1} + W_{2}$ is trace-subspace for $f$ as well. Hence, the induced maps on $W/W_{1}$ and $W/W_{2}$ are nilpotent. Therefore, $\tr_{W/W_{1}}(f) = \tr_{W/W_{2}}(f) = 0$ and using the well-known identify of the ordinary trace
 \begin{align*}
 	\tr_{W}(f) &= \tr_{W_{1}}(f) + \tr_{W/W_{1}}(f) \\
 	\tr_{W}(f) &= \tr_{W_{2}}(f) + \tr_{W/W_{2}}(f),
@@ -54,16 +54,16 @@ we obtain $\tr_{W_{1}}(f) = \tr_{W_{2}}(f)$, our desired result.
 This definition extends some of the properties of the ordinary trace.
 \begin{lemma}\label{lemm:properties-trace}
 	\begin{enumerate}[label = (\alph*)]
-		\item If $\dim V < \infty$, any endomorphism $f$ is finite-potent and $\tr_{V}(f)$ coincides with the ordinary trace.
+		\item If $\dim V < \infty$, then any endomorphism $f$ is finite-potent and $\tr_{V}(f)$ coincides with the ordinary trace.
 		\item If $f$ is nilpotent, then it is finite-potent and $\tr_{V}(f) = 0$.
-		\item If $f$ is finite-potent and $U$ is a subspace such that $f(U) \subseteq U$ then the induced maps on $U$ and $V/U$ are finite-potent and satisfy
+		\item If $f$ is finite-potent and $U$ is a subspace such that $f(U) \subseteq U$, then the induced maps on $U$ and $V/U$ are finite-potent and satisfy the identity
 		\[
-		 	\tr_{V}(f) = \tr_{U}(f) + \tr_{V/U}(f)
+		 	\tr_{V}(f) = \tr_{U}(f) + \tr_{V/U}(f).
 		 \] 
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	Both (a) and (b) are immediate. For (c) if $W$ is a trace-subspace for $f$ then $W\cap U$ and $(W + U)/U$ are trace-subspaces for the induced maps respectively. Hence, by \cref{lemm:characterization-of-finite-potent-maps} both induced maps are finite-potent. Since $W/(W\cap U) \cong (W+U)/U$, the diagram
+	Both (a) and (b) are immediate. For (c), if $W$ is a trace-subspace for $f$, then $W\cap U$ and $(W + U)/U$ are trace-subspaces for the induced maps respectively. Hence, by \cref{lemm:characterization-of-finite-potent-maps}, both induced maps are finite-potent. Since $W/(W\cap U) \cong (W+U)/U$, the diagram
 	\[
 		\begin{tikzcd}
 			W/(W\cap U) \arrow[r, "\cong"] \arrow[d, "f"] & (W+U)/U \arrow[d, "f"] \\
@@ -76,26 +76,26 @@ This definition extends some of the properties of the ordinary trace.
 	\]
 \end{proof}
 \begin{definition}\label{def:finite-potent subspace}
-	A subspace $F$ of $\End_{k}(V)$ is said to be a \textbf{finite-potent subspace} if there exists an $n$ such that for any family of $n$ elements $f_{1}, \ldots, f_{n}\in F$, the space $f_{1}f_{2}\cdots f_{n}V$ is finite dimensional.
+	A subspace $F$ of $\End_{k}(V)$ is said to be a \textbf{finite-potent subspace} if there exists an $n$ such that for any family of $n$ elements $f_{1}, \ldots, f_{n}\in F$ the space $f_{1}f_{2}\cdots f_{n}V$ is finite dimensional.
 \end{definition}
-Observe that if $F$ is a finite-potent subspace of $\End_{k}(V)$ then every $f\in F$ is finite-potent. 
+Observe that if $F$ is a finite-potent subspace of $\End_{k}(V)$, then every $f\in F$ is finite-potent. 
 \begin{proposition}\label{prop:linearity-trace}
-	If $F$ is a finite-potent subspace then $\tr_{V}\colon F\to k$ is $k$-linear
+	If $F$ is a finite-potent subspace, then $\tr_{V}\colon F\to k$ is $k$-linear.
 \end{proposition}
 \begin{proof}
-	It is enough to prove it in the case that $F$ is finite dimensional. Let $W = F^{n}V$ for $n$ as in the definition of finite-potent subspace, thus $\dim W < \infty$. Hence, $W$ is a trace-subspace for all $f\in F$. It follows that $\tr_{V}(f) = \tr_{W}(f)$ for all $f$. Since $\tr_{W}\colon \End_{k}(V) \to k$ is $k$-linear, so is $\tr_{V}\colon F \to k$.
+	It is enough to prove the statement in the case where $F$ is finite dimensional. Let $W = F^{n}V$ for $n$ as in the definition of finite-potent subspace. Then $\dim W < \infty$. Hence, $W$ is a trace-subspace for all $f\in F$. It follows that $\tr_{V}(f) = \tr_{W}(f)$ for all $f$. Since $\tr_{W}\colon \End_{k}(V) \to k$ is $k$-linear, so is $\tr_{V}\colon F \to k$.
 \end{proof}
 \begin{remark}\label{rem:general-linearity-trace}
-	In his paper, Tate asked if general linearity for finite-potent maps followed. His question was answered negatively in \cite{TATE-TRACE-COUNTER-EXAMPLE} where general linearity is reduced to the following: if the sum of two nilpotent endomorphisms is finite-potent, is the sum necessarily traceless?  
+	In his paper, Tate asked if general linearity for finite-potent maps followed. His question was answered negatively in \cite{TATE-TRACE-COUNTER-EXAMPLE} where general linearity is reduced to the following question: if the sum of two nilpotent endomorphisms is finite-potent, is the sum necessarily traceless?  
 \end{remark}
 \begin{proposition}\label{prop:trace-inavriant-under-commutator}
-	If $f,g \in \End_{k}(V)$ and $fg$ is finite-potent then $gf$ is also finite-potent and 
+	If $f,g \in \End_{k}(V)$ and $fg$ is finite-potent, then so is $gf$ and 
 	\[
 		\tr_{V}(fg) = \tr_{V}(gf).
 	\]
 \end{proposition}
 \begin{proof}
-	Since $fg$ is finite-potent then $W =(fg)^{n}V$ is finite-dimensional for a sufficiently large $n$. On the other hand, $(gf)^{n+1}V= g(fg)^{n}f(V) \subseteq g(W)$, therefore, $gf$ is also finite-potent. Let $W' = (gf)^{n}V$, then $g(W') \subseteq W$ and $f(W) \subseteq W'$. Thus, 
+	Since $fg$ is finite-potent, $W =(fg)^{n}V$ is finite-dimensional for a sufficiently large $n$. On the other hand, $(gf)^{n+1}V= g(fg)^{n}f(V) \subseteq g(W)$; therefore, $gf$ is also finite-potent. Let $W' = (gf)^{n}V$. Then $g(W') \subseteq W$ and $f(W) \subseteq W'$. Thus, 
 	\[
 		\dim W' \leq \dim g(W) \leq \dim W,
 	\]
@@ -110,15 +110,15 @@ Observe that if $F$ is a finite-potent subspace of $\End_{k}(V)$ then every $f\i
 			W' \arrow[r, "gf"] & W'
 		\end{tikzcd}
 	\]
-	commutes. We conclude $\tr_{W}(fg) = \tr_{W'}(gf)$ and it follows $\tr_{V}(fg) = \tr_{V}(gf)$.
+	commutes. We conclude that $\tr_{W}(fg) = \tr_{W'}(gf)$. Hence, $\tr_{V}(fg) = \tr_{V}(gf)$.
 \end{proof}
 \subsection{Trace and Tate Spaces}\label{Tate-and-trace}
-Suppose that $V$ is a Tate space and consider $\End_{k}(V)$ the space of continuous endomorphisms of $V$. By \cref{prop:compact-and-discrete-2-sided-ideal} and \cref{prop:discrete-compact-operators-present-the-whole-space} we have 2-sided ideals $\End_{0}(V), \End_{+}(V)$ and $\End_{-}(V)$ of $E$ such that $\End_{+}(V) + \End_{-}(V) = E$ and $\End_{0}(V) = \End_{+}(V) \cap \End_{-}(V)$. Moreover, \cref{rem:discrete-composition-compact} implies that $\End_{0}(V)$ is a finite-potent subspace.
+Suppose that $V$ is a Tate space and consider $\End_{k}(V)$ the space of continuous endomorphisms of $V$. By \cref{prop:compact-and-discrete-2-sided-ideal} and \cref{prop:discrete-compact-operators-present-the-whole-space}, there are 2-sided ideals $\End_{0}(V), \End_{+}(V)$ and $\End_{-}(V)$ of $\End_{k}(V)$ such that $\End_{+}(V) + \End_{-}(V) = \End_{k}(V)$ and $\End_{0}(V) = \End_{+}(V) \cap \End_{-}(V)$. Moreover, \cref{rem:discrete-composition-compact} implies that $\End_{0}(V)$ is a finite-potent subspace.
 \begin{lemma}\label{lemm:traceless-commutator}
-	Suppose $f \in \End_{+}(V)$ and $g \in \End_{-}(V)$ or $f \in \End_{-}(V)$ and $g\in \End_{+}(V)$. Then the commutator $[f,g] = fg - gf$ belongs to $\End_{0}(V)$ and it is traceless.
+	Suppose that $f \in \End_{+}(V)$, $g \in \End_{-}(V)$ or $f \in \End_{-}(V)$ and $g\in \End_{+}(V)$. Then the commutator $[f,g] = fg - gf$ belongs to $\End_{0}(V)$ and it is traceless.
 \end{lemma}
 \begin{proof}
-	This immediate from the previous discussion and \cref{prop:trace-inavriant-under-commutator}.
+	This immediate from the previous discussion and \cref{prop:trace-inavriant-under-commutator}. \\
 \end{proof}
 
 \section{Differential Calculus}
@@ -131,14 +131,14 @@ In this section we introduce the theory of derivations and differentials over an
 	\end{enumerate}
 for all $a,b \in A$.
 
-The set of derivations from $A$ to $M$ is an $A$-module in the natural way. We will denote it by $\Der(A,M)$. Moreover if $A$ is a $k$-algebra through a map $\varphi\colon k \to A$ we say that $D$ is a $\mathbf{k}$-\textbf{derivation} if $D$ is a derivation and $D \circ \varphi = 0$. In this case, the set of all $k$-derivations is denoted $\Der_{k}(A,M)$. If $M = A$, we will denote $\Der_{k}(A,A)$ simply by $\Der_{k}(A)$.
+The set of derivations from $A$ to $M$ is an $A$-module in the natural way. We will denote it by $\Der(A,M)$. Moreover, if $A$ is a $k$-algebra through a map $\varphi\colon k \to A$ we say that $D$ is a $\mathbf{k}$-\textbf{derivation} if $D$ is a derivation and $D \circ \varphi = 0$. In this case, the set of all $k$-derivations is denoted $\Der_{k}(A,M)$. If $M = A$, we will denote $\Der_{k}(A,A)$ simply by $\Der_{k}(A)$.
 \end{definition}
 \begin{definition}\label{def:extension-of-algebras}
-Let $B$ be a $k$-algebra and $C$ an ideal in $B$ with $C^{2} = 0$; set $A =B/C$. In this way, $C$ can be viewed as an $A$-module. In this situation we say that $B$ is an \textbf{extension} of the $k$-algebra $A$ by the $A$-module $C$. Usually, we simply write the exact sequence
+Let $B$ be a $k$-algebra and $C$ an ideal in $B$ with $C^{2} = 0$; set $A =B/C$. In this way, $C$ can be viewed as an $A$-module. In this situation, we say that $B$ is an \textbf{extension} of the $k$-algebra $A$ by the $A$-module $C$. We simply write the exact sequence
 \[\label{eqn:extension}
-	0 \to C \to B \xrightarrow{\pi} A \to 0
+	0 \to C \to B \xrightarrow{\pi} A \to 0.
 \]
-As usual, we will say that such sequence \textbf{splits} if there exists a retraction; that is, a $k$-algebra homomorphism $\rho\colon A \to B$ such that $\pi \circ \rho = 1_{A}$. In this case we can identify $B = C\oplus A$. Conversely, starting from any $k$-algebra $A$ and any $A$-module $C$, one can always define a structure on $A \oplus C$ such that $A\oplus C$ is an extension of $A$ by $C$. Namely, 
+Moreover, we will say that such sequence \textbf{splits} if there exists a retraction; that is, a $k$-algebra homomorphism $\rho\colon A \to B$ such that $\pi \circ \rho = 1_{A}$. In this case, we can identify $B = C\oplus A$. Conversely, starting from any $k$-algebra $A$ and any $A$-module $C$, one can always define a structure on $A \oplus C$ such that $A\oplus C$ is an extension of $A$ by $C$. Namely, 
 \[
 			(a,c)(a',c') = (aa',ac' + a'c)
 \]
@@ -155,20 +155,20 @@ Given a commutative diagram of $k$-algebras
 thinking of $f$ as a fixed map; we say that $h$ is a \textbf{lifting} of $g$ to $B$. 
 \end{definition}
 \begin{lemma}\label{lemm:two-liftings}
-	Let $h$ and $h'\colon C \to B$ be two liftings of $g$ to $B$. Let $K = \ker f$ and suppose $K^{2} = 0$. Then, it follows that $h - h'\colon C \to K$ is a $k$-derivation. Conversely, if $D \in \Der_{k}(C, K)$ then $h + D$ is another lifting of $g$ to $B$.
+	Let $h$ and $h'\colon C \to B$ be two liftings of $g$ to $B$. Let $K = \ker f$ and suppose $K^{2} = 0$. Then $h - h'\colon C \to K$ is a $k$-derivation. Conversely, if $D \in \Der_{k}(C, K)$, then $h + D$ is another lifting of $g$ to $B$.
 \end{lemma}
 \begin{proof}
-	First, observe that $(h - h')(C)$ lies in $K$ because both $h$ and $h'$ are liftings of $g$ to $B$. Since $K^{2} = 0$, then $K$ can be considered as $f(B)$-module and by means of $g$ as a $C$-module. Then, $h-h'\colon C \to K$ is a map of $C$-modules. Now, let $c,c' \in C$ then
+	First, observe that $(h - h')(C)$ lies in $K$ because both $h$ and $h'$ are liftings of $g$ to $B$. Since $K^{2} = 0$, $K$ can be considered as $f(B)$-module and by means of $g$ as a $C$-module. Then $h-h'\colon C \to K$ is a map of $C$-modules. Now, let $c,c' \in C$, then
 	\begin{align*}
 	(h -h')(cc') &= h(c)h(c') - h'(c)h'(c') \\
-	&= h(c)h(c') - h'(c)h'(c') - h(c)h'(c') + h'(c')h(c) \\
+	&= h(c)h(c') - h'(c)h'(c') - h(c)h'(c') + h'(c')h(c).
 	\end{align*}
-	since $c \cdot k = h(c)k = h'(c)k$ for all $k \in K$ it follows that
+	Since $c \cdot k = h(c)k = h'(c)k$ for all $k \in K$, it follows that
 	\begin{align*}
 		(h -h')(cc') &= c\cdot h(c') - c'\cdot h'(c') - c\cdot h'(c') + c'\cdot h(c) \\
-		&= c\cdot (h - h')(c') + c'\cdot (h - h')(c)
+		&= c\cdot (h - h')(c') + c'\cdot (h - h')(c).
 	\end{align*}
-	which implies that $h - h'$ is a $k$-derivation. Observe that $h + D$ is a lifting because $D(C)$ lies in $K$.
+	This implies that $h - h'$ is a $k$-derivation. Observe that $h + D$ is a lifting of $g$ to $B$ because $D(C)$ lies in $K$.
 \end{proof}
 \begin{theorem}\label{prop:differentials-representable-functor}
 	If $A$ is a $k$-algebra, consider the covariant functor from the category $\mathsf{Mod}_{A}$ to itself given by $M \mapsto \Der_{k}(A,M)$. This functor is representable. 
@@ -182,15 +182,15 @@ thinking of $f$ as a fixed map; we say that $h$ is a \textbf{lifting} of $g$ to 
 	\[
 		0 \to \Omega_{A/k} \to B \to A \to 0
 	\]
-	is an extension of $A$ by $\Omega_{A/k}$. We claim that this extension splits. Moreover it has two splittings, by considering retractions
+	is an extension of $A$ by $\Omega_{A/k}$. We claim that this extension splits. Moreover, it has two splittings. Indeed consider the retractions
 	\[
-		j_{1}\colon A \to B \quad\text{and,}\quad j_{2}\colon A \to B,
+		j_{1}\colon A \to B \quad\text{and,}\quad j_{2}\colon A \to B
 	\]
-	defined by $a \mapsto a\otimes 1$ mod $I^{2}$ and $a \mapsto 1 \otimes a$ mod $I^{2}$. By \cref{lemm:two-liftings} $d := j_{2} - j_{1}$ is a $k$-derivation of $A$ to $\Omega_{A/k}$. Now, we prove that 
+	defined by $a \mapsto a\otimes 1$ mod $I^{2}$ and $a \mapsto 1 \otimes a$ mod $I^{2}$. By \cref{lemm:two-liftings}, $d := j_{2} - j_{1}$ is a $k$-derivation of $A$ to $\Omega_{A/k}$. Now, we prove that 
 	\begin{align}\label{eqn:representable}
 		\Der_{k}(A,M) &\cong \Hom_{A}(\Omega_{A/k}, M).
 	\end{align}	
-	Let $D \in \Der_{k}(A,M)$ and define $\varphi\colon A \otimes_{k} A \to A * M$ by $\varphi(x \otimes y) = (xy, xD(y))$ then $\varphi$ is a $k$-algebra homomorphism since it is compatible with the operation in $A * M$ defined in \cref{def:extension-of-algebras}. In addition, if $\sum x_{i} \otimes y_{i}$ lies in $I$ then
+	Let $D \in \Der_{k}(A,M)$ and define $\varphi\colon A \otimes_{k} A \to A * M$ by $\varphi(x \otimes y) = (xy, xD(y))$. Then $\varphi$ is a $k$-algebra homomorphism because it is compatible with the operation in $A * M$ defined in \cref{def:extension-of-algebras}. In addition, if $\sum x_{i} \otimes y_{i}$ lies in $I$, then
 	\[
 		\mu\left(\sum x_{i} \otimes y_{i}\right) = \sum x_{i}y_{i} = 0 \implies \varphi\left(\sum x_{i} \otimes y_{i}\right) = (0, \sum x_{i}D(y_{i}))
 	\]
@@ -199,21 +199,21 @@ thinking of $f$ as a fixed map; we say that $h$ is a \textbf{lifting} of $g$ to 
 		f(da) &= f(1 \otimes a - a \otimes 1 \mod I^{2}) = \varphi(1 \otimes a) - \varphi(a \otimes 1) \\
 		&= D(a) - aD(1) = D(a). 
 	\end{align*} 	
-	Therefore, $D = f\circ d$. Now, we prove that such $f$ is unique. First, observe that $\Omega_{A/k}$ has the $A$-module structure induced by multiplication by $a \otimes 1$ (or $1 \otimes a$ since $1 \otimes a - a \otimes 1 \in I$). Therefore, if $\xi = \sum x_{i} \otimes y_{i} \mod I^{2} \in \Omega_{A/k}$ then $a\xi = \sum ax_{i}\otimes y_{i} \mod I^{2}$, and $f(a\xi) = \sum ax_{i}D(y_{i}) = af(\xi)$, so that $f$ is $A$-linear. We have
+	Therefore, $D = f\circ d$. Now, we prove that such $f$ is unique. First, observe that $\Omega_{A/k}$ has the $A$-module structure induced by multiplication by $a \otimes 1$ (or $1 \otimes a$ since $1 \otimes a - a \otimes 1 \in I$). Therefore, if $\xi = \sum x_{i} \otimes y_{i} \mod I^{2} \in \Omega_{A/k}$, then $a\xi = \sum ax_{i}\otimes y_{i} \mod I^{2}$, and $f(a\xi) = \sum ax_{i}D(y_{i}) = af(\xi)$, so that $f$ is $A$-linear. We have
 	\[
-		a \otimes a' = (a \otimes 1)(1 \otimes a' - a' \otimes 1) +  aa' \otimes 1
+		a \otimes a' = (a \otimes 1)(1 \otimes a' - a' \otimes 1) +  aa' \otimes 1,
 	\]
-	so that if $\omega = \sum x_{i}\otimes y_{i} \in I$ then $\omega \mod I^{2} = \sum x_{i} dy_{i}$ since $\sum x_{i}y_{i} = 0$. We conclude that $\{da\mid a\in A\}$ is a set of generators for the $A$-module $\Omega_{A/k}$. This implies uniqueness of $f$. Therefore, (\ref{eqn:representable}) holds.
+	so that if $\omega = \sum x_{i}\otimes y_{i} \in I$, then $\omega \mod I^{2} = \sum x_{i} dy_{i}$ because $\sum x_{i}y_{i} = 0$. We conclude that $\{da\mid a\in A\}$ is a set of generators for the $A$-module $\Omega_{A/k}$. This implies uniqueness of $f$. Therefore, (\ref{eqn:representable}) holds.
 \end{proof}
 \begin{definition}\label{def:module-of-differentials}
-	The module $\Omega_{A/k}$ introduced in the proof of the previous theorem is called \textbf{module of differentials} of $A$ over $k$ or \textbf{module of Kähler differentials}, and for $a \in A$ the element $da\in \Omega_{A/k}$ is called the \textbf{differential} of $a$.
+	The module $\Omega_{A/k}$ introduced in the proof of the previous theorem is called the \textbf{module of differentials} of $A$ over $k$ or \textbf{module of Kähler differentials}, and for $a \in A$ the element $da\in \Omega_{A/k}$ is called the \textbf{differential} of $a$.
 \end{definition}
 \begin{example}\label{ex:differentials-of-polynomials}
-	If $A$ is generated as $k$-algebra by a subset $S \subseteq A$ then $\Omega_{A/k}$ is generated by $\{ds\mid s \in S\}$. Indeed, if $a \in A$ then there exist $a_{i}\in S$ and a polynomial $f(X) \in k[X_{1}, \ldots, X_{n}]$ such that $a = f(a_{1}, \ldots, a_{n})$. Thus,
+	If $A$ is generated as $k$-algebra by a subset $S \subseteq A$, then $\Omega_{A/k}$ is generated by $\{ds\mid s \in S\}$. Indeed, if $a \in A$, then there exist $a_{i}\in S$ and a polynomial $f(X) \in k[X_{1}, \ldots, X_{n}]$ such that $a = f(a_{1}, \ldots, a_{n})$. Thus,
 	\[
 		da = \sum_{i=1}^{n} f_{i}(a_{1}, \ldots, a_{n})da_{i} \quad \text{where}\quad f_{i} = \frac{\partial f}{\partial x_{i}}.
 	\]
-	In particular, if $A = k[X_{1}, \ldots, X_{n}]$ then $\Omega_{A/k} = A dX_{1} + \ldots A dX_{n}$ since $X_{1}, \ldots, X_{n}$ are linearity independent; this follows from the fact that $\partial_{i} X_{j} = \delta_{ij}$.
+	In particular, if $A = k[X_{1}, \ldots, X_{n}]$ then $\Omega_{A/k} = A dX_{1} + \ldots A dX_{n}$ because $X_{1}, \ldots, X_{n}$ are linearity independent; this follows from the fact that $\partial_{i} X_{j} = \delta_{ij}$.
 \end{example}
 \begin{lemma}\label{lemm:c-map-differentials}
 	Let $K$ be a $k$-commutative algebra. The map $c\colon K \otimes_{k} K \to \Omega_{K/k}$ defined by $c(f \otimes g) = fdg$ satisfies:
@@ -226,7 +226,7 @@ thinking of $f$ as a fixed map; we say that $h$ is a \textbf{lifting} of $g$ to 
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	The $k$-bilinear map $(f,g) \mapsto fdg$ induces $c$. Since $\{df \mid f\in K\}$ is a generating set for $\Omega_{K/k}$ as a $K$-module it follows that $c$ is surjective. For (b), observe that it is equivalent showing that $\ker(c)$ is generated over $K$ by the elements of the form $1 \otimes gh - g \otimes h - h \otimes g$. Let $A$ be the $K$-module generated by those elements. We wish to prove that
+	The $k$-bilinear map $(f,g) \mapsto fdg$ induces $c$. Since $\{df \mid f\in K\}$ is a generating set for $\Omega_{K/k}$ as a $K$-module, it follows that $c$ is surjective. For (ii), observe that it is equivalent proving that $\ker(c)$ is generated over $K$ by the elements of the form $1 \otimes gh - g \otimes h - h \otimes g$. Let $A$ be the $K$-module generated by those elements. We wish to prove that
 	\[
 		A \to K \otimes_{k} K \to \Omega_{K/k} \to 0
 	\]
@@ -234,7 +234,7 @@ thinking of $f$ as a fixed map; we say that $h$ is a \textbf{lifting} of $g$ to 
 	\[
 		0 \to \Hom_{K}(\Omega_{K/k}, M) \to \Hom_{K}(K \otimes_{k} K, M) \to \Hom_{K}(A, M) 
 	\]
-	is exact. By \cref{prop:differentials-representable-functor} there is a canonical isomorphism $\Hom_{K}(\Omega_{K/k}, M) \cong \Der_{k}(K, M)$. Under this identification, we wish to prove that
+	is exact. By \cref{prop:differentials-representable-functor}, there is a canonical isomorphism $\Hom_{K}(\Omega_{K/k}, M) \cong \Der_{k}(K, M)$. Under this identification, we wish to prove that
 	\[
 		0 \to \Der_{k}(K, M) \to \Hom_{K}(K \otimes_{k} K, M) \to \Hom_{K}(A, M) 
 	\]
@@ -246,7 +246,7 @@ thinking of $f$ as a fixed map; we say that $h$ is a \textbf{lifting} of $g$ to 
 	\begin{align*}
 		D_{\psi}(fg) = \psi(1 \otimes fg) &= \psi(f \otimes g + g \otimes f) \\ &= f \psi (1 \otimes g) + g \psi (1 \otimes f) \\ &= f D_{\psi} (f) + g D_{\psi} (g),
 	\end{align*}
-	where the third equality follows from the fact that $\psi$ vanishes in $A$. Finally, it is clear that $\varphi_{D_{\psi}} = \psi$. 
+	where the third equality follows from the fact that $\psi$ vanishes on $A$. Finally, it is clear that $\varphi_{D_{\psi}} = \psi$. 
 \end{proof}
 \section{Abstract Residue and its properties}
 \subsection{Existence of residue map}
@@ -257,7 +257,7 @@ Throughout this section let $k$ be a field, $K$ a commutative $k$-algebra with $
 \end{align*}
 is continuous. In this way, $K$ operates on $V$ through $\End_{k}(V)$ (maintaining notation from \cref{Tate-and-trace}). We will not notationally distinguish $f\in K$ from its induced map in $\End_{k}(V)$.
 \begin{lemma}\label{lemm:trace-only-depends-on-K}
-	Let $f,g \in K$. Then, there are $f_{+}, g_{+} \in \End_{+}(V)$ so that 
+	Let $f,g \in K$. Then there are $f_{+}, g_{+} \in \End_{+}(V)$ so that 
 	\[
 	f = f_{+} \mod \End_{-}(V) ,\quad g = g_{+} \mod \End_{-}(V)
 	\]
@@ -268,18 +268,17 @@ is continuous. In this way, $K$ operates on $V$ through $\End_{k}(V)$ (maintaini
 	holds.
 \end{lemma}
 \begin{proof}
-The existence of $f_{+}$ and $g_{+}$ is immediate from the fact that $\End_{k}(V) = \End_{+}(V) + \End_{-}(V)$.  Clearly $[f_{+},g_{+}]\in \End_{+}(V)$ and the fact that $K$ is commutative implies that $[f,g] = 0$. Therefore,
+The existence of $f_{+}$ and $g_{+}$ is immediate from the fact that $\End_{k}(V) = \End_{+}(V) + \End_{-}(V)$.  Clearly $[f_{+},g_{+}]\in \End_{+}(V)$. Moreover, the fact that $K$ is commutative implies that $[f,g] = 0$. Therefore,
 \[
 	[f_{+},g_{+}] = [f,g] \mod \End_{-}(V).
 \]
-Hence, $[f_{+},g_{+}]\in E_0$. Similarly, $[f,g_{+}]$ and $[f_{+}, g]$ belong to $\End_{0}(V)$. Whence, one can consider their trace. Furthermore, $f_{+} \in \End_{+}(V)$ and $g_{+} - g \in \End_{-}(V)$ thus $\tr([f_{+}, g_{+} - g]) = 0$ by \cref{lemm:traceless-commutator}; we conclude $\tr([f_{+}, g_{+}]) = \tr([f_{+}, g])$. The other equality follows similarly.
+Hence, $[f_{+},g_{+}]\in E_0$. Similarly, $[f,g_{+}]$ and $[f_{+}, g]$ belong to $\End_{0}(V)$. Whence, one can consider their trace. Furthermore, if $f_{+} \in \End_{+}(V)$ and $g_{+} - g \in \End_{-}(V)$, then $\tr([f_{+}, g_{+} - g]) = 0$ by \cref{lemm:traceless-commutator}. We conclude that $\tr([f_{+}, g_{+}]) = \tr([f_{+}, g])$. The other equality follows similarly.
 \end{proof}
 \begin{notation}\label{not:plus-and-minus}
 	\cref{lemm:trace-only-depends-on-K} implies that common values of traces $[f_{+},g_{+}]$, $[f_{+}, g]$ and $[f, g_{+}]$ depend only on $f$ and $g$ and not in the choice of $f_{+}$ and $g_{+}$. Therefore, we will always denote $f_{\pm}$ to be elements in $\End_{\pm}(V)$ such that
 	\[
 		f = f_{+} \mod \End_{-}(V) ,\text{ and } f = f_{-} \mod \End_{+}(V).
 	\] 
-	Choices of $f_{\pm}$ are not unique, but for practical reasons we will not worry about those issues. 
 \end{notation}
 \cref{lemm:trace-only-depends-on-K} implies that the assignment $(f,g) \mapsto \tr([f_{+}, g_{+}])$  is well-defined. Observe that this assignment is $k$-bilinear by \cref{prop:linearity-trace}. Thus, there exists a map
 \begin{align*}
@@ -298,7 +297,7 @@ With these tools at our hands we are ready to prove the existence of residue.
 	\]
 \end{theorem}
 \begin{proof}
-	Let $c\colon K \otimes_{k} K \to \Omega_{K/k}$ be as in \cref{lemm:c-map-differentials}. Then, since $c$ is surjective, $\res_{V}$ if it exists it is uniquely determined by the commutativity of the following diagram
+	Let $c\colon K \otimes_{k} K \to \Omega_{K/k}$ be as in \cref{lemm:c-map-differentials}. Since $c$ is surjective, if $\res_{V}$ exists it is uniquely determined by the commutativity of the following diagram
 	\[
 	\begin{tikzcd}
 		K \otimes_{k} K \arrow[r, "r"] \arrow[d, two heads, "c"] & k \\
@@ -316,7 +315,7 @@ With these tools at our hands we are ready to prove the existence of residue.
 	imply the desired conclusion.
 \end{proof}
 \subsection{Properties of residue}
-We prove some of the main properties of $\res$.
+We prove some of the main properties of residue.
 \begin{proposition}\label{prop:linearity-residue}
 	For all $f,g \in K$ it follows that
 	\begin{enumerate}[label = (\alph*)]
@@ -325,27 +324,27 @@ We prove some of the main properties of $\res$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Since $[f_{+}, g_{+}] + [g_{+}, f_{+}] = 0$ we get (a). For (b) use (a) with $g = 1$. 
+	Since $[f_{+}, g_{+}] + [g_{+}, f_{+}] = 0$, we get (a). For (b) use (a) with $g = 1$. 
 \end{proof}
 \begin{proposition}\label{prop:linearity-residue-closed-submodule}
-	Let $W$ be a closed $K$-submodule of $V$. Then, for $\omega \in \Omega_{K/k}$ the identity
+	Let $W$ be a closed $K$-submodule of $V$. Then, for $\omega \in \Omega_{K/k}$, the identity
 	\[
 		\res_{V}(\omega) = \res_{W}(\omega) + \res_{V/W}(\omega)
 	\]
 	holds.
 \end{proposition}
 \begin{proof}
-	It is enough to prove the claim for $\omega = f dg$. By \cref{lemm:properties-trace} item (c) we only need to check that for all $f \in K$ the induced map $\overline{f}\colon V/W \to V/W$ and $f \circ \iota$, where $\iota$ denotes the inclusion $W \to V$, satisfy
+	It is enough to prove the claim for $\omega = f dg$. By \cref{lemm:properties-trace} item (c), we only need to check that for all $f \in K$ the induced map $\overline{f}\colon V/W \to V/W$ and $f \circ \iota$, where $\iota$ denotes the inclusion $W \to V$, satisfy
 	\begin{align*}
 	\overline{f} &= \overline{f_{+}} \mod \End_{-}(V/W), \\
 	f \circ \iota &= f_{+} \circ \iota \mod \End_{-}(W), \\ 
 	\overline{f_{+}}&\in \End_{+}(V/W), \quad\text{and} \\
-	f_{+} \circ \iota &\in \End_{+}(W),
+	f_{+} \circ \iota &\in \End_{+}(W).
 	\end{align*}
 	These statements are straightforward from definitions.
 \end{proof}
 \begin{proposition}\label{prop:direct-sum-residue}
-	If $V$ is the direct sum of two closed submodules $W_{1}$ and $W_{2}$ then 
+	If $V$ is the direct sum of two closed submodules $W_{1}$ and $W_{2}$, then 
 	\[
 		\res_{V}(\omega) = \res_{W_{1}}(\omega) + \res_{W_{2}}(\omega)
 	\]
@@ -354,48 +353,48 @@ We prove some of the main properties of $\res$.
 \begin{proof}
 	Immediate from \cref{prop:linearity-residue-closed-submodule}.
 \end{proof}
-If our Tate space is trivial so its residue.
+If our Tate space is trivial, so its residue.
 \begin{proposition}\label{prop:residue-trivial-tate-space}
-	If $V$ is either linearly compact or discrete then $\res_{V}(\Omega_{K/k}) = 0$.
+	If $V$ is either linearly compact or discrete, then $\res_{V}(\Omega_{K/k}) = 0$.
 \end{proposition}
 \begin{proof}
-	If $V$ is linearity compact then $\End_{+}(V) = \End_{k}(V)$ and $f_{+} = f$ for all $f \in K$. Since $[f,g] = 0$ then 
+	If $V$ is linearity compact, then $\End_{+}(V) = \End_{k}(V)$ and $f_{+} = f$ for all $f \in K$. Since $[f,g] = 0$, it follows that 
 	\begin{align}\label{eqn:trivial-residue}
 		\res_{V}(fdg) = 0.
 	\end{align}
-	On the other hand, if $V$ is discrete then $\End_{k}(V) = \End_{-}(V)$. Thus, $f = 0 \mod \End_{-}(V)$ for all $f \in K$. Thus, (\ref{eqn:trivial-residue}) holds.
+	On the other hand, if $V$ is discrete, then $\End_{k}(V) = \End_{-}(V)$. Hence, $f = 0 \mod \End_{-}(V)$ for all $f \in K$. Thus, (\ref{eqn:trivial-residue}) holds.
 \end{proof}
 \begin{proposition}\label{prop:residue-and-continuity}
-	Let $f$ and $g$ belong to $K$. Then, if there exists a c-lattice $L$ in $V$ so that $fL + fgL + fg^{2}L \subseteq L$ it holds $\res_{V}(fdg) = 0$. In particular, when there exists $L$ a c-lattice so that $fL \subseteq L$ and $gL \subseteq L$ then $\res_{V}(fdg) = 0$.
+	Let $f$ and $g$ belong to $K$. Then, if there exists a c-lattice $L$ in $V$ so that $fL + fgL + fg^{2}L \subseteq L$, it holds $\res_{V}(fdg) = 0$. In particular, if there exists $L$ a c-lattice so that $fL \subseteq L$ and $gL \subseteq L$, then $\res_{V}(fdg) = 0$.
 \end{proposition}
 \begin{proof}
 	Let $\pi$ be a continuous projection from $V$ to $L$. Then $\pi f \in \End_{+}(V)$ and $\pi f = f \mod \End_{-}(V)$. Thus, it follows that
 	\[
 		\res_{V}(fdg) = \tr([\pi f, g]) 
 	\] 
-	by \cref{lemm:trace-only-depends-on-K}. Let $h = [\pi f,g]$ and $W = L + gL$. Let $h_{V/W}$ and $h_{W}$ be the induced maps on $V/W$ and $W$ respectively. Then, the relation $fL + fgL + fg^{2}L \subseteq L$ implies that $h_{V/W} = 0$ and $h_{W} = 0$. By \cref{lemm:properties-trace} item (c) we conclude
+	by \cref{lemm:trace-only-depends-on-K}. Let $h = [\pi f,g]$ and $W = L + gL$. Let $h_{V/W}$ and $h_{W}$ be the induced maps on $V/W$ and $W$ respectively. Then the relation $fL + fgL + fg^{2}L \subseteq L$ implies that $h_{V/W} = 0$ and $h_{W} = 0$. By \cref{lemm:properties-trace} item (c), we conclude that
 	\[
 		\res_{V}(fdg) = \tr_{V}(h) = \tr_{W}(h) + \tr_{V/W}(h) = 0.
 	\]
 \end{proof}
 In the following two propositions we examine the residue of a power.
 \begin{proposition}\label{prop:residue-of-a-power}
-	Let $f \in K$, then $\res_{V}(f^{n}df) = 0$ for all $n \geq 0$. Moreover, if $f$ is invertible the same holds for $n \leq -2$.
+	Let $f \in K$, then $\res_{V}(f^{n}df) = 0$ for all $n \geq 0$. Moreover, if $f$ is invertible the same identity holds for $n \leq -2$.
 \end{proposition}
 \begin{proof}
-	First, if $f_{+} = f \mod \End_{-}(V)$ then $f_{+}^{n} = f^{n} \mod \End_{-}(V)$. Therefore,
+	First, if $f_{+} = f \mod \End_{-}(V)$, then $f_{+}^{n} = f^{n} \mod \End_{-}(V)$. Therefore,
 	\[
 		\res_{V}(f^{n} df) = \tr([f_{+},f_{+}^{n}]) = 0.
 	\]
-	Second, if $f$ is invertible then
+	Second, if $f$ is invertible, then
 	\[
 		fd(f^{-1}) + f^{-1}df = d(ff^{-1}) = d(1) = 0.
 	\]
-	which implies 
+	This implies that
 	\[
-	f^{-2}df = -d(f^{-1}),
+	f^{-2}df = -d(f^{-1}).
 	\]
-	and multiplying by $f^{-n}$ both sides, where $n\geq 0$, implies
+	Hence, multiplying by $f^{-n}$ on both sides, where $n\geq 0$, it follows that
 	\[
 	f^{-2-n}df = -(f^{-1})^{n}d(f^{-1}).
 	\]
@@ -408,15 +407,15 @@ In the following two propositions we examine the residue of a power.
 	\]
 \end{proposition}
 \begin{proof}
-	If $\pi$ is a continuous projection of $V$ into $L$ then 
+	If $\pi$ is a continuous projection of $V$ into $L$, then 
 	\[
 	\res_{V}(f^{-1}df) = \tr([\pi f^{-1}, f]). 
 	\]
-	Let $g = [\pi f^{-1}, f]$. Since $fL\subseteq L$ we obtain
+	Let $g = [\pi f^{-1}, f]$. Since $fL\subseteq L$, we obtain
 	\[
 		g_{V/L} = 0, \quad g_{L/fL}= 1\quad\text{and,}\quad g_{fL} = 0, 
 	\]
-	where $g_{V/L}, g_{L/fL}$ and $g_{fL}$ denote the induced maps in $V/L$, $L/fL$ and, $fL$ respectively. Then, by \cref{lemm:properties-trace} item (c) it follows that
+	where $g_{V/L}, g_{L/fL}$ and $g_{fL}$ denote the induced maps in $V/L$, $L/fL$ and, $fL$ respectively. Then by \cref{lemm:properties-trace} item (c), it follows that
 	\[
 		\tr_{V}(g) = \tr_{L}(g) + \tr_{V/L}(g) = \tr_{fL}(g) + \tr_{L/fL}(g) + \tr_{V/L}(g).
 	\]

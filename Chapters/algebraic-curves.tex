@@ -1,6 +1,6 @@
 %!TEX root = ../main.tex
 \chapter{Algebraic curves}\label{ch:algebraic-curves}
-In the preceding chapter we presented the ``residue map'' in an abstract context. In this chapter, we explore residues on algebraic curves using Tate's construction. 
+In the preceding chapter we presented the ``residue map'' in an abstract context. In this chapter we explore residues on algebraic curves using Tate's construction. 
 %\section{Sheaf Theory} 
 %We just assume (as in previous chapters) basic homological algebra and algebraic geometry (e.g. the first chapter in \cite{hartshorne}).
 
@@ -47,7 +47,7 @@ In the preceding chapter we presented the ``residue map'' in an abstract context
 \section{Basic theory of algebraic curves}
 In this section we recall briefly and with little detail the basic theory of algebraic projective curves. For a complete exposition we reference the reader to \cite{curves} and \cite{hartshorne}. We will borrow many results from commutative algebra, most of them can be found in \cite{Matsumura}, \cite{comm-alg} and \cite{atiyah}.
 
-Let $k$ be an algebraically closed field. Let $(X, \O_{X})$ be an algebraic projective variety. Then 
+Let $k$ be an algebraically closed field. Let $(X, \O_{X})$ be a projective variety. Then 
 \[
 	k(X) := \varinjlim_{U\subseteq X} \O_{X}(U)
 \]
@@ -63,7 +63,7 @@ of regular functions near $p$. We obtain natural injections
 	The fraction field of $\O_{X,p}$ is $k(X)$.
 \end{proposition}
 \begin{proof}
-	Let $U \subseteq X$ be an affine neighborhood of $p$. Suppose that $A$ is the coordinate ring of $X$ on $U$ and let $\mathfrak{p}$ be the maximal ideal of $A$ corresponding to $p$. Therefore, $A_{\mathfrak{p}} = \O_{X,p}$. Since $U$ is affine $\O_{X}(U) = A$ and $k(U) = \Frac{A}$. Moreover, irreducibility of $X$ implies $k(X) = k(U)$. Hence, 
+	Let $U \subseteq X$ be an affine neighborhood of $p$. Suppose that $A$ is the coordinate ring of $X$ on $U$ and let $\mathfrak{p}$ be the maximal ideal of $A$ corresponding to $p$. Therefore, $A_{\mathfrak{p}} = \O_{X,p}$. Since $U$ is affine, $\O_{X}(U) = A$ and $k(U) = \Frac{A}$. Moreover, irreducibility of $X$ implies $k(X) = k(U)$. Hence, 
 	\[
 		k(X) = k(U) = \Frac{A} = \Frac{A_{\mathfrak{p}}} = \Frac{\O_{X,p}}.
 	\]
@@ -84,7 +84,7 @@ by Krull intersection theorem. See Theorem (18.29) in \cite{comm-alg}. Just as i
 \[
 	\widehat{A} := \varprojlim_{n\geq 1} A/\mathfrak{m}^{n}.
 \]
-There is a natural map $A \to \widehat{A}$. In particular, since $A$ is separated this map is injective. When this map is an isomorphism we say that $A$ is \textbf{complete}. We summarize several properties of completion in the following theorem:
+There is a natural map $A \to \widehat{A}$. In particular, since $A$ is separated, this map is injective. When this map is an isomorphism we say that $A$ is \textbf{complete}. We summarize several properties of completion in the following theorem:
 \begin{theorem}\label{thm:properties-adic-completion}
 	Let $(A,\mathfrak{m})$ be a noetherian regular local ring. Then
 	\begin{enumerate}[label = (\alph*)]
@@ -107,11 +107,11 @@ Now, we explore these results in the geometrical setting.
 \end{definition}
 We get the following result immediately from \cref{thm:properties-adic-completion}.
 \begin{corollary}\label{cor:smooth-iff-isomorphic-to-power-series}
-	If $X$ is smooth then $\widehat{\O_{X,p}} \cong k[[t_{1}, t_{2}, \ldots, t_{n}]]$ where $n = \dim X$.
+	If $X$ is smooth, then $\widehat{\O_{X,p}} \cong k[[t_{1}, t_{2}, \ldots, t_{n}]]$ where $n = \dim X$.
 \end{corollary}
 Now, we focus in one-dimensional varieties.
 \begin{definition}\label{def:algebraic-curve}
-	A \textbf{smooth algebraic curve} is a one-dimensional smooth variety.
+	A \textbf{smooth algebraic curve} is a one-dimensional smooth projective variety.
 \end{definition}
 In dimension $1$ smoothness can be interpreted in the language of valuations.
 \subsection{Valuation theory}
@@ -133,11 +133,11 @@ Let $k$ be a field.
 	\[
 	A_{\nu}^{\times} = A_{\nu} - \mathfrak{m}_{\nu}.
 	\]
-	Therefore, $A_{\nu}$ is a local domain with maximal ideal $\mathfrak{m}_{\nu}$. An element $t \in \mathfrak{m}_{\nu}$ with $\nu(t) = 1$ is called a \textbf{uniformizing parameter}. Such $t$ is irreducible, because if $t = ab$ with $\nu(a)\geq 0$ and $\nu(b)\geq 0$ implies $\nu(a) = 0$ or $\nu(b) = 0$ since $1 = \nu(a) + \nu(b)$. Further, any $x \in k^{\times}$ has the unique factorization $x = u t^{n}$ where $u \in A_{\nu}^{\times}$ and $n := \nu(x)$. Moreover, $A_{\nu}$ is a principal ideal domain. In fact, any nonzero ideal $\mathfrak{a} \subseteq A_{\nu}$ has the form
+	Therefore, $A_{\nu}$ is a local domain with maximal ideal $\mathfrak{m}_{\nu}$. An element $t \in \mathfrak{m}_{\nu}$ with $\nu(t) = 1$ is called a \textbf{uniformizing parameter}. Such $t$ is irreducible because if $t = ab$ with $\nu(a)\geq 0$ and $\nu(b)\geq 0$ implies $\nu(a) = 0$ or $\nu(b) = 0$ since $1 = \nu(a) + \nu(b)$. Further, any $x \in k^{\times}$ has the unique factorization $x = u t^{n}$ where $u \in A_{\nu}^{\times}$ and $n := \nu(x)$. Moreover, $A_{\nu}$ is a principal ideal domain. In fact, any nonzero ideal $\mathfrak{a} \subseteq A_{\nu}$ has the form
 	\[
 		\mathfrak{a} = \left\langle t^{m}\right\rangle \quad\text{where}\quad m:=\min\{\nu(x)\colon x\in \mathfrak{a}\}.
 	\]
-	Indeed, given a nonzero $x \in \mathfrak{a}$, say $x = ut^{n}$ where $u \in A_{\nu}^{\times}$. Then $t^{n}\in \mathfrak{a}$. Son $n \geq m$. Set $y := ut^{n-m}$. Then $y\in A_\nu$ and $x = yt^{m}$, as desired. Finally, $\mathfrak{m} = \langle t\rangle$ and $\dim A_{\nu} = 1$. Therefore, $A$ is regular local ring of dimension one.
+	Indeed, given a nonzero $x \in \mathfrak{a}$, say $x = ut^{n}$ where $u \in A_{\nu}^{\times}$. Then $t^{n}\in \mathfrak{a}$. So $n \geq m$. Set $y := ut^{n-m}$. Then $y\in A_\nu$ and $x = yt^{m}$, as desired. Finally, $\mathfrak{m} = \langle t\rangle$ and $\dim A_{\nu} = 1$. Therefore, $A$ is regular local ring of dimension one.
 \end{definition}
 We have the following characterization theorem for DVRs.
 \begin{theorem}\label{thm:characterization-of-DVRs}
@@ -154,27 +154,27 @@ We have the following characterization theorem for DVRs.
 	See Proposition 9.2 in \cite{atiyah}.
 \end{proof}
 \begin{corollary}\label{cor:smoothness-DVR-curves}
-	Let $X$ be a one-dimensional variety. Then, $X$ is smooth if and only if $\O_{X,p}$ is a DVR for all $p$.
+	Let $X$ be a one-dimensional projective variety. Then $X$ is smooth if and only if $\O_{X,p}$ is a DVR for all $p$.
 \end{corollary}
 \begin{example}\label{ex:stalk-of-regular-functions-as-a-DVR}
-	Let $(X,\O_{X})$ be a smooth algebraic curve. Let $p \in X$ and consider $\O_{X,p}$. In this case $\O_{X,p}$ is a DVR. Let $t_{p}\in \O_{X,p}$ be an uniformizing parameter. Then, if $f \in k(X)$ it follows that $f = ut_{p}^{n}$ for some  unit $u\in \O_{X,p}$ and $n \in \Z$. Then, $\nu_{p}(f) = n$.
+	Let $(X,\O_{X})$ be a smooth algebraic curve. Let $p \in X$ and consider $\O_{X,p}$. In this case $\O_{X,p}$ is a DVR. Let $t_{p}\in \O_{X,p}$ be an uniformizing parameter. Hence, if $f \in k(X)$. it follows that $f = ut_{p}^{n}$ for some  unit $u\in \O_{X,p}$ and $n \in \Z$. Then $\nu_{p}(f) = n$.
 \end{example}
-\subsection{Morphisms}
-Let $(X,\O_{X})$ and $(Y,\O_{Y})$ be two smooth algebraic curves. 
-\begin{proposition}\label{prop:non-constant-morphism-is-dominant}
-	A non-constant morphism $\varphi\colon X\to Y$ is \textbf{dominant}, i.e, the image of $X$ is dense in $Y$. Therefore, every non-constant morphism from $X$ to $Y$ yields a field extension $k(Y)\subseteq k(X)$.
-\end{proposition}
-\begin{proof}
-	We have that $Z = \overline{\varphi(X)}$ is closed and irreducible in $Y$. Suppose that $Z \neq Y$. We may intersect with affine space such that $Z \cap \A^{n}\neq \emptyset$. It follows that $Z\cap \A^{n}\neq Y\cap \A^{n}$, otherwise their projective closures will coincide. Hence, the ideal defined by $Z$ is properly contained in the ideal defined by $Y$. Since $\dim Y = 1$ it follows that $\dim Z = 0$, a contradiction.
-\end{proof}
+%\subsection{Morphisms}
+%Let $(X,\O_{X})$ and $(Y,\O_{Y})$ be two smooth algebraic curves. 
+%\begin{proposition}\label{prop:non-constant-morphism-is-dominant}
+%	A non-constant morphism $\varphi\colon X\to Y$ is \textbf{dominant}, i.e, the image of $X$ is dense in $Y$. Therefore, every non-constant morphism from $X$ to $Y$ yields a field extension $k(Y)\subseteq k(X)$.
+%\end{proposition}
+%\begin{proof}
+%	We have that $Z = \overline{\varphi(X)}$ is closed and irreducible in $Y$. Suppose that $Z \neq Y$. We may intersect with affine space such that $Z \cap \A^{n}\neq \emptyset$. It follows that $Z\cap \A^{n}\neq Y\cap \A^{n}$, otherwise their projective closures will coincide. Hence, the prime ideal defined by $Z$ is properly contained in the prime ideal defined by $Y$. Since $\dim Y = 1$, it follows that $\dim Z = 0$, a contradiction.
+%\end{proof}
 
-\begin{proposition}\label{prop:non-constant-morphism-is-surjective}
-	A non-constant morphism $\varphi\colon X\to Y$ is surjective. 
-\end{proposition}
+%\begin{proposition}\label{prop:non-constant-morphism-is-surjective}
+%	A non-constant morphism $\varphi\colon X\to Y$ is surjective. 
+%\end{proposition}
 
-\begin{proof}
-	The map yields a field extension $k(Y) \subseteq k(X)$. Given a point $p\in Y$ consider the corresponding DVR $A = \O_{Y,p}\subseteq k(Y)$. Let $B_{0}$ be the integral closure of $A$ in $k(X)$. If we localize at a maximal ideal of $B_{0}$ we obtain a DVR $B \subseteq k(X)$. Then $B = \O_{X,q}$ for some $q \in X$. Then $q \mapsto p$. 
-\end{proof}
+%\begin{proof}
+%	The map yields a field extension $k(Y) \subseteq k(X)$. Given a point $p\in Y$ consider the corresponding DVR $A = \O_{Y,p}\subseteq k(Y)$. Let $B_{0}$ be the integral closure of $A$ in $k(X)$. If we localize at a maximal ideal of $B_{0}$ we obtain a DVR $B \subseteq k(X)$. Then $B = \O_{X,q}$ for some $q \in X$. Then $q \mapsto p$. 
+%\end{proof}
 
 
 \subsection{Divisors}
@@ -213,12 +213,12 @@ Let $X$ be a smooth algebraic curve.
 \section{Tate spaces over algebraic curves}
 Let $(X,\O_{X})$ be a smooth algebraic curve over an algebraically closed field $k$.
 \subsection{Residue in coordinates}
-Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \widehat{\O_{X,p}}$ and $K_{p}:=\Frac L_{p}$. From \cref{thm:properties-adic-completion} and $\cref{thm:characterization-of-DVRs}$ it follows that $L_{p}$ is a DVR. Let $t_{p}$ be an uniformizing parameter in $L_{p}$. The topology in $K_{p}$ defined by letting $\{t_{p}^{n}L_{p}\}_{n\in \Z}$ be a system of neighborhoods of zero in $K_{p}$. This system is compatible with the valuation induced by $L_{p}$.
+Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \widehat{\O_{X,p}}$ and $K_{p}:=\Frac L_{p}$. From \cref{thm:properties-adic-completion} and $\cref{thm:characterization-of-DVRs}$, it follows that $L_{p}$ is a DVR. Let $t_{p}$ be an uniformizing parameter in $L_{p}$. The topology in $K_{p}$ is defined by letting $\{t_{p}^{n}L_{p}\}_{n\in \Z}$ be a system of neighborhoods of zero in $K_{p}$. This system is compatible with the valuation induced by $L_{p}$.
 \begin{proposition}\label{prop:complete-fraction-field-is-a-Tate-space}
 	$K_{p}$ is a Tate space and $L_{p}$ is a c-lattice in $K_{p}$.
 \end{proposition}
 \begin{proof}
-	Observe that the map $\mathfrak{m}_{p}^{n}\O_{X,p}/\mathfrak{m}_{p}^{n+1}\O_{X,p} \to \O_{X,p}/\mathfrak{m}_{p}\O_{X,p}$ induced by inclusions is an isomorphism. Then, the exactness of
+	Observe that the map $\mathfrak{m}_{p}^{n}\O_{X,p}/\mathfrak{m}_{p}^{n+1}\O_{X,p} \to \O_{X,p}/\mathfrak{m}_{p}\O_{X,p}$ induced by inclusions is an isomorphism. Then the exactness of
 	\[
 		0 \to \mathfrak{m}_{p}^{n}\O_{X,p}/\mathfrak{m}_{p}^{n+1}\O_{X,p} \to \O_{X,p}/\mathfrak{m}_{p}^{n+1}\O_{X,p} \to \O_{X,p}/\mathfrak{m}_{p}^{n}\O_{X,p} \to 0
 	\]
@@ -226,7 +226,7 @@ Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \wide
 	\[
 		L_{p} = \varprojlim_{n\geq 1} \O_{X,p}/\mathfrak{m}_{p}^{n}\O_{X,p}
 	\]
-	is an inverse limit of finite-dimensional $k$-vector spaces. Hence, $L_{p}$ is complete and linearly compact by \cref{ex:tate-spaces}. Since $L_{p}$ is open in $K_{p}$ then it is a c-lattice and $K_{p}$ is a Tate space.
+	is an inverse limit of finite-dimensional $k$-vector spaces. Hence, $L_{p}$ is complete and linearly compact by \cref{ex:tate-spaces}. Since $L_{p}$ is open in $K_{p}$, it is a c-lattice and $K_{p}$ is a Tate space.
 \end{proof}
 \begin{remark}\label{rem:mutually-commensurable-system}
 \begin{enumerate}[label = (\alph*)]
@@ -234,7 +234,6 @@ Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \wide
 	\item Let $f\in K_{p}$, observe that $fL_{p} = t_{p}^{n}L_{p}$ for some $n \in \Z$ and uniformizing parameter $t_{p} \in L_{p}$. It follows that multiplication by $f$ in $K_{p}$ is continuous in $K_{p}$, that is, $K_{p}$ (and particularly $K$) acts continuously over itself.
 \end{enumerate}
 \end{remark}
-
 \begin{definition}\label{def:residue-at-p}
 	Let $f,g \in K_{p}$. We define the residue of the differential $fdg$ at $p\in X$ to be
 	\[
@@ -250,13 +249,13 @@ Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \wide
 \end{proof}
 
 \begin{theorem}\label{thm:resiude-coincides-with-coefficient}
-	Let $f,g \in K_{p}$. By the structure theorem in \cref{thm:properties-adic-completion} it follows that $f = \sum_{\nu \gg -\infty}^{\infty} a_{\nu}t_{p}^{\nu}$ and $g = \sum_{\mu \gg -\infty}^{\infty} b_{\mu}t_{p}^{\mu}$ for some $a_{\nu},b_{\mu} \in k$ and a uniformizing parameter $t_{p}\in L_{p} $. Recall that the formal derivative of $g$ is
+	Let $f,g \in K_{p}$. By the structure theorem in \cref{thm:properties-adic-completion}, it follows that $f = \sum_{\nu \gg -\infty}^{\infty} a_{\nu}t_{p}^{\nu}$ and $g = \sum_{\mu \gg -\infty}^{\infty} b_{\mu}t_{p}^{\mu}$ for some $a_{\nu},b_{\mu} \in k$ and a uniformizing parameter $t_{p}\in L_{p} $. Recall that the formal derivative of $g$ is
 	\[
 		g' = \sum_{\mu \gg -\infty}^{\infty} \mu b_{\mu}t_{p}^{\mu -1}.
 	\]
-	Then,
+	Then
 	\[
-		\res_{p}(fdg) = \text{coefficient of }t_{p}^{-1}\text{ in } fg'
+		\res_{p}(fdg) = \text{coefficient of }t_{p}^{-1}\text{ in } fg',
 	\]
 	which is given by the Cauchy product
 	\[
@@ -266,14 +265,14 @@ Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \wide
 \begin{proof}
 	Let
 	\[
-		\tilde{f} = \sum_{\nu\gg-\infty}^{N} a_{\nu}t_{p}^{\nu},\quad\text{and}\quad\tilde{g} = \sum_{\mu\gg-\infty}^{N} b_{\mu}t_{p}^{\mu}
+		\tilde{f} = \sum_{\nu\gg-\infty}^{N} a_{\nu}t_{p}^{\nu},\quad\text{and}\quad\tilde{g} = \sum_{\mu\gg-\infty}^{N} b_{\mu}t_{p}^{\mu}.
 	\]
-	then 
+	Then
 	\begin{align*}
 		\res_{p}(fdg) &= \res_{p}( (\tilde{f} + (f - \tilde{f}))d(\tilde{g} + (g - \tilde{g}))) \\
 		&= \res_{p}(\tilde{f}d\tilde{g}) + \res_{p}(\tilde{f}d(g - \tilde{g})) + \res_{p}((f-\tilde{f}) d\tilde{g}) \\ &+ \res_{p}( (f - \tilde{f})d(g-\tilde{g})).
 	\end{align*}
-	If $N$ is sufficiently large, then by \cref{prop:residue-and-continuity} it follows that 
+	If $N$ is sufficiently large, then by \cref{prop:residue-and-continuity}, it follows that 
 	\[
 		\res_{p}( (f - \tilde{f})d(g-\tilde{g})) = \res_{p}(\tilde{f}d(g - \tilde{g})) = \res_{p}((f-\tilde{f}) d\tilde{g}) = 0.
 	\]
@@ -284,10 +283,10 @@ Let $K := k(X)$. For all $p \in X$ we use the following notation $L_{p} := \wide
 	Hence, $k$-linearity of residue implies the desired conclusion.
 \end{proof}
 \begin{corollary}\label{cor:invriance-of-residue-coefficient}
-	Let $f\in K_{p}$. Then, the coefficient of $t_{p}^{-1}$ in the Laurent series expansion of $f$ is independent of the choice of uniformizing parameter $t_{p}$.	
+	Let $f\in K_{p}$. Then the coefficient of $t_{p}^{-1}$ in the Laurent series expansion of $f$ is independent of the choice of uniformizing parameter $t_{p}$.	
 \end{corollary}
 \begin{remark}\label{rem:previouses-approaches-residues}
-	Before Tate introduced this approach to residues of differentials on algebraic curves, residues were defined by the formula in \cref{thm:resiude-coincides-with-coefficient}. However, to prove well-definition of such formula, it is necessary to argue that the coefficient of $t_{p}^{-1}$ is independent of the choice of uniformizing parameter $t_{p}$. In $\operatorname{char}k = 0$ one can realize $X$ as an analytical variety and reduce independence to the invariance of the formula
+	Before Tate introduced this approach to residues of differentials on algebraic curves, residues were defined by the formula in \cref{thm:resiude-coincides-with-coefficient}. However, to prove that such formula is well-defined, it is necessary to argue that the coefficient of $t_{p}^{-1}$ is independent of the choice of uniformizing parameter $t_{p}$. If $\operatorname{char}k = 0$, one can realize $X$ as an analytical variety and reduce independence to the invariance of the formula
 	\[
 		\res_{p}(\omega) = \frac{1}{2\pi i}\oint_{p} \omega.
 	\]
@@ -306,7 +305,7 @@ Our next goal is to prove the residue theorem. In order to prove it, we will tak
 	\]
 	with its direct limit topology. Usually, for $X = Y$ we will simply write $\widetilde{K}$ for $\widetilde{K}_{X}$.
 \end{definition}
-The adèle of $K$ is a particular case of a \textbf{restricted product} of a collection of topological spaces. In the literature, this construction is usually defined as a \textit{set} in terms of the product. We give this characterization in the following proposition.
+The adèle of $K$ is a particular case of a \textbf{restricted product} of a collection of topological spaces. In the literature, this construction defined as a \textit{set} in terms of the product. We give this characterization in the following proposition.
 \begin{proposition}\label{prop:adèle-as-subset-of-product}
 	\[
 		\widetilde{K}_{Y} = \{(f_{p})\colon f_{p} \in K_{p}\text{ for all }p \in Y\text{ and }f_{p}\in L_{p}\text{ for almost all }p\in Y\}
@@ -335,7 +334,7 @@ The adèle of $K$ is a particular case of a \textbf{restricted product} of a col
 			\widetilde{K}_{Y,S} \arrow[rr, "\iota_{ST}", hook]\arrow[ur, hook, "\varphi_{S}"] & & \widetilde{K}_{Y,T} \arrow[lu, hook, "\varphi_{T}", swap]
 		\end{tikzcd}
 	\]
-	commutes. Then, define $\varphi\colon K^{\sharp} \to P$ as follows: for $(f_{p}) \in K^{\sharp}$ there exists a $S\in \mathscr{F}$ such that $f_{p} \in L_{p}$ if and only if $p \in S$. Define $\varphi( (f_{p})_{p\in Y} ) = \varphi_{S}( (f_{p})_{p\in Y} )$. This is a continuous homomorphism and it is the only one such that the diagram
+	commutes. Then define $\varphi\colon K^{\sharp} \to P$ as follows: for $(f_{p}) \in K^{\sharp}$ there exists a $S\in \mathscr{F}$ such that $f_{p} \in L_{p}$ if and only if $p \in S$. Define $\varphi( (f_{p})_{p\in Y} ) = \varphi_{S}( (f_{p})_{p\in Y} )$. This is a continuous homomorphism and it is the only one such that the diagram
 	\[
 		\begin{tikzcd}
 			& P & \\
@@ -365,7 +364,7 @@ a $k$-vector subspace of $\widetilde{K}$. By the description we gave in \cref{pr
 	\[
 		\prod_{p\in Y} L_{p} = \varprojlim_{p\in Y} L_{p} = \varprojlim_{p\in Y}\varprojlim_{n\geq 1} \O_{Y,p}/\mathfrak{m}_{p}^{n}\O_{Y,p} = \varprojlim_{(p,n)\in Y\times \N^{\geq 0}} \O_{Y,p}/\mathfrak{m}_{p}^{n}\O_{Y,p}
 	\] 
-	for $X$ realized as trivial category. Hence, $\widetilde{L}_{Y}$ is the inverse limit of a projective system of finite dimensional $k$-vector spaces. Therefore, $\widetilde{L}_{Y}$ is a complete linearly compact vector space over $k$. Since $\widetilde{L}_{Y}$ is open in $\widetilde{K}_{Y}$, it is a c-lattice in $\widetilde{K}_{Y}$ and $\widetilde{K}_{Y}$ is a Tate space.
+	for $Y$ realized as trivial category. Hence, $\widetilde{L}_{Y}$ is the inverse limit of a projective system of finite dimensional $k$-vector spaces. Therefore, $\widetilde{L}_{Y}$ is a complete linearly compact vector space over $k$. Since $\widetilde{L}_{Y}$ is open in $\widetilde{K}_{Y}$, it is a c-lattice in $\widetilde{K}_{Y}$ and $\widetilde{K}_{Y}$ is a Tate space.
 \end{proof}
 
 \begin{proposition}\label{prop:K-discrete-in-adèle}
@@ -444,7 +443,7 @@ where $t_{p}$ is a uniformizing parameter at $p$, $\nu\in \Z$, $\nu\leq n_{p}$, 
 	\]
 	Then $(h) \geq D - nA$ for some $n \in \N$, that is, $D' := D - (h) \leq nA$, as desired. 
 
-	We now establish the result for divisors $D = nA$ for $n\in \N$. The morphism $F$ corresponds to the field extension $k(f) \subseteq k(X)$ of degree $d$. Pick a basis $g_{1}, \ldots, g_{d}$ for $k(X)$ over $k(f)$. Then, by the construction in the previous paragraph, there exist polynomials $q_{i}(t) \in k[t]$ such that $q_{i}(f)g_{i} \in L(n_{0}A)$ for all $1 \leq i \leq d$ and some $n_{0}\in \N$. Indeed, let $D = -(g_{i})$ and define $q_{i}(f) = h$ as above. Then $(hg_{i}) = -D' \leq n_{i}A$ for some $n_{i}\in \N$. Let $n_{0} = \max{n_{i}}$. Then $f^{j}p_{i}(f)g_{i} \in L(nA)$ for each $1 \leq i \leq d$ and $0 \leq j \leq n - n_{0}$. Moreover, these functions are linearly independent over $k(f)$ because $g_{1},\ldots,g_{d}$ are linearly independent over $k(f)$. So,
+	We now establish the result for divisors $D = nA$ for $n\in \N$. The morphism $F$ corresponds to the field extension $k(f) \subseteq k(X)$ of degree $d$. Pick a basis $g_{1}, \ldots, g_{d}$ for $k(X)$ over $k(f)$. Then, by the construction in the previous paragraph, there exist polynomials $q_{i}(t) \in k[t]$ such that $q_{i}(f)g_{i} \in L(n_{0}A)$ for all $1 \leq i \leq d$ and some $n_{0}\in \N$. Indeed, let $D = -(g_{i})$ and define $q_{i}(f) = h$ as above. Then $(hg_{i}) = -D' \leq n_{i}A$ for some $n_{i}\in \N$. Let $n_{0} = \max{n_{i}}$. Then $f^{j}q_{i}(f)g_{i} \in L(nA)$ for each $1 \leq i \leq d$ and $0 \leq j \leq n - n_{0}$. Moreover, these functions are linearly independent over $k(f)$ because $g_{1},\ldots,g_{d}$ are linearly independent over $k(f)$. So,
 	\[
 		\ell(nA) \geq (n - n_{0} + 1)d = \deg nA - (n_{0} - 1)d,
 	\]
@@ -456,10 +455,10 @@ where $t_{p}$ is a uniformizing parameter at $p$, $\nu\in \Z$, $\nu\leq n_{p}$, 
 	\]
 \end{proof}
 \begin{theorem}\label{thm:I(D)-is-finite-dimensional}
-	$\dim_{k}I(D) < \infty$.
+	For all divisors $D$ on $X$ we have $\dim_{k}I(D) < \infty$.
 \end{theorem}
 \begin{proof}
-	By \cref{lemm:bound-on-L(D)} there exists a divisor $D_{0}$ on $X$ such that $\deg D_{0} - \ell(D_{0})$ is maximal. We claim that $I(D_{0}) = 0$. Indeed, otherwise let $(\overline{f}_{p})_{p}\in I(D)$ nonzero. Pick $D' \geq D_{0}$  $D '= \sum_{p}n_{p}' p$ such that $\nu_{p}(f_{p}) \geq -n_{p}'$ for all $p\in X$, then $(f_{p})_{p}$ lies in the kernel of the surjection $I(D_{0})\to I(D')$. So $\deg D' - \ell(D') > \deg(D_{0}) - \ell(D_{0})$ by \cref{lemm:inequality-divisors-yields-surjection}, a contradiction. 
+	By \cref{lemm:bound-on-L(D)}, there exists a divisor $D_{0}$ on $X$ such that $\deg D_{0} - \ell(D_{0})$ is maximal. We claim that $I(D_{0}) = 0$. Indeed, otherwise let $(\overline{f}_{p})_{p}\in I(D)$ nonzero. Pick $D' \geq D_{0}$  $D '= \sum_{p}n_{p}' p$ such that $\nu_{p}(f_{p}) \geq -n_{p}'$ for all $p\in X$, then $(f_{p})_{p}$ lies in the kernel of the surjection $I(D_{0})\to I(D')$. So $\deg D' - \ell(D') > \deg(D_{0}) - \ell(D_{0})$ by \cref{lemm:inequality-divisors-yields-surjection}, a contradiction. 
 
 	If $D\leq D'$ we have a surjection $I(D) \to I(D')$ with finite-dimensional kernel by \cref{lemm:inequality-divisors-yields-surjection}. Thus $I(D) \sim I(D')$. Since $I(D_{0})$ is finite dimensional, we deduce that $I(D)$ is finite dimensional for every divisor $D$.
 \end{proof}
@@ -525,28 +524,28 @@ First, we will extend the valuation $\nu_{p}$ for all $p\in X$ for differentials
 	Let $\omega\in \Omega_{K/k}$. We define the \textbf{canonical divisor} $W$ of $\omega$ to be the principal divisor associated to $\omega$. 
 \end{definition}
 \begin{remark}\label{rem:canonical-divisor-are-all-linearly-equivalent}
-	The fact (not proven here) that $\dim_{K}\Omega_{K/k} = 1$ implies that all canonical divisors are linearly equivalent.
+	The fact (see the proof of \cref{prop:differentials-representable-functor}) that $\dim_{K}\Omega_{K/k} = 1$ implies that all canonical divisors are linearly equivalent.
 \end{remark}
 \begin{definition}\label{def:differential-pairing}
 	For a differential $\omega\in \Omega_{K/k}$ we define the differential pairing $\langle -, -\rangle$ on $\widetilde{K} \times \widetilde{K}$ by the formula
 	\[{}
 		\langle (f_{p})_{p}, (g_{p})_{p}\rangle =  ((f_{p})_{p}, (g_{p})_{p})\mapsto \sum_{p\in X}	\res_{p}(f_{p}g_{p}\omega).
 	\]
-	Observe that $\langle -,-\rangle$ is continuous. Indeed, let $D = 2W$ where $W$ is the canonical divisor of $\omega$. Then $\widetilde{K}(D) \times \widetilde{K}(D)$ is mapped to zero under the differential pairing.	 
+	Observe that $\langle -,-\rangle$ is continuous. Indeed, multiplication and the assignment $(f_{p})_{p} \mapsto \res_{p}(f_{p}\omega)$ are continuous in $\widetilde{K}(X)$.
 \end{definition}
 For a $k$-vector subspace $V \subseteq \widetilde{K}$ let $V^{\perp} = \{(f_{p})_{p} \in \widetilde{K}\colon \langle V, (f_{p})_{p}\rangle = 0\}$.
 \begin{lemma}\label{lemm:complement-of-K}
 	$K \subseteq K^{\perp}$ and $K^{\perp}$ is a $K$-vector space. 
 \end{lemma}
 \begin{proof}
-	The Residue Theorem \cref{thm:residue-theorem} implies that $K \subseteq K^{\perp}$. The fact that $K^{\perp}$ is a $K$-space is obvious.
+	The Residue Theorem (\cref{thm:residue-theorem}) implies that $K \subseteq K^{\perp}$. The fact that $K^{\perp}$ is a $K$-space is obvious.
 \end{proof}
 In fact, one can prove a stronger statement.
 \begin{lemma}\label{lemm:K-equals-its-complement}
 	$K = K^{\perp}$.
 \end{lemma}
 \begin{proof}
-	Consider the quotient $K^{\perp}/K$. It is a closed subspace of $\widetilde{K}/K$ because the pairing $\langle -,-\rangle$ is continuous. Hence, it is linearly compact. Moreover, the pairing map yields an injection $K^{\perp} \hookrightarrow (\widetilde{K}/K)^{*}$. Since $(\widetilde{K}/K)^{*}$ is a discrete space by \cref{lemm:duality-d-lattice-c-lattice}. It follows that $\dim_{k}K^{\perp}/K < \infty$. Then, the fact that $\dim_{k} K$ is infinite and $K^{\perp}$ is a $K$-space yields that $K^{\perp} = K$.
+	Consider the quotient $K^{\perp}/K$. It is a closed subspace of $\widetilde{K}/K$ because the pairing $\langle -,-\rangle$ is continuous. Hence, it is linearly compact. Moreover, the pairing map yields an injection $K^{\perp} \hookrightarrow (\widetilde{K}/K)^{*}$. Since $(\widetilde{K}/K)^{*}$ is a discrete space by \cref{lemm:duality-d-lattice-c-lattice}, $K^{\perp}/K$ is discrete. It follows that $\dim_{k}K^{\perp}/K < \infty$. Then, the fact that $\dim_{k} K$ is infinite and $K^{\perp}$ is a $K$-space yields that $K^{\perp} = K$.
 \end{proof}
 Now, the complement of $\widetilde{K}(D)$ for a divisor $D$ is characterized by the canonical divisor. Indeed, from the definition of $W$ it follows that for all divisors $D$
 \[
@@ -565,14 +564,10 @@ Now, the complement of $\widetilde{K}(D)$ for a divisor $D$ is characterized by 
 		&= K^{\perp} + \widetilde{K}(D)^{\perp} \\
 		&= K + \widetilde{K}(W - D) \quad (\text{By }\cref{lemm:K-equals-its-complement})
 	\end{align*}
-	Hence, $\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp} \cong H^{1}(\mathcal{A}(W - D))$. Now, observe that the differential pairing induces an injection $\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp} \hookrightarrow H^{0}(\mathcal{A}(D))^{*}$. Moreover, the differential pairing also induces an injection $H^{0}(\mathcal{A}(D)) \hookrightarrow (\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp})^{*}$. The transpose map yields a surjection
+	Hence, $\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp} \cong H^{1}(\mathcal{A}(W - D))$. Now, the pairing restricted to $H^{0}(\mathcal{A}(D)) \times \widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp}$ is perfect, therefore
 	\[
-		(\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp}) = (\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp})^{**} \twoheadrightarrow H^{0}(\mathcal{A}(D))^{*}
+		\widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp} \cong H^{0}(\mathcal{A}(D))^{*}.
 	\]
-	Since $H^{0}(\mathcal{A}(D))$ is finite-dimensional we conclude 
-	\[
-		H^{0}(\mathcal{A}(D))^{*}\cong \widetilde{K}/H^{0}(\mathcal{A}(D))^{\perp}
-	\]	
 \end{proof}
 Now, \cref{lemm:duality-h^0-h^1} yields $\dim_{k}(H^{0}(\mathcal{A}(D))) = \dim_{k}H^{1}(\mathcal{A}(W - D))$. So, for the Euler characteristic of the complex $\mathcal{A}(D)$ we obtain
 \[
@@ -644,7 +639,7 @@ Let $D$ be an effective divisor. Then, we have an injection $\widetilde{K}(0) \t
 	\end{tikzcd}
 \]
 \begin{lemma}\label{lemm:equation-effective-divisors}
-	If $D$ is a divisor. It follows that 
+	If $D$ is a divisor, then 
 	\[
 		\deg D =  \chi_{\mathcal{A}(D)} - \chi_{\mathcal{A}(0)}
 	\]
@@ -652,7 +647,7 @@ Let $D$ be an effective divisor. Then, we have an injection $\widetilde{K}(0) \t
 \begin{proof}
 	Suppose $D$ is effective. By \cref{lemm:additivity-of-index-composition} it follows that
 	\[
-		\chi_{\mathcal{A}(D)} = -\dim_{k}\coker(\widetilde{K}(0) \to \widetilde{K}(D)) + \chi_{\mathcal{A}(D)}.
+		\chi_{\mathcal{A}(0)} = -\dim_{k}\coker(\widetilde{K}(0) \to \widetilde{K}(D)) + \chi_{\mathcal{A}(D)}.
 	\]
 	Observe that $\dim_{k}\coker(\widetilde{K}(0) \to \widetilde{K}(D)) = \deg D$. This yields the desired conclusion. The general case follows by considering $D'$ effective such that $D + D'$ is effective.
 \end{proof}
@@ -676,8 +671,7 @@ From these relations it follows the well-known Riemann-Roch formula in its adèl
 	\[
 		\ell(D) = \ell(W - D) + \deg D + 1 - g.
 	\]
-\end{proof}
-
+\end{proof} 
 % sheaves
 %We claim that $\widetilde{K}/(\widetilde{L} + K)$ is finite dimensional. Consider the exact sequence of abelian sheaves on $X$
 %\[

@@ -1,6 +1,6 @@
 %!TEX root = main.tex
 \documentclass[oneside, 12pt]{book} %oneside evens margins, twoside for printing
-\usepackage{classicthesis}
+\usepackage[dottedtoc]{classicthesis}
 \include{classicthesis-config}
 \usepackage[left=1.5in,right=1.5in,top=1in,bottom=1in,includehead,includefoot]{geometry}
 \usepackage{amsmath} % AMS packages
@@ -78,7 +78,11 @@
 
 
 \begin{document}
-%\cleardoublepage\include{FrontBackmatter/Contents}
+\include{FrontBackmatter/Titlepage}
+\include{FrontBackmatter/Dedication}
+\include{FrontBackmatter/Acknowledgments}
+\cleardoublepage\include{FrontBackmatter/Contents}
+\include{FrontBackmatter/Abstract}
 \include{Chapters/tate_linear_algebra}
 \include{Chapters/trace}
 \include{Chapters/algebraic-curves}
